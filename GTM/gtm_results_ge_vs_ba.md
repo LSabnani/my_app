@@ -87,3 +87,24 @@ GE Aerospace holds a $15.8B cash war chest (1.50x larger than Boeing's $10.5B) a
   {"step": 7, "name": "Execution Provenance Metrics", "detail": "Pipeline latency: 1.42ms | Defensibility Confidence Metric: 99.6% | Engine Verification: Verified"}
 ]
 ```
+
+---
+
+## 6. Information Sources & Data Provenance
+
+1. **SEC Filings & Financials (10-K / 10-Q Annual Reports)**
+   - [SEC EDGAR - GE Aerospace (GE) Filings](https://www.sec.gov/edgar/browse/?CIK=0000040545)
+   - [SEC EDGAR - Boeing Company (BA) Filings](https://www.sec.gov/edgar/browse/?CIK=0000012927)
+
+2. **Market & Financial Analysis (yfinance / Market Data)**
+   - [Yahoo Finance - GE Aerospace (GE)](https://finance.yahoo.com/quote/GE/)
+   - [Yahoo Finance - Boeing Company (BA)](https://finance.yahoo.com/quote/BA/)
+
+3. **Investor Relations & Earnings Transcripts**
+   - [GE Aerospace Investor Relations Portal](https://www.geaerospace.com/investor-relations)
+   - [Boeing Investor Relations Portal](https://www.boeing.com/investors)
+
+4. **Product Architecture & Propulsion Specifications**
+   - [CFM International RISE Program (Engine Specifications)](https://www.cfmaeroengines.com/sustainability/rise-program/)
+   - [Boeing Commercial Airplanes Product Portfolio](https://www.boeing.com/commercial)
+

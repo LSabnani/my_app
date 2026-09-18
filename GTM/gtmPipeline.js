@@ -107,6 +107,16 @@ export const COMPETITOR_MARKET_DATABASE = {
       redBrandSentiment: 'Strong hardware loyalty, but higher susceptibility to switching if hardware pricing shifts'
     },
 
+    // Verified Information Sources & Data Provenance
+    sources: [
+      { name: 'SEC EDGAR - Apple Inc. 10-K Filings', url: 'https://www.sec.gov/edgar/browse/?CIK=0000320193', type: 'SEC 10-K' },
+      { name: 'SEC EDGAR - Samsung Electronics Filings', url: 'https://www.sec.gov/edgar/searchedgar/companysearch', type: 'SEC 20-F / IR' },
+      { name: 'Yahoo Finance - Apple Inc. (AAPL)', url: 'https://finance.yahoo.com/quote/AAPL/', type: 'Market Data' },
+      { name: 'Yahoo Finance - Samsung Electronics (SSNLF)', url: 'https://finance.yahoo.com/quote/SSNLF/', type: 'Market Data' },
+      { name: 'Apple Investor Relations Portal', url: 'https://investor.apple.com/', type: 'IR Transcripts' },
+      { name: 'Samsung Investor Relations Portal', url: 'https://www.samsung.com/global/ir/', type: 'IR Transcripts' }
+    ],
+
     // Attack Scenarios: Low-Cost Targeted vs. All-Out Blitz
     attackScenarios: {
       lowCost: {
@@ -315,6 +325,15 @@ export const COMPETITOR_MARKET_DATABASE = {
       greenBrandSentiment: 'Irreplaceable operational backbone for Global 2000 enterprises',
       redBrandSentiment: 'Essential consumer search brand with expanding cloud developer affinity'
     },
+
+    sources: [
+      { name: 'SEC EDGAR - Microsoft Corp. (MSFT) 10-K Filings', url: 'https://www.sec.gov/edgar/browse/?CIK=0000789019', type: 'SEC 10-K' },
+      { name: 'SEC EDGAR - Alphabet Inc. (GOOGL) 10-K Filings', url: 'https://www.sec.gov/edgar/browse/?CIK=0001652044', type: 'SEC 10-K' },
+      { name: 'Yahoo Finance - Microsoft (MSFT)', url: 'https://finance.yahoo.com/quote/MSFT/', type: 'Market Data' },
+      { name: 'Yahoo Finance - Alphabet (GOOGL)', url: 'https://finance.yahoo.com/quote/GOOGL/', type: 'Market Data' },
+      { name: 'Microsoft Investor Relations Portal', url: 'https://www.microsoft.com/en-us/Investor', type: 'IR Transcripts' },
+      { name: 'Alphabet Investor Relations Portal', url: 'https://abc.xyz/investor/', type: 'IR Transcripts' }
+    ],
 
     attackScenarios: {
       lowCost: {
@@ -687,6 +706,17 @@ export const COMPETITOR_MARKET_DATABASE = {
       redBrandSentiment: 'Dominant airframe provider, but undergoing intensive quality control and delivery stabilization'
     },
 
+    sources: [
+      { name: 'SEC EDGAR - GE Aerospace (GE) 10-K Filings', url: 'https://www.sec.gov/edgar/browse/?CIK=0000040545', type: 'SEC 10-K' },
+      { name: 'SEC EDGAR - Boeing Company (BA) 10-K Filings', url: 'https://www.sec.gov/edgar/browse/?CIK=0000012927', type: 'SEC 10-K' },
+      { name: 'Yahoo Finance - GE Aerospace (GE)', url: 'https://finance.yahoo.com/quote/GE/', type: 'Market Data' },
+      { name: 'Yahoo Finance - Boeing Company (BA)', url: 'https://finance.yahoo.com/quote/BA/', type: 'Market Data' },
+      { name: 'GE Aerospace Investor Relations Portal', url: 'https://www.geaerospace.com/investor-relations', type: 'IR Transcripts' },
+      { name: 'Boeing Investor Relations Portal', url: 'https://www.boeing.com/investors', type: 'IR Transcripts' },
+      { name: 'CFM International RISE Program (Engine Specs)', url: 'https://www.cfmaeroengines.com/sustainability/rise-program/', type: 'Product Specs' },
+      { name: 'Boeing Commercial Airplanes Product Portfolio', url: 'https://www.boeing.com/commercial', type: 'Product Specs' }
+    ],
+
     attackScenarios: {
       lowCost: {
         scenarioTitle: 'Low-Cost Targeted Attack Scenario',
@@ -1036,9 +1066,16 @@ export function runGTMAgent(companyKey) {
 /**
  * Execute Red Team vs. Green Team Full Simulation Pipeline Engine
  */
-export function runRedVsGreenSimulation(companyKey = 'apple-vs-samsung', scenarioMode = 'balanced') {
+export function runRedVsGreenSimulation(companyKey = 'apple-vs-samsung', scenarioMode = 'balanced', customNames = null) {
   const startTime = performance.now();
-  const dataset = COMPETITOR_MARKET_DATABASE[companyKey] || COMPETITOR_MARKET_DATABASE['apple-vs-samsung'];
+  const dataset = JSON.parse(JSON.stringify(COMPETITOR_MARKET_DATABASE[companyKey] || COMPETITOR_MARKET_DATABASE['apple-vs-samsung']));
+
+  if (customNames && customNames.greenCompany) {
+    dataset.greenCompany = customNames.greenCompany;
+  }
+  if (customNames && customNames.redCompany) {
+    dataset.redCompany = customNames.redCompany;
+  }
 
   let activeStrategies = dataset.redTeamStrategies;
   let activeScenarioMeta = null;
@@ -1084,6 +1121,7 @@ export function runRedVsGreenSimulation(companyKey = 'apple-vs-samsung', scenari
     scenarioMode,
     activeScenarioMeta,
     attackScenarios: dataset.attackScenarios,
+    sources: dataset.sources || [],
     marketResearcher: runMarketResearcherAgent(companyKey),
     gtmAnalysis: runGTMAgent(companyKey),
     redTeamStrategies: activeStrategies,

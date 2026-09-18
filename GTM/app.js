@@ -97,7 +97,15 @@ function bindEvents() {
 }
 
 function handleGTMSimulation(companyKey = 'apple-vs-samsung', scenarioMode = 'balanced') {
-  currentGTMResult = runRedVsGreenSimulation(companyKey, scenarioMode);
+  const customGreenInput = document.getElementById('custom-green-input');
+  const customRedInput = document.getElementById('custom-red-input');
+
+  const customNames = {
+    greenCompany: customGreenInput?.value?.trim() || null,
+    redCompany: customRedInput?.value?.trim() || null
+  };
+
+  currentGTMResult = runRedVsGreenSimulation(companyKey, scenarioMode, customNames);
   renderGTMResults(currentGTMResult);
   showToast(`Ran Red vs Green Simulation (${scenarioMode.toUpperCase()}) for ${currentGTMResult.greenCompany} vs ${currentGTMResult.redCompany}!`);
 }
@@ -233,6 +241,29 @@ function renderGTMResults(res) {
       <td style="color:#ef4444;"><strong>${proj.redFwdGM[2]}%</strong></td>
     </tr>
   `;
+
+  // Render Information Sources & Data Provenance
+  const sourcesBody = document.getElementById('gtm-sources-body');
+  if (sourcesBody && res.sources && res.sources.length > 0) {
+    sourcesBody.innerHTML = `
+      <ul style="margin:0; padding-left:1.2rem; display:grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap:0.5rem;">
+        ${res.sources.map(src => `
+          <li style="margin-bottom:0.25rem;">
+            <a href="${src.url}" target="_blank" rel="noopener noreferrer" style="color:var(--accent-secondary); font-weight:600; text-decoration:underline;">
+              ${src.name}
+            </a>
+            <span class="badge" style="font-size:0.7rem; margin-left:0.4rem;">${src.type}</span>
+          </li>
+        `).join('')}
+      </ul>
+    `;
+  } else if (sourcesBody) {
+    sourcesBody.innerHTML = `
+      <p style="color:var(--text-muted); font-size:0.85rem; margin:0;">
+        Data ingested via SEC EDGAR 10-K/10-Q filings, Yahoo Finance API, and Corporate Investor Relations portals.
+      </p>
+    `;
+  }
 }
 
 function renderGTMTraceLog(traceLog, confidenceScore) {

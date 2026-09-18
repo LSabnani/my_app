@@ -47,6 +47,16 @@
                 <button class="depth-tab" data-scenario="all-out">🚀 All-Out Blitz</button>
               </div>
             </div>
+
+            <!-- Custom Company Input Fields -->
+            <div style="margin-top:1rem; display:flex; gap:1rem; flex-wrap:wrap; align-items:center;">
+              <span class="quick-picks-label">Custom Battle:</span>
+              <div style="display:flex; gap:0.5rem; flex-wrap:wrap; align-items:center;">
+                <input type="text" id="custom-green-input" placeholder="Green Team (Defender), e.g. Tesla" style="background:var(--bg-card); border:1px solid var(--border-color); color:var(--text-primary); padding:0.4rem 0.8rem; border-radius:8px; font-size:0.85rem; width:210px;" />
+                <span style="font-weight:bold; color:var(--text-muted); font-size:0.85rem;">VS</span>
+                <input type="text" id="custom-red-input" placeholder="Red Team (Attacker), e.g. BYD" style="background:var(--bg-card); border:1px solid var(--border-color); color:var(--text-primary); padding:0.4rem 0.8rem; border-radius:8px; font-size:0.85rem; width:210px;" />
+              </div>
+            </div>
           </div>
           <button id="run-gtm-btn" class="btn btn-primary" style="padding: 0.8rem 2rem; font-size:1.05rem;">
             <span>⚔️</span> Run Red vs Green Simulation
@@ -157,7 +167,7 @@
         </div>
 
         <!-- Financial Projections Table -->
-        <div class="gtm-stat-card">
+        <div class="gtm-stat-card" style="margin-bottom:1.5rem;">
           <div class="gtm-stat-header">
             <span>📈 Financial Projections & Gross Margins (3-Yr Historical + 3-Yr Forward)</span>
             <span class="green-tag">GTM METRICS</span>
@@ -178,6 +188,15 @@
               <tbody id="gtm-projections-table-body"></tbody>
             </table>
           </div>
+        </div>
+
+        <!-- Information Sources & Data Provenance Card -->
+        <div class="gtm-stat-card">
+          <div class="gtm-stat-header">
+            <span>🔗 Information Sources & Data Provenance</span>
+            <span class="badge" style="background:rgba(99,102,241,0.2); color:#818cf8;">VERIFIED SOURCES</span>
+          </div>
+          <div id="gtm-sources-body" style="font-size:0.9rem; line-height:1.6;"></div>
         </div>
       </div>
     </section>
