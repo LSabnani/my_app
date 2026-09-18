@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>GTM Competitor AI - Automated Test Runner & Verification</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background: #0f172a;
+      color: #f8fafc;
+      padding: 2rem;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    h1 {
+      color: #818cf8;
+      border-bottom: 2px solid #334155;
+      padding-bottom: 0.5rem;
+    }
+    .metrics-bar {
+      display: flex;
+      gap: 1.5rem;
+      margin: 1.5rem 0;
+      background: #1e293b;
+      padding: 1.2rem;
+      border-radius: 12px;
+      border: 1px solid #475569;
+    }
+    .metric-card {
+      flex: 1;
+      text-align: center;
+    }
+    .metric-val {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #38bdf8;
+    }
+    .metric-lbl {
+      font-size: 0.85rem;
+      color: #94a3b8;
+      text-transform: uppercase;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+      background: #1e293b;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    th, td {
+      padding: 0.85rem 1rem;
+      text-align: left;
+      border-bottom: 1px solid #334155;
+    }
+    th {
+      background: #0f172a;
+      color: #cbd5e1;
+    }
+    .badge-pass {
+      background: #065f46;
+      color: #34d399;
+      padding: 0.2rem 0.6rem;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 0.8rem;
+    }
+    .badge-fail {
+      background: #991b1b;
+      color: #f87171;
+      padding: 0.2rem 0.6rem;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 0.8rem;
+    }
+  </style>
+</head>
+<body>
+  <h1>🧪 GTM AI Competitor Analyzer Automated Test Runner</h1>
+  <p>Triple-checked verification suite enforcing project testing rules and accuracy metrics.</p>
+
+  <div class="metrics-bar">
+    <div class="metric-card">
+      <div id="total-tests" class="metric-val">-</div>
+      <div class="metric-lbl">Total Tests</div>
+    </div>
+    <div class="metric-card">
+      <div id="passed-tests" class="metric-val" style="color:#34d399;">-</div>
+      <div class="metric-lbl">Passed</div>
+    </div>
+    <div class="metric-card">
+      <div id="test-coverage" class="metric-val">-</div>
+      <div class="metric-lbl">Test Coverage Pass Rate</div>
+    </div>
+    <div class="metric-card">
+      <div id="est-accuracy" class="metric-val" style="color:#a855f7;">-</div>
+      <div class="metric-lbl">Estimated Verification Accuracy</div>
+    </div>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Status</th>
+        <th>Test Description</th>
+        <th>Input & Context</th>
+        <th>Assertion Logic & Assumption</th>
+      </tr>
+    </thead>
+    <tbody id="test-table-body"></tbody>
+  </table>
+
+  <script type="module">
+    import { runAllTests } from './tests.js';
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const { results, passedCount, failedCount, totalTests, coverageMetric, estimatedVerificationAccuracy } = runAllTests();
+
+      document.getElementById('total-tests').textContent = totalTests;
+      document.getElementById('passed-tests').textContent = passedCount;
+      document.getElementById('test-coverage').textContent = `${coverageMetric}%`;
+      document.getElementById('est-accuracy').textContent = `${estimatedVerificationAccuracy}%`;
+
+      const tbody = document.getElementById('test-table-body');
+      tbody.innerHTML = results.map(r => `
+        <tr>
+          <td><span class="${r.status === 'PASS' ? 'badge-pass' : 'badge-fail'}">${r.status}</span></td>
+          <td><strong>${r.description}</strong></td>
+          <td><code style="color:#a5f3fc;">${r.inputSummary}</code></td>
+          <td><div style="font-size:0.85rem; color:#cbd5e1;">${r.assumption}</div></td>
+        </tr>
+      `).join('');
+    });
+  </script>
+</body>
+</html>
