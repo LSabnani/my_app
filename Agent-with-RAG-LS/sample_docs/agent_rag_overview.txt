@@ -1,0 +1,13 @@
+# Autonomous AI Agents & Retrieval-Augmented Generation (RAG) Architecture
+
+## Overview
+Autonomous AI agents extend large language models (LLMs) by adding procedural tool execution, dynamic planning, memory, and specialized skill invocation. Combined with Retrieval-Augmented Generation (RAG), agents can ground their responses in proprietary or private dynamic data sources without full model retraining.
+
+## Core Components
+1. **Orchestrator**: Manages conversation history, turn execution, and decision logic for selecting tools versus generating direct answers.
+2. **Skill & Tool System**: Isolated procedural handlers (Python scripts, APIs, or database queries) governed by SOP metadata defined in `SKILL.md` documents.
+3. **Vector Database**: Stores chunked text embeddings and metadata using dense vector search (e.g., ChromaDB with local embedding models like Ollama's `nomic-embed-text`).
+4. **Audit & Telemetry**: Full transparency event logging for tracking tokens, prompt-to-response latency, inter-token latency (ITL), and payload records.
+
+## RAG Workflow
+When a query arrives, the system calculates semantic distance across embedded document chunks. Relevant matches above configurable similarity thresholds are returned to synthesize evidence-backed answers.

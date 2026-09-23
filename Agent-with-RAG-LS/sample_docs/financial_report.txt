@@ -1,0 +1,15 @@
+# NexusCorp Q3 Financial Performance & Revenue Report
+
+## Financial Summary
+- **Gross Revenue**: $14.8 Million (22% YoY Increase)
+- **Net Operating Profit**: $3.9 Million
+- **Research & Development (R&D) Expense**: $2.6 Million
+- **Customer Acquisition Cost (CAC)**: Reduced by 14% to $1,850 per enterprise contract.
+
+## Key Revenue Drivers
+1. Enterprise Cloud Subscriptions accounted for 65% of total Q3 revenue.
+2. AI Agent Integration & RAG Consulting Services contributed $3.2 Million.
+3. Software Licensing and Maintenance agreements provided steady recurring cashflow.
+
+## Q4 Financial Outlook
+Projected Q4 revenue between $16.0M and $17.5M driven by expanding SaaS adoption and key year-end renewals.

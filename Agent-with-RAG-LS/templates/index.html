@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agent With RAG Orchestrator</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+
+    <!-- Header Navigation Bar -->
+    <header class="app-header d-flex flex-wrap justify-content-between align-items-center">
+        <div class="d-flex align-items-center me-3">
+            <img src="/static/images/app-icon.gif" alt="App Icon" class="brand-icon me-2" onerror="this.src='https://cdn-icons-png.flaticon.com/512/4712/4712035.png'">
+            <h5 class="mb-0 fw-bold text-light">Agent with RAG Systems</h5>
+        </div>
+
+        <ul class="nav nav-tabs border-0 my-2 my-md-0" id="mainTab" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" id="tab-chat-link" data-bs-toggle="tab" href="#page-chat" role="tab">
+                    <i class="bi bi-chat-dots me-1"></i> Chat & Synthesis
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="tab-ingestion-link" data-bs-toggle="tab" href="#page-ingestion" role="tab">
+                    <i class="bi bi-database-down me-1"></i> Vector DB Ingestion
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="tab-telemetry-link" data-bs-toggle="tab" href="#page-telemetry" role="tab">
+                    <i class="bi bi-graph-up-arrow me-1"></i> Telemetry
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="tab-audit-link" data-bs-toggle="tab" href="#page-audit" role="tab">
+                    <i class="bi bi-journal-code me-1"></i> Audit Log & Event
+                </a>
+            </li>
+        </ul>
+
+        <div class="d-flex align-items-center gap-3 ms-auto">
+            <div id="agent-status-badge" class="status-badge small">
+                <i class="bi bi-heart-pulse-fill me-1"></i> Backend Online
+            </div>
+            <button class="btn btn-shutdown btn-sm" data-bs-toggle="modal" data-bs-target="#shutdownModal">
+                <i class="bi bi-power me-1"></i> Shutdown
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="container-fluid p-4">
+        <div class="tab-content" id="mainTabContent">
+
+            <!-- PAGE 1: CHAT & KNOWLEDGE SYNTHESIS -->
+            <div class="tab-pane fade show active" id="page-chat" role="tabpanel">
+                <!-- Page Top Controls Bar -->
+                <div class="glass-card mb-3 p-3">
+                    <div class="row align-items-center g-3">
+                        <div class="col-md-3">
+                            <label class="form-label small text-muted mb-1"><i class="bi bi-thermometer-half me-1"></i> Temperature</label>
+                            <input type="number" id="temp-input" class="form-control form-control-sm bg-dark text-light border-secondary" value="0.7" step="0.1" min="0" max="1">
+                        </div>
+                        <div class="col-md-3">
+                            <label class="form-label small text-muted mb-1"><i class="bi bi-hash me-1"></i> Max Tokens</label>
+                            <input type="number" id="max-tokens-input" class="form-control form-control-sm bg-dark text-light border-secondary" value="2048" max="8192">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label small text-muted mb-1"><i class="bi bi-cpu me-1"></i> Selected Model</label>
+                            <select id="model-select" class="form-select form-select-sm bg-dark text-light border-secondary">
+                                {% for m in active_models %}
+                                <option value="{{ m }}" {% if m == default_model %}selected{% endif %}>{{ m }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="col-12" id="custom-endpoint-container" style="display: none;">
+                            <label class="form-label small text-muted mb-1"><i class="bi bi-link-45deg me-1"></i> Custom API Endpoint</label>
+                            <input type="text" id="custom-endpoint-input" class="form-control form-control-sm bg-dark text-light border-secondary" value="http://127.0.0.1:8000/v1/chat/completions">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row g-3">
+                    <!-- Left Card: Chat with the Agent -->
+                    <div class="col-lg-7">
+                        <div class="glass-card h-100 d-flex flex-column">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <h6 class="mb-0 text-light"><i class="bi bi-chat-square-text me-2 text-info"></i> Chat with the Agent</h6>
+                                <div class="d-flex align-items-center gap-2">
+                                    <select id="agent-type-select" class="form-select form-select-sm bg-dark text-light border-secondary w-auto">
+                                        <option value="Custom Agent" selected>Custom Agent</option>
+                                        <option value="Google ADK Agent">Google ADK Agent</option>
+                                    </select>
+                                    <div class="d-flex align-items-center gap-1">
+                                        <span class="small text-muted">Turns:</span>
+                                        <input type="number" id="max-turns-input" class="form-control form-control-sm bg-dark text-light border-secondary w-50px" value="3" min="1" max="10">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row g-2 mb-3">
+                                <div class="col-md-6">
+                                    <label class="form-label small text-muted mb-1">Skill Selector</label>
+                                    <select id="skill-selector" class="form-select form-select-sm bg-dark text-light border-secondary">
+                                        <option value="Vector Store Selects" selected>Vector Store Selects</option>
+                                        <option value="LLM Selects">LLM Selects</option>
+                                        <option value="time-weather-skill">Time & Weather Skill</option>
+                                        <option value="person-information-skill">Person Information Skill</option>
+                                        <option value="stock-market-skill">Stock Market Skill</option>
+                                        <option value="doc-search-skill">Document Search Skill</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-3" id="skill-threshold-container">
+                                    <label class="form-label small text-muted mb-1">Threshold</label>
+                                    <input type="number" id="skill-threshold-input" class="form-control form-control-sm bg-dark text-light border-secondary" value="0.2" step="0.05">
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="form-label small text-muted mb-1">Max RAG Chunks</label>
+                                    <select id="max-rag-chunks-select" class="form-select form-select-sm bg-dark text-light border-secondary">
+                                        <option value="3">3 Chunks</option>
+                                        <option value="5" selected>5 Chunks</option>
+                                        <option value="10">10 Chunks</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- Chat History Window -->
+                            <div class="chat-container mb-3 flex-grow-1 border rounded border-secondary p-3" id="chat-container">
+                                <div class="text-center text-muted small py-4">
+                                    <i class="bi bi-robot fs-2 d-block mb-2"></i>
+                                    Agent initialized. Type a prompt below to interact with RAG vector search and procedural skills.
+                                </div>
+                            </div>
+
+                            <!-- Input Row -->
+                            <div class="input-group">
+                                <input type="text" id="chat-user-input" class="form-control bg-dark text-light border-secondary" placeholder="Enter message or ask a question...">
+                                <button class="btn btn-primary" id="send-chat-btn"><i class="bi bi-send me-1"></i> Send</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Card: Retrieved Context Evidence -->
+                    <div class="col-lg-5">
+                        <div class="glass-card h-100">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <h6 class="mb-0 text-light"><i class="bi bi-search me-2 text-warning"></i> Retrieved Context Evidence</h6>
+                                <div class="d-flex align-items-center gap-2">
+                                    <span class="small text-muted">Doc Threshold:</span>
+                                    <input type="number" id="doc-threshold-input" class="form-control form-control-sm bg-dark text-light border-secondary w-70px" value="0.3" step="0.05">
+                                </div>
+                            </div>
+
+                            <div class="scrollable-box" id="evidence-container">
+                                <div class="text-muted small text-center py-5">
+                                    Vector database matches and retrieved document chunks will be displayed here.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PAGE 2: VECTOR DB INGESTION -->
+            <div class="tab-pane fade" id="page-ingestion" role="tabpanel">
+                <!-- Top Statistics & Action Header -->
+                <div class="glass-card mb-3 p-3">
+                    <div class="row align-items-center g-3">
+                        <div class="col-md-5 d-flex gap-3 text-light">
+                            <div><span class="text-muted small d-block">Ingested Chunks</span><strong class="fs-5 text-info" id="stat-chunks-count">0</strong></div>
+                            <div class="border-start ps-3"><span class="text-muted small d-block">Documents</span><strong class="fs-5 text-success" id="stat-docs-count">0</strong></div>
+                            <div class="border-start ps-3"><span class="text-muted small d-block">DB Size</span><strong class="fs-5 text-warning" id="stat-db-size">0.0</strong> MB</div>
+                        </div>
+                        <div class="col-md-7 d-flex justify-content-end align-items-center gap-3">
+                            <select id="embedder-model-select" class="form-select form-select-sm bg-dark text-light border-secondary w-auto">
+                                <option value="nomic-embed-text" selected>nomic-embed-text (Active)</option>
+                                <option value="all-minilm">all-minilm</option>
+                                <option value="mxbai-embed-large">mxbai-embed-large</option>
+                                <option value="bge-m3">bge-m3</option>
+                            </select>
+                            <button class="btn btn-outline-info btn-sm" id="update-skills-btn">
+                                <i class="bi bi-arrow-repeat me-1"></i> Update Skills Database
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row g-3 mb-3">
+                    <!-- Left Card: Populate Vector Database -->
+                    <div class="col-lg-6">
+                        <div class="glass-card h-100">
+                            <h6 class="text-light mb-3"><i class="bi bi-cloud-arrow-up me-2 text-primary"></i> Populate Vector Database</h6>
+                            <div class="mb-3">
+                                <label class="form-label small text-muted">URL or Local Directory Path</label>
+                                <input type="text" id="db-source-input" class="form-control form-control-sm bg-dark text-light border-secondary" placeholder="e.g. sample_docs or https://example.com">
+                            </div>
+
+                            <div class="mb-3">
+                                <span class="small text-muted d-block mb-1">Sample Preset Web URLs:</span>
+                                <div class="d-flex flex-wrap gap-1">
+                                    <button class="btn btn-dark btn-sm border-secondary sample-url-btn" data-url="https://en.wikipedia.org/wiki/Artificial_intelligence">AI Wiki</button>
+                                    <button class="btn btn-dark btn-sm border-secondary sample-url-btn" data-url="https://en.wikipedia.org/wiki/Retrieval-augmented_generation">RAG Wiki</button>
+                                    <button class="btn btn-dark btn-sm border-secondary sample-url-btn" data-url="https://en.wikipedia.org/wiki/Python_(programming_language)">Python Wiki</button>
+                                    <button class="btn btn-dark btn-sm border-secondary sample-url-btn" data-url="https://en.wikipedia.org/wiki/Machine_learning">ML Wiki</button>
+                                    <button class="btn btn-dark btn-sm border-secondary sample-url-btn" data-url="https://en.wikipedia.org/wiki/Data_science">Data Science</button>
+                                </div>
+                            </div>
+
+                            <!-- Advanced Chunking Parameters -->
+                            <div class="accordion mb-3" id="chunkingAccordion">
+                                <div class="accordion-item bg-dark border-secondary">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button collapsed bg-dark text-light small py-2" type="button" data-bs-toggle="collapse" data-bs-target="#collapseChunking">
+                                            Advanced Chunking Parameters
+                                        </button>
+                                    </h2>
+                                    <div id="collapseChunking" class="accordion-collapse collapse" data-bs-parent="#chunkingAccordion">
+                                        <div class="accordion-body row g-2">
+                                            <div class="col-6">
+                                                <label class="form-label small text-muted">Chunk Size (Chars)</label>
+                                                <input type="number" id="chunk-size-input" class="form-control form-control-sm bg-dark text-light border-secondary" value="500">
+                                            </div>
+                                            <div class="col-6">
+                                                <label class="form-label small text-muted">Chunk Overlap (Chars)</label>
+                                                <input type="number" id="chunk-overlap-input" class="form-control form-control-sm bg-dark text-light border-secondary" value="50">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <button class="btn btn-primary w-100" id="populate-db-btn"><i class="bi bi-database-add me-1"></i> Populate Vector Database</button>
+                        </div>
+                    </div>
+
+                    <!-- Right Card: Vector Storage Status -->
+                    <div class="col-lg-6">
+                        <div class="glass-card h-100">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <h6 class="mb-0 text-light"><i class="bi bi-hdd-network me-2 text-success"></i> Vector Storage Status</h6>
+                                <button class="btn btn-outline-danger btn-sm" id="reset-db-btn"><i class="bi bi-trash3 me-1"></i> Reset DB</button>
+                            </div>
+
+                            <div class="scrollable-box" id="ingested-docs-list">
+                                <div class="text-muted small text-center py-4">Loading ingested documents...</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bottom: Available Embedding Models -->
+                <div class="glass-card">
+                    <h6 class="text-light mb-3"><i class="bi bi-cpu-fill me-2 text-info"></i> Available Embedding Models</h6>
+                    <div class="table-responsive">
+                        <table class="table table-dark table-striped table-hover align-middle mb-0">
+                            <thead>
+                                <tr class="text-muted">
+                                    <th>Model Name</th>
+                                    <th>Dimensions</th>
+                                    <th>Context Window</th>
+                                    <th>Size</th>
+                                    <th>Description</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody id="embedding-models-table-body">
+                                <!-- Populated dynamically -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PAGE 3: TELEMETRY -->
+            <div class="tab-pane fade" id="page-telemetry" role="tabpanel">
+                <!-- Telemetry Control Bar -->
+                <div class="glass-card mb-3 p-3">
+                    <div class="d-flex flex-wrap justify-content-between align-items-center gap-3">
+                        <div class="d-flex align-items-center gap-3">
+                            <label class="small text-muted mb-0">Model Filter:</label>
+                            <select id="telemetry-model-filter" class="form-select form-select-sm bg-dark text-light border-secondary w-auto">
+                                <option value="All Models" selected>All Models</option>
+                            </select>
+                        </div>
+                        <button class="btn btn-outline-info btn-sm" id="refresh-telemetry-btn"><i class="bi bi-arrow-clockwise me-1"></i> Refresh Telemetry</button>
+                    </div>
+                </div>
+
+                <!-- KPI Metric Summary Cards -->
+                <div class="row g-3 mb-3">
+                    <div class="col-md-2-4">
+                        <div class="glass-card text-center p-3">
+                            <span class="text-muted small">Total Prompts</span>
+                            <h4 class="text-info mt-1 mb-0" id="t-prompts">0</h4>
+                        </div>
+                    </div>
+                    <div class="col-md-2-4">
+                        <div class="glass-card text-center p-3">
+                            <span class="text-muted small">Total Responses</span>
+                            <h4 class="text-success mt-1 mb-0" id="t-responses">0</h4>
+                        </div>
+                    </div>
+                    <div class="col-md-2-4">
+                        <div class="glass-card text-center p-3">
+                            <span class="text-muted small">Total Errors</span>
+                            <h4 class="text-danger mt-1 mb-0" id="t-errors">0</h4>
+                        </div>
+                    </div>
+                    <div class="col-md-2-4">
+                        <div class="glass-card text-center p-3">
+                            <span class="text-muted small">Input Tokens</span>
+                            <h4 class="text-purple mt-1 mb-0" id="t-in-tokens">0</h4>
+                        </div>
+                    </div>
+                    <div class="col-md-2-4">
+                        <div class="glass-card text-center p-3">
+                            <span class="text-muted small">Output Tokens</span>
+                            <h4 class="text-warning mt-1 mb-0" id="t-out-tokens">0</h4>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Top Card: System Throughput & Token Velocity -->
+                <div class="glass-card mb-3">
+                    <div class="d-flex flex-wrap justify-content-between align-items-center mb-3">
+                        <h6 class="text-light mb-0"><i class="bi bi-speedometer2 me-2 text-primary"></i> System Throughput & Token Velocity</h6>
+                        <div class="d-flex gap-2">
+                            <select id="telemetry-interval-select" class="form-select form-select-sm bg-dark text-light border-secondary w-auto">
+                                <option value="1 min">1 min</option>
+                                <option value="15 min" selected>15 min</option>
+                                <option value="1 hr">1 hr</option>
+                                <option value="1 day">1 day</option>
+                            </select>
+                            <select id="telemetry-range-select" class="form-select form-select-sm bg-dark text-light border-secondary w-auto">
+                                <option value="Last hr">Last hr</option>
+                                <option value="1 day" selected>1 day</option>
+                                <option value="Week">Week</option>
+                                <option value="Month">Month</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="row g-3">
+                        <div class="col-lg-6">
+                            <div class="p-2 border border-secondary rounded" style="height: 280px;">
+                                <canvas id="throughputChart"></canvas>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="p-2 border border-secondary rounded" style="height: 280px;">
+                                <canvas id="tokenVelocityChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bottom Card: Low-Performance Metrics -->
+                <div class="glass-card">
+                    <h6 class="text-light mb-3"><i class="bi bi-activity me-2 text-warning"></i> Advanced Performance Metrics</h6>
+                    <div class="row g-3 text-center">
+                        <div class="col-md-3">
+                            <div class="p-2 border border-secondary rounded bg-dark">
+                                <span class="text-muted small d-block">Time To First Token (TTFT)</span>
+                                <strong class="fs-5 text-info" id="metric-ttft">0.0 s</strong>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="p-2 border border-secondary rounded bg-dark">
+                                <span class="text-muted small d-block">Inter-Token Latency (ITL)</span>
+                                <strong class="fs-5 text-success" id="metric-itl">0.0 ms</strong>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="p-2 border border-secondary rounded bg-dark">
+                                <span class="text-muted small d-block">Tokens Per Second (TPS)</span>
+                                <strong class="fs-5 text-warning" id="metric-tps">0.0 /s</strong>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="p-2 border border-secondary rounded bg-dark">
+                                <span class="text-muted small d-block">Time Per Output Token (TPOT)</span>
+                                <strong class="fs-5 text-purple" id="metric-tpot">0.0 ms</strong>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PAGE 4: AUDIT LOG & EVENT -->
+            <div class="tab-pane fade" id="page-audit" role="tabpanel">
+                <!-- Top Control Header -->
+                <div class="glass-card mb-3 p-3 d-flex justify-content-between align-items-center">
+                    <div class="d-flex gap-4 text-light">
+                        <div><span class="text-muted small d-block">Logged Prompts</span><strong id="audit-total-prompts">0</strong></div>
+                        <div><span class="text-muted small d-block">Model Invocations</span><strong id="audit-model-calls">0</strong></div>
+                        <div><span class="text-muted small d-block">Ollama Embeds</span><strong id="audit-embeds">0</strong></div>
+                        <div><span class="text-muted small d-block">Avg Call Latency</span><strong id="audit-avg-latency" class="text-info">0.0s</strong></div>
+                    </div>
+                    <div class="d-flex gap-2">
+                        <button class="btn btn-outline-danger btn-sm" id="clear-logs-btn"><i class="bi bi-trash me-1"></i> Clear Logs</button>
+                        <button class="btn btn-outline-info btn-sm" id="refresh-audit-btn"><i class="bi bi-arrow-clockwise me-1"></i> Refresh</button>
+                    </div>
+                </div>
+
+                <!-- Top Table: User Conversations -->
+                <div class="glass-card mb-3">
+                    <h6 class="text-light mb-3"><i class="bi bi-chat-left-text me-2 text-primary"></i> User Conversations (Select a row to inspect associated events)</h6>
+                    <div class="table-responsive" style="max-height: 240px; overflow-y: auto;">
+                        <table class="table table-dark table-hover table-dark-custom align-middle mb-0">
+                            <thead>
+                                <tr class="text-muted small">
+                                    <th>Timestamp</th>
+                                    <th>Conversation ID</th>
+                                    <th>User Query</th>
+                                    <th>Agent Response</th>
+                                    <th>Agent Type</th>
+                                    <th>Events</th>
+                                </tr>
+                            </thead>
+                            <tbody id="conversations-table-body">
+                                <!-- Populated dynamically -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Bottom Table: Events for Conversation -->
+                <div class="glass-card">
+                    <h6 class="text-light mb-3"><i class="bi bi-list-task me-2 text-info"></i> Events for Conversation <code id="selected-conv-id-label">None</code></h6>
+                    <div class="table-responsive" style="max-height: 320px; overflow-y: auto;">
+                        <table class="table table-dark table-hover table-dark-custom align-middle mb-0">
+                            <thead>
+                                <tr class="text-muted small">
+                                    <th>Time</th>
+                                    <th>Event Type</th>
+                                    <th>Invoker</th>
+                                    <th>Target</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody id="events-table-body">
+                                <!-- Populated dynamically -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Modal: Shutdown Confirmation -->
+    <div class="modal fade" id="shutdownModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header border-secondary">
+                    <h5 class="modal-title text-danger"><i class="bi bi-exclamation-triangle-fill me-2"></i> Confirm Shutdown</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <p class="small text-muted">This action will shutdown the app and all supporting services. All active users will be affected.</p>
+                    <p class="small fw-bold">Please type <code class="text-danger">Shutdown the service</code> in the box below to confirm:</p>
+                    <input type="text" id="shutdown-confirm-input" class="form-control bg-dark text-light border-secondary mb-3">
+                </div>
+                <div class="modal-footer border-secondary">
+                    <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-danger btn-sm" id="confirm-shutdown-btn" disabled>Confirm Shutdown</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal: Embedder Change Warning -->
+    <div class="modal fade" id="embedderChangeModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header border-secondary">
+                    <h5 class="modal-title text-warning"><i class="bi bi-exclamation-octagon-fill me-2"></i> Warning: Changing Embedder Model</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <p class="small text-muted">Changing the embedding model will <strong>delete all vector data</strong> currently stored in the database.</p>
+                    <p class="small fw-bold">Please type <code class="text-warning">CHANGE MODEL AND DELETE DATA</code> to confirm:</p>
+                    <input type="text" id="embedder-confirm-input" class="form-control bg-dark text-light border-secondary mb-3">
+                </div>
+                <div class="modal-footer border-secondary">
+                    <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-warning btn-sm" id="confirm-delete-data-btn" disabled>Delete Data & Change Model</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal: Payload Viewer -->
+    <div class="modal fade" id="payloadModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header border-secondary">
+                    <h5 class="modal-title text-info" id="modal-event-title">Event Payload Details</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="json-viewer" id="modal-json-content"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- App Custom JS -->
+    <script src="/static/js/app.js"></script>
+</body>
+</html>

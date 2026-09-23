@@ -1,0 +1,16 @@
+# Core Web Framework & API Server
+flask>=3.0.0
+python-dotenv>=1.0.0
+
+# LLM & AI SDKs
+google-genai>=0.1.1
+google-adk>=0.1.0
+
+# Vector Database & Local Embeddings
+chromadb>=0.4.24
+ollama>=0.1.7
+numpy>=1.24.0
+
+# Data Processing & Utilities
+pandas>=2.0.0
+requests>=2.31.0
