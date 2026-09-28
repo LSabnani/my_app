@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Market Trends Analyzer V2 | 5-Slide Professional Deck</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- CSS Stylesheet -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+
+  <!-- html2pdf.js for client-side PDF export -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+</head>
+<body>
+
+  <!-- Navbar Header -->
+  <header class="navbar">
+    <div class="brand">
+      <div class="brand-icon">M</div>
+      <div class="brand-title">Market Trends Analyzer</div>
+      <span class="badge">V2 Professional Spec</span>
+    </div>
+    <div class="nav-actions">
+      <button type="button" class="btn btn-export" id="btn-export">
+        <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+        </svg>
+        Export PDF
+      </button>
+    </div>
+  </header>
+
+  <!-- Main Application Body -->
+  <main class="container">
+
+    <!-- Input Control Panel -->
+    <section class="control-panel">
+      <div class="panel-header">
+        <h2 class="panel-title">Industry & Market Segment Inputs</h2>
+        <p class="panel-desc">Specify target parameters to generate a 5-slide research intelligence deck.</p>
+      </div>
+
+      <form id="market-form" class="form-grid">
+        <div class="form-group">
+          <label for="industry" class="form-label">Industry Vertical</label>
+          <input type="text" id="industry" class="form-input" placeholder="e.g., Healthcare, Consumer Cyclical, Technology" required value="Healthcare">
+        </div>
+
+        <div class="form-group">
+          <label for="market_segment" class="form-label">Market Segment</label>
+          <input type="text" id="market_segment" class="form-input" placeholder="e.g., Drug Manufacturers - General, Auto Manufacturers" required value="Drug Manufacturers - General">
+        </div>
+
+        <div class="button-group">
+          <button type="submit" class="btn btn-primary" id="btn-analyze">
+            <span>Generate 5-Slide Deck</span>
+          </button>
+          <button type="button" class="btn btn-reset" id="btn-reset" title="Capture PDF, clear cache and reset screen">
+            <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
+            </svg>
+            Reset
+          </button>
+        </div>
+      </form>
+
+      <!-- Quick Preset Chips -->
+      <div class="quick-tags">
+        <span class="tag-label">Quick Presets:</span>
+        <button type="button" class="tag-chip" data-industry="Consumer Defensive" data-segment="Farm Products">🌾 Consumer Defensive → Farm Products (CTVA, ADM, BG, TSN, DAR)</button>
+        <button type="button" class="tag-chip" data-industry="Consumer Defensive" data-segment="Discount Stores">🛒 Consumer Defensive → Discount Stores (WMT, COST, TGT, DG, DLTR)</button>
+        <button type="button" class="tag-chip" data-industry="Consumer Defensive" data-segment="Beverages - Non-Alcoholic">🥤 Consumer Defensive → Non-Alcoholic Beverages (KO, PEP, MNST, KDP, CELH)</button>
+        <button type="button" class="tag-chip" data-industry="Consumer Defensive" data-segment="Beverages - Wineries & Distilleries">🍷 Consumer Defensive → Wineries & Distilleries (DEO, STZ, BF-B, PRNDY, NAPA)</button>
+        <button type="button" class="tag-chip" data-industry="Energy" data-segment="Oil & Gas Integrated">🛢️ Energy → Oil & Gas Integrated (XOM, CVX, SHEL, TTE, BP)</button>
+        <button type="button" class="tag-chip" data-industry="Healthcare" data-segment="Drug Manufacturers - General">🩺 Healthcare → Drug Manufacturers (LLY, JNJ, ABBV, MRK, NVS)</button>
+        <button type="button" class="tag-chip" data-industry="Consumer Cyclical" data-segment="Auto Manufacturers">🚗 Consumer Cyclical → Auto Manufacturers (TSLA, TM, GM, RACE, F)</button>
+        <button type="button" class="tag-chip" data-industry="Technology" data-segment="Semiconductor Equipment and Materials">🔬 Technology → Semiconductor Equipment (ASML, AMAT, LRCX, KLAC)</button>
+      </div>
+    </section>
+
+    <!-- Competitor Approval Gateway Section -->
+    <section class="approval-section" id="approval-section" style="display: none;">
+      <div class="approval-card">
+        <div class="approval-header">
+          <div class="approval-title-wrap">
+            <span class="approval-badge">Step 1 of 2</span>
+            <h3 class="approval-title">Top 5 Competitors Approval Gateway</h3>
+          </div>
+          <p class="approval-desc" id="approval-subtitle">Review the resolved top 5 competitors by market capitalization for your market analysis.</p>
+        </div>
+
+        <!-- Competitor List -->
+        <div class="approval-competitor-grid" id="approval-competitor-list">
+          <!-- Populated dynamically -->
+        </div>
+
+        <!-- Finviz Ticker Mapping Form (Hidden by default) -->
+        <div class="ticker-form-box" id="ticker-form-box" style="display: none;">
+          <div class="ticker-form-header">
+            <h4>Find Competitors via Finviz.com Stock Ticker</h4>
+            <p>Enter the stock symbol of a competitor company. We will map its Sector & Industry on <code>finviz.com</code> and extract the top 5 market-cap competitors in that space.</p>
+          </div>
+          <div class="ticker-input-group">
+            <input type="text" id="ticker-input" class="form-input" placeholder="Enter Ticker Symbol (e.g. TSLA, LLY, ASML, NVDA)" style="text-transform: uppercase;">
+            <button type="button" class="btn btn-secondary" id="btn-fetch-ticker">
+              <span>Map & Fetch via Finviz</span>
+            </button>
+          </div>
+          <div id="ticker-status-msg" class="ticker-status"></div>
+        </div>
+
+        <!-- Action Prompt & Buttons -->
+        <div class="approval-actions">
+          <span class="approval-question">Do you approve this competitor list to proceed with the full market analysis study?</span>
+          <div class="approval-btn-group">
+            <button type="button" class="btn btn-approve" id="btn-approve-competitors">
+              <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              <span>Approve & Continue Study</span>
+            </button>
+            <button type="button" class="btn btn-disapprove" id="btn-disapprove-competitors">
+              <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+              </svg>
+              <span>No / Enter Stock Symbol</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Presentation View Section -->
+    <section class="presentation-section" id="presentation-section">
+      <div class="deck-toolbar">
+        <div class="deck-meta">
+          <span style="font-size: 0.95rem; font-weight: 600; color: #9ca3af;">Presentation Target:</span>
+          <span id="deck-title-meta" style="font-weight: 700; color: #38bdf8;">-</span>
+        </div>
+
+        <div class="carousel-nav">
+          <button type="button" class="nav-btn" id="prev-slide" aria-label="Previous Slide">
+            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+            </svg>
+          </button>
+
+          <span class="slide-counter">Slide <span id="current-slide-num">1</span> of <span id="total-slides-num">5</span></span>
+
+          <button type="button" class="nav-btn" id="next-slide" aria-label="Next Slide">
+            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Slide Cards Container -->
+      <div class="slides-viewport" id="slide-cards-container">
+        <!-- Rendered dynamically by app.js -->
+      </div>
+
+      <!-- Interactive Slide Approval Gateway Bar -->
+      <div class="slide-approval-bar" id="slide-approval-bar" style="margin-top: 1.5rem; padding: 1.25rem 1.75rem; background: rgba(15, 23, 42, 0.85); border: 1px solid rgba(56, 189, 248, 0.3); border-radius: 16px; display: flex; align-items: center; justify-content: space-between; gap: 1rem; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);">
+        <div class="slide-approval-info" style="display: flex; align-items: center; gap: 0.75rem;">
+          <div class="status-indicator" id="slide-approval-icon" style="font-size: 1.25rem;">❓</div>
+          <div>
+            <div id="slide-approval-title" style="font-size: 0.95rem; font-weight: 700; color: #f3f4f6;">Slide Review & Approval Gateway</div>
+            <div id="slide-approval-subtitle" style="font-size: 0.82rem; color: #9ca3af;">Review the analysis for this slide. Do you approve this slide content?</div>
+          </div>
+        </div>
+        <div class="slide-approval-btns" style="display: flex; align-items: center; gap: 0.75rem;">
+          <button type="button" class="btn btn-approve" id="btn-approve-slide" style="padding: 0.55rem 1.25rem; font-size: 0.88rem; background: linear-gradient(135deg, #10b981, #059669);">
+            <span>✓ Approve Slide & Next</span>
+          </button>
+          <button type="button" class="btn btn-disapprove" id="btn-revise-slide" style="padding: 0.55rem 1.25rem; font-size: 0.88rem;">
+            <span>✎ Flag for Revision</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Placeholder Empty State -->
+    <section class="placeholder-state" id="placeholder-state">
+      <div class="placeholder-icon">📊</div>
+      <h3 class="placeholder-title">Ready for Market Intelligence Research</h3>
+      <p class="placeholder-subtitle">Enter an Industry and Market Segment above or select a preset to generate the professional 6-slide research deck.</p>
+    </section>
+
+  </main>
+
+  <!-- Client JavaScript -->
+  <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,130 @@
+app_info:
+  name: Market Trends Analyzer V2
+  version: 2.4
+  description: AI-driven marketing analysis & professional slide deck generator with competitor approval gateway and Finviz sector lookup fallback.
+
+role:
+  title: Experienced Marketing Professional
+  system_prompt: >
+    You are an experienced marketing professional. First resolve and present the top 5
+    competitors by market cap for user approval. If rejected, request a stock symbol, map it
+    to sector/industry via finviz.com, and present the updated top 5 competitors for approval.
+    Only after user approval, proceed with market research and present findings one page at a time.
+
+inputs:
+  industry:
+    type: string
+    required: true
+    description: The target industry to research (e.g., Healthcare, Consumer Cyclical, Technology)
+  market_segment:
+    type: string
+    required: true
+    description: Specific market segment within the industry (e.g., Drug Manufacturers - General, Auto Manufacturers, Semiconductor Equipment)
+
+competitor_approval_gateway:
+  initial_step: Present Top 5 competitors by market cap and ask user approval.
+  fallback_step:
+    condition: User rejects initial competitor set
+    action: Request competitor stock ticker
+    scraper:
+      source: finviz.com (https://finviz.com/quote.ashx?t={TICKER})
+      data_extracted: Ticker, Company Name, Sector, Industry, Country (geo_*)
+      algorithm: 2-above and 2-below target stock market cap rank (5 total centered window)
+      example: INTC -> filters country=USA, industry=Semiconductors, sector=Technology -> MU, AMD, INTC, TXN, MRVL
+      approval_required: Yes
+  continuation_rule: Analysis study starts ONLY after user approves top 5 competitor set.
+
+market_data_integration:
+  source: Live Web Scraper & Finviz Sector Mapper
+  resolution_strategy: Dynamic Finviz Scraper + Market Cap Leaderboard Matching
+  covered_sectors:
+    - Industrials -> Aerospace & Defense (General Dynamics, RTX Corp, Lockheed Martin, Boeing, Northrop Grumman)
+    - Energy -> Oil & Gas Integrated (ExxonMobil, Chevron, Shell, TotalEnergies, BP)
+    - Healthcare -> Drug Manufacturers General (Eli Lilly, Johnson & Johnson, AbbVie, Merck, Novartis)
+    - Consumer Cyclical -> Auto Manufacturers (Tesla, Toyota, GM, Ferrari, Ford)
+    - Financial -> Credit Services (Visa, Mastercard, American Express, PayPal, Capital One)
+    - Technology -> Semiconductor Equipment & Materials (ASML, Applied Materials, Lam Research, KLA Corp)
+
+research_requirements:
+  market_trends:
+    description: Current macro and micro trends shaping the segment.
+  customer_choice_drivers:
+    label: What Makes a Customer Choose the Product
+    description: Core purchasing selection criteria including ROI/TCO, clinical efficacy & safety, brand trust, reliability SLAs, and ecosystem integration.
+  market_size:
+    metric: Dollar value ($) for last year.
+    description: Total addressable market size for the segment in the previous year.
+  market_share:
+    target: Approved Top 5 market cap providers/products.
+    leading_product_highlight: Mandatory line detailing the #1 market leader and its differentiating characteristic.
+    metrics:
+      - Provider name & Ticker
+      - Market share percentage
+      - Key offerings & product breakdown
+      - Top 3 Key Products per competitor
+  product_characteristics:
+    exciting_features: Characteristics that make leading products exciting to users.
+    differentiators: Unique competitive advantages distinguishing market leaders.
+  product_specifications:
+    mvp_specifications: Baseline operational capabilities, standard SLA reliability, basic security, and entry pricing.
+    winning_specifications: Market-leading performance/speed, advanced AI/ML automated workflows, 99.999% high-availability SLA, and strong ecosystem moats.
+  compliance_requirements:
+    scope:
+      - Mandatory Government Regulations (e.g., FDA NDA/BLA, EMA Centralised Authorization, NHTSA FMVSS, BIS Export Controls)
+      - Industry Standards (e.g., cGMP Quality Standards, ICH Regulations, ISO 26262, SEMI S2/S8)
+      - Market segment specific specifications (e.g., Cold-chain logistics, FDA 21 CFR Part 11, HIPAA/GDPR PHI privacy)
+
+environment:
+  technology_stack:
+    backend: Python (Flask + Requests + BeautifulSoup4 / Finviz Scraper)
+    frontend: Web (HTML5, Vanilla CSS3, JavaScript ES6)
+
+output_specification:
+  format: Professional Paginated Slide Deck
+  display_mode: Single page at a time (Page 1 through 6 with navigation controls)
+  slide_count: 6
+  export_format: PDF
+  slide_structure:
+    - page: 1
+      title: Executive Summary & Market Size
+    - page: 2
+      title: Market Trends & Customer Choice Drivers
+    - page: 3
+      title: Leading Products & Market Share
+    - page: 4
+      title: Product Excitement & Differentiating Factors
+    - page: 5
+      title: Mandatory Compliance & Industry Specs
+    - page: 6
+      title: Product Specification Roadmap (MVP vs. Winning Specs)
+      content: Overview of Industry, Market Segment, and Total Market Size ($ Last Year).
+    - page: 2
+      title: Market Trends & What Makes a Customer Choose the Product
+      content: Analysis of current market trends and explicit customer choice selection drivers.
+    - page: 3
+      title: Leading Products & Market Share
+      content: Breakdown of approved Top 5 market cap providers, products, tickers, and market share.
+    - page: 4
+      title: Product Excitement & Differentiating Features
+      content: Key characteristics that make leading products exciting and unique differentiators.
+    - page: 5
+      title: Mandatory Compliance & Industry Specs
+      content: Government, industry, and segment-specific compliance specifications and standards.
+
+ui_features:
+  approval_prompt:
+    label: Competitor Approval Prompt
+    actions:
+      - Approve competitor list -> Triggers market analysis study
+      - Disapprove -> Prompt for ticker input -> Lookup on Finviz -> Re-ask approval
+  page_by_page_navigation:
+    label: Slide Pagination
+    actions:
+      - Show one slide/page at a time
+      - Next / Previous navigation buttons & slide progress indicators
+  reset_button:
+    label: Reset
+    actions:
+      - Export/Capture current slides deck output as PDF
+      - Clear application caches & session memory
+      - Reset UI screen state and inputs for new analysis

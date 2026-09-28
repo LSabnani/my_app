@@ -1,0 +1,936 @@
+{
+  "sectors": [
+    {
+      "name": "Basic Materials",
+      "value": "sec_basicmaterials",
+      "slug": "basicmaterials"
+    },
+    {
+      "name": "Communication Services",
+      "value": "sec_communicationservices",
+      "slug": "communicationservices"
+    },
+    {
+      "name": "Consumer Cyclical",
+      "value": "sec_consumercyclical",
+      "slug": "consumercyclical"
+    },
+    {
+      "name": "Consumer Defensive",
+      "value": "sec_consumerdefensive",
+      "slug": "consumerdefensive"
+    },
+    {
+      "name": "Energy",
+      "value": "sec_energy",
+      "slug": "energy"
+    },
+    {
+      "name": "Financial",
+      "value": "sec_financial",
+      "slug": "financial"
+    },
+    {
+      "name": "Healthcare",
+      "value": "sec_healthcare",
+      "slug": "healthcare"
+    },
+    {
+      "name": "Industrials",
+      "value": "sec_industrials",
+      "slug": "industrials"
+    },
+    {
+      "name": "Real Estate",
+      "value": "sec_realestate",
+      "slug": "realestate"
+    },
+    {
+      "name": "Technology",
+      "value": "sec_technology",
+      "slug": "technology"
+    },
+    {
+      "name": "Utilities",
+      "value": "sec_utilities",
+      "slug": "utilities"
+    }
+  ],
+  "industries": [
+    {
+      "name": "Advertising Agencies",
+      "value": "ind_advertisingagencies",
+      "slug": "advertisingagencies"
+    },
+    {
+      "name": "Aerospace & Defense",
+      "value": "ind_aerospacedefense",
+      "slug": "aerospacedefense"
+    },
+    {
+      "name": "Agricultural Inputs",
+      "value": "ind_agriculturalinputs",
+      "slug": "agriculturalinputs"
+    },
+    {
+      "name": "Airlines",
+      "value": "ind_airlines",
+      "slug": "airlines"
+    },
+    {
+      "name": "Airports & Air Services",
+      "value": "ind_airportsairservices",
+      "slug": "airportsairservices"
+    },
+    {
+      "name": "Aluminum",
+      "value": "ind_aluminum",
+      "slug": "aluminum"
+    },
+    {
+      "name": "Apparel Manufacturing",
+      "value": "ind_apparelmanufacturing",
+      "slug": "apparelmanufacturing"
+    },
+    {
+      "name": "Apparel Retail",
+      "value": "ind_apparelretail",
+      "slug": "apparelretail"
+    },
+    {
+      "name": "Asset Management",
+      "value": "ind_assetmanagement",
+      "slug": "assetmanagement"
+    },
+    {
+      "name": "Auto Manufacturers",
+      "value": "ind_automanufacturers",
+      "slug": "automanufacturers"
+    },
+    {
+      "name": "Auto Parts",
+      "value": "ind_autoparts",
+      "slug": "autoparts"
+    },
+    {
+      "name": "Auto & Truck Dealerships",
+      "value": "ind_autotruckdealerships",
+      "slug": "autotruckdealerships"
+    },
+    {
+      "name": "Banks - Diversified",
+      "value": "ind_banksdiversified",
+      "slug": "banksdiversified"
+    },
+    {
+      "name": "Banks - Regional",
+      "value": "ind_banksregional",
+      "slug": "banksregional"
+    },
+    {
+      "name": "Beverages - Brewers",
+      "value": "ind_beveragesbrewers",
+      "slug": "beveragesbrewers"
+    },
+    {
+      "name": "Beverages - Non-Alcoholic",
+      "value": "ind_beveragesnonalcoholic",
+      "slug": "beveragesnonalcoholic"
+    },
+    {
+      "name": "Beverages - Wineries & Distilleries",
+      "value": "ind_beverageswineriesdistilleries",
+      "slug": "beverageswineriesdistilleries"
+    },
+    {
+      "name": "Biotechnology",
+      "value": "ind_biotechnology",
+      "slug": "biotechnology"
+    },
+    {
+      "name": "Broadcasting",
+      "value": "ind_broadcasting",
+      "slug": "broadcasting"
+    },
+    {
+      "name": "Building Materials",
+      "value": "ind_buildingmaterials",
+      "slug": "buildingmaterials"
+    },
+    {
+      "name": "Building Products & Equipment",
+      "value": "ind_buildingproductsequipment",
+      "slug": "buildingproductsequipment"
+    },
+    {
+      "name": "Business Equipment & Supplies",
+      "value": "ind_businessequipmentsupplies",
+      "slug": "businessequipmentsupplies"
+    },
+    {
+      "name": "Capital Markets",
+      "value": "ind_capitalmarkets",
+      "slug": "capitalmarkets"
+    },
+    {
+      "name": "Chemicals",
+      "value": "ind_chemicals",
+      "slug": "chemicals"
+    },
+    {
+      "name": "Closed-End Fund - Debt",
+      "value": "ind_closedendfunddebt",
+      "slug": "closedendfunddebt"
+    },
+    {
+      "name": "Closed-End Fund - Equity",
+      "value": "ind_closedendfundequity",
+      "slug": "closedendfundequity"
+    },
+    {
+      "name": "Closed-End Fund - Foreign",
+      "value": "ind_closedendfundforeign",
+      "slug": "closedendfundforeign"
+    },
+    {
+      "name": "Coking Coal",
+      "value": "ind_cokingcoal",
+      "slug": "cokingcoal"
+    },
+    {
+      "name": "Communication Equipment",
+      "value": "ind_communicationequipment",
+      "slug": "communicationequipment"
+    },
+    {
+      "name": "Computer Hardware",
+      "value": "ind_computerhardware",
+      "slug": "computerhardware"
+    },
+    {
+      "name": "Confectioners",
+      "value": "ind_confectioners",
+      "slug": "confectioners"
+    },
+    {
+      "name": "Conglomerates",
+      "value": "ind_conglomerates",
+      "slug": "conglomerates"
+    },
+    {
+      "name": "Consulting Services",
+      "value": "ind_consultingservices",
+      "slug": "consultingservices"
+    },
+    {
+      "name": "Consumer Electronics",
+      "value": "ind_consumerelectronics",
+      "slug": "consumerelectronics"
+    },
+    {
+      "name": "Copper",
+      "value": "ind_copper",
+      "slug": "copper"
+    },
+    {
+      "name": "Credit Services",
+      "value": "ind_creditservices",
+      "slug": "creditservices"
+    },
+    {
+      "name": "Department Stores",
+      "value": "ind_departmentstores",
+      "slug": "departmentstores"
+    },
+    {
+      "name": "Diagnostics & Research",
+      "value": "ind_diagnosticsresearch",
+      "slug": "diagnosticsresearch"
+    },
+    {
+      "name": "Discount Stores",
+      "value": "ind_discountstores",
+      "slug": "discountstores"
+    },
+    {
+      "name": "Drug Manufacturers - General",
+      "value": "ind_drugmanufacturersgeneral",
+      "slug": "drugmanufacturersgeneral"
+    },
+    {
+      "name": "Drug Manufacturers - Specialty & Generic",
+      "value": "ind_drugmanufacturersspecialtygeneric",
+      "slug": "drugmanufacturersspecialtygeneric"
+    },
+    {
+      "name": "Education & Training Services",
+      "value": "ind_educationtrainingservices",
+      "slug": "educationtrainingservices"
+    },
+    {
+      "name": "Electrical Equipment & Parts",
+      "value": "ind_electricalequipmentparts",
+      "slug": "electricalequipmentparts"
+    },
+    {
+      "name": "Electronic Components",
+      "value": "ind_electroniccomponents",
+      "slug": "electroniccomponents"
+    },
+    {
+      "name": "Electronic Gaming & Multimedia",
+      "value": "ind_electronicgamingmultimedia",
+      "slug": "electronicgamingmultimedia"
+    },
+    {
+      "name": "Electronics & Computer Distribution",
+      "value": "ind_electronicscomputerdistribution",
+      "slug": "electronicscomputerdistribution"
+    },
+    {
+      "name": "Engineering & Construction",
+      "value": "ind_engineeringconstruction",
+      "slug": "engineeringconstruction"
+    },
+    {
+      "name": "Entertainment",
+      "value": "ind_entertainment",
+      "slug": "entertainment"
+    },
+    {
+      "name": "Farm & Heavy Construction Machinery",
+      "value": "ind_farmheavyconstructionmachinery",
+      "slug": "farmheavyconstructionmachinery"
+    },
+    {
+      "name": "Farm Products",
+      "value": "ind_farmproducts",
+      "slug": "farmproducts"
+    },
+    {
+      "name": "Financial Conglomerates",
+      "value": "ind_financialconglomerates",
+      "slug": "financialconglomerates"
+    },
+    {
+      "name": "Financial Data & Stock Exchanges",
+      "value": "ind_financialdatastockexchanges",
+      "slug": "financialdatastockexchanges"
+    },
+    {
+      "name": "Food Distribution",
+      "value": "ind_fooddistribution",
+      "slug": "fooddistribution"
+    },
+    {
+      "name": "Footwear & Accessories",
+      "value": "ind_footwearaccessories",
+      "slug": "footwearaccessories"
+    },
+    {
+      "name": "Furnishings, Fixtures & Appliances",
+      "value": "ind_furnishingsfixturesappliances",
+      "slug": "furnishingsfixturesappliances"
+    },
+    {
+      "name": "Gambling",
+      "value": "ind_gambling",
+      "slug": "gambling"
+    },
+    {
+      "name": "Gold",
+      "value": "ind_gold",
+      "slug": "gold"
+    },
+    {
+      "name": "Grocery Stores",
+      "value": "ind_grocerystores",
+      "slug": "grocerystores"
+    },
+    {
+      "name": "Healthcare Plans",
+      "value": "ind_healthcareplans",
+      "slug": "healthcareplans"
+    },
+    {
+      "name": "Health Information Services",
+      "value": "ind_healthinformationservices",
+      "slug": "healthinformationservices"
+    },
+    {
+      "name": "Home Improvement Retail",
+      "value": "ind_homeimprovementretail",
+      "slug": "homeimprovementretail"
+    },
+    {
+      "name": "Household & Personal Products",
+      "value": "ind_householdpersonalproducts",
+      "slug": "householdpersonalproducts"
+    },
+    {
+      "name": "Industrial Distribution",
+      "value": "ind_industrialdistribution",
+      "slug": "industrialdistribution"
+    },
+    {
+      "name": "Information Technology Services",
+      "value": "ind_informationtechnologyservices",
+      "slug": "informationtechnologyservices"
+    },
+    {
+      "name": "Infrastructure Operations",
+      "value": "ind_infrastructureoperations",
+      "slug": "infrastructureoperations"
+    },
+    {
+      "name": "Insurance Brokers",
+      "value": "ind_insurancebrokers",
+      "slug": "insurancebrokers"
+    },
+    {
+      "name": "Insurance - Diversified",
+      "value": "ind_insurancediversified",
+      "slug": "insurancediversified"
+    },
+    {
+      "name": "Insurance - Life",
+      "value": "ind_insurancelife",
+      "slug": "insurancelife"
+    },
+    {
+      "name": "Insurance - Property & Casualty",
+      "value": "ind_insurancepropertycasualty",
+      "slug": "insurancepropertycasualty"
+    },
+    {
+      "name": "Insurance - Reinsurance",
+      "value": "ind_insurancereinsurance",
+      "slug": "insurancereinsurance"
+    },
+    {
+      "name": "Insurance - Specialty",
+      "value": "ind_insurancespecialty",
+      "slug": "insurancespecialty"
+    },
+    {
+      "name": "Integrated Freight & Logistics",
+      "value": "ind_integratedfreightlogistics",
+      "slug": "integratedfreightlogistics"
+    },
+    {
+      "name": "Internet Content & Information",
+      "value": "ind_internetcontentinformation",
+      "slug": "internetcontentinformation"
+    },
+    {
+      "name": "Internet Retail",
+      "value": "ind_internetretail",
+      "slug": "internetretail"
+    },
+    {
+      "name": "Leisure",
+      "value": "ind_leisure",
+      "slug": "leisure"
+    },
+    {
+      "name": "Lodging",
+      "value": "ind_lodging",
+      "slug": "lodging"
+    },
+    {
+      "name": "Lumber & Wood Production",
+      "value": "ind_lumberwoodproduction",
+      "slug": "lumberwoodproduction"
+    },
+    {
+      "name": "Luxury Goods",
+      "value": "ind_luxurygoods",
+      "slug": "luxurygoods"
+    },
+    {
+      "name": "Marine Shipping",
+      "value": "ind_marineshipping",
+      "slug": "marineshipping"
+    },
+    {
+      "name": "Medical Care Facilities",
+      "value": "ind_medicalcarefacilities",
+      "slug": "medicalcarefacilities"
+    },
+    {
+      "name": "Medical Devices",
+      "value": "ind_medicaldevices",
+      "slug": "medicaldevices"
+    },
+    {
+      "name": "Medical Distribution",
+      "value": "ind_medicaldistribution",
+      "slug": "medicaldistribution"
+    },
+    {
+      "name": "Medical Instruments & Supplies",
+      "value": "ind_medicalinstrumentssupplies",
+      "slug": "medicalinstrumentssupplies"
+    },
+    {
+      "name": "Metal Fabrication",
+      "value": "ind_metalfabrication",
+      "slug": "metalfabrication"
+    },
+    {
+      "name": "Mortgage Finance",
+      "value": "ind_mortgagefinance",
+      "slug": "mortgagefinance"
+    },
+    {
+      "name": "Oil & Gas Drilling",
+      "value": "ind_oilgasdrilling",
+      "slug": "oilgasdrilling"
+    },
+    {
+      "name": "Oil & Gas E&P",
+      "value": "ind_oilgasep",
+      "slug": "oilgasep"
+    },
+    {
+      "name": "Oil & Gas Equipment & Services",
+      "value": "ind_oilgasequipmentservices",
+      "slug": "oilgasequipmentservices"
+    },
+    {
+      "name": "Oil & Gas Integrated",
+      "value": "ind_oilgasintegrated",
+      "slug": "oilgasintegrated"
+    },
+    {
+      "name": "Oil & Gas Midstream",
+      "value": "ind_oilgasmidstream",
+      "slug": "oilgasmidstream"
+    },
+    {
+      "name": "Oil & Gas Refining & Marketing",
+      "value": "ind_oilgasrefiningmarketing",
+      "slug": "oilgasrefiningmarketing"
+    },
+    {
+      "name": "Other Industrial Metals & Mining",
+      "value": "ind_otherindustrialmetalsmining",
+      "slug": "otherindustrialmetalsmining"
+    },
+    {
+      "name": "Other Precious Metals & Mining",
+      "value": "ind_otherpreciousmetalsmining",
+      "slug": "otherpreciousmetalsmining"
+    },
+    {
+      "name": "Packaged Foods",
+      "value": "ind_packagedfoods",
+      "slug": "packagedfoods"
+    },
+    {
+      "name": "Packaging & Containers",
+      "value": "ind_packagingcontainers",
+      "slug": "packagingcontainers"
+    },
+    {
+      "name": "Paper & Paper Products",
+      "value": "ind_paperpaperproducts",
+      "slug": "paperpaperproducts"
+    },
+    {
+      "name": "Personal Services",
+      "value": "ind_personalservices",
+      "slug": "personalservices"
+    },
+    {
+      "name": "Pharmaceutical Retailers",
+      "value": "ind_pharmaceuticalretailers",
+      "slug": "pharmaceuticalretailers"
+    },
+    {
+      "name": "Pollution & Treatment Controls",
+      "value": "ind_pollutiontreatmentcontrols",
+      "slug": "pollutiontreatmentcontrols"
+    },
+    {
+      "name": "Publishing",
+      "value": "ind_publishing",
+      "slug": "publishing"
+    },
+    {
+      "name": "Railroads",
+      "value": "ind_railroads",
+      "slug": "railroads"
+    },
+    {
+      "name": "Real Estate - Development",
+      "value": "ind_realestatedevelopment",
+      "slug": "realestatedevelopment"
+    },
+    {
+      "name": "Real Estate - Diversified",
+      "value": "ind_realestatediversified",
+      "slug": "realestatediversified"
+    },
+    {
+      "name": "Real Estate Services",
+      "value": "ind_realestateservices",
+      "slug": "realestateservices"
+    },
+    {
+      "name": "Recreational Vehicles",
+      "value": "ind_recreationalvehicles",
+      "slug": "recreationalvehicles"
+    },
+    {
+      "name": "REIT - Diversified",
+      "value": "ind_reitdiversified",
+      "slug": "reitdiversified"
+    },
+    {
+      "name": "REIT - Healthcare Facilities",
+      "value": "ind_reithealthcarefacilities",
+      "slug": "reithealthcarefacilities"
+    },
+    {
+      "name": "REIT - Hotel & Motel",
+      "value": "ind_reithotelmotel",
+      "slug": "reithotelmotel"
+    },
+    {
+      "name": "REIT - Industrial",
+      "value": "ind_reitindustrial",
+      "slug": "reitindustrial"
+    },
+    {
+      "name": "REIT - Mortgage",
+      "value": "ind_reitmortgage",
+      "slug": "reitmortgage"
+    },
+    {
+      "name": "REIT - Office",
+      "value": "ind_reitoffice",
+      "slug": "reitoffice"
+    },
+    {
+      "name": "REIT - Residential",
+      "value": "ind_reitresidential",
+      "slug": "reitresidential"
+    },
+    {
+      "name": "REIT - Retail",
+      "value": "ind_reitretail",
+      "slug": "reitretail"
+    },
+    {
+      "name": "REIT - Specialty",
+      "value": "ind_reitspecialty",
+      "slug": "reitspecialty"
+    },
+    {
+      "name": "Rental & Leasing Services",
+      "value": "ind_rentalleasingservices",
+      "slug": "rentalleasingservices"
+    },
+    {
+      "name": "Residential Construction",
+      "value": "ind_residentialconstruction",
+      "slug": "residentialconstruction"
+    },
+    {
+      "name": "Resorts & Casinos",
+      "value": "ind_resortscasinos",
+      "slug": "resortscasinos"
+    },
+    {
+      "name": "Restaurants",
+      "value": "ind_restaurants",
+      "slug": "restaurants"
+    },
+    {
+      "name": "Scientific & Technical Instruments",
+      "value": "ind_scientifictechnicalinstruments",
+      "slug": "scientifictechnicalinstruments"
+    },
+    {
+      "name": "Security & Protection Services",
+      "value": "ind_securityprotectionservices",
+      "slug": "securityprotectionservices"
+    },
+    {
+      "name": "Semiconductor Equipment & Materials",
+      "value": "ind_semiconductorequipmentmaterials",
+      "slug": "semiconductorequipmentmaterials"
+    },
+    {
+      "name": "Semiconductors",
+      "value": "ind_semiconductors",
+      "slug": "semiconductors"
+    },
+    {
+      "name": "Shell Companies",
+      "value": "ind_shellcompanies",
+      "slug": "shellcompanies"
+    },
+    {
+      "name": "Silver",
+      "value": "ind_silver",
+      "slug": "silver"
+    },
+    {
+      "name": "Software - Application",
+      "value": "ind_softwareapplication",
+      "slug": "softwareapplication"
+    },
+    {
+      "name": "Software - Infrastructure",
+      "value": "ind_softwareinfrastructure",
+      "slug": "softwareinfrastructure"
+    },
+    {
+      "name": "Solar",
+      "value": "ind_solar",
+      "slug": "solar"
+    },
+    {
+      "name": "Specialty Business Services",
+      "value": "ind_specialtybusinessservices",
+      "slug": "specialtybusinessservices"
+    },
+    {
+      "name": "Specialty Chemicals",
+      "value": "ind_specialtychemicals",
+      "slug": "specialtychemicals"
+    },
+    {
+      "name": "Specialty Industrial Machinery",
+      "value": "ind_specialtyindustrialmachinery",
+      "slug": "specialtyindustrialmachinery"
+    },
+    {
+      "name": "Specialty Retail",
+      "value": "ind_specialtyretail",
+      "slug": "specialtyretail"
+    },
+    {
+      "name": "Staffing & Employment Services",
+      "value": "ind_staffingemploymentservices",
+      "slug": "staffingemploymentservices"
+    },
+    {
+      "name": "Steel",
+      "value": "ind_steel",
+      "slug": "steel"
+    },
+    {
+      "name": "Telecom Services",
+      "value": "ind_telecomservices",
+      "slug": "telecomservices"
+    },
+    {
+      "name": "Textile Manufacturing",
+      "value": "ind_textilemanufacturing",
+      "slug": "textilemanufacturing"
+    },
+    {
+      "name": "Thermal Coal",
+      "value": "ind_thermalcoal",
+      "slug": "thermalcoal"
+    },
+    {
+      "name": "Tobacco",
+      "value": "ind_tobacco",
+      "slug": "tobacco"
+    },
+    {
+      "name": "Tools & Accessories",
+      "value": "ind_toolsaccessories",
+      "slug": "toolsaccessories"
+    },
+    {
+      "name": "Travel Services",
+      "value": "ind_travelservices",
+      "slug": "travelservices"
+    },
+    {
+      "name": "Trucking",
+      "value": "ind_trucking",
+      "slug": "trucking"
+    },
+    {
+      "name": "Uranium",
+      "value": "ind_uranium",
+      "slug": "uranium"
+    },
+    {
+      "name": "Utilities - Diversified",
+      "value": "ind_utilitiesdiversified",
+      "slug": "utilitiesdiversified"
+    },
+    {
+      "name": "Utilities - Independent Power Producers",
+      "value": "ind_utilitiesindependentpowerproducers",
+      "slug": "utilitiesindependentpowerproducers"
+    },
+    {
+      "name": "Utilities - Regulated Electric",
+      "value": "ind_utilitiesregulatedelectric",
+      "slug": "utilitiesregulatedelectric"
+    },
+    {
+      "name": "Utilities - Regulated Gas",
+      "value": "ind_utilitiesregulatedgas",
+      "slug": "utilitiesregulatedgas"
+    },
+    {
+      "name": "Utilities - Regulated Water",
+      "value": "ind_utilitiesregulatedwater",
+      "slug": "utilitiesregulatedwater"
+    },
+    {
+      "name": "Utilities - Renewable",
+      "value": "ind_utilitiesrenewable",
+      "slug": "utilitiesrenewable"
+    },
+    {
+      "name": "Waste Management",
+      "value": "ind_wastemanagement",
+      "slug": "wastemanagement"
+    }
+  ],
+  "sector_industry_map": {
+    "sec_consumercyclical": [
+      "automanufacturers",
+      "autoparts",
+      "autotruckdealerships",
+      "apparelretail",
+      "apparelmanufacturing",
+      "footwearaccessories",
+      "restaurants",
+      "resortscasinos",
+      "lodging",
+      "homeimprovementretail",
+      "specialtyretail",
+      "internetretail",
+      "departmentstores",
+      "packagingcontainers",
+      "personalServices",
+      "leisure",
+      "recreationalvehicles",
+      "residentialconstruction",
+      "furnishingsfixturesappliances"
+    ],
+    "sec_technology": [
+      "semiconductorequipmentmaterials",
+      "semiconductors",
+      "softwareapplication",
+      "softwareinfrastructure",
+      "informationtechnologyservices",
+      "computerhardware",
+      "electroniccomponents",
+      "electronicscomputerdistribution",
+      "scientifictechnicalinstruments",
+      "communicationequipment",
+      "solar"
+    ],
+    "sec_healthcare": [
+      "drugmanufacturersgeneral",
+      "drugmanufacturersspecialtygeneric",
+      "biotechnology",
+      "medicaldevices",
+      "healthcaresystems",
+      "medicalinstrumentssupplies",
+      "medicalcarefacilities",
+      "healthinformationservices",
+      "medicaldistribution",
+      "diagnosticsresearch"
+    ],
+    "sec_financial": [
+      "banksdiversified",
+      "banksregional",
+      "assetmanagement",
+      "capitalmarkets",
+      "insurancepropertycasualty",
+      "insurancelife",
+      "insurancebrokers",
+      "insurancediversified",
+      "financialdataanalytics",
+      "creditServices"
+    ],
+    "sec_communicationservices": [
+      "telecomservices",
+      "entertainment",
+      "internetcontentinformation",
+      "electronicgamingmultimedia",
+      "broadcasting",
+      "advertisingagencies"
+    ],
+    "sec_industrials": [
+      "aerospacedefense",
+      "airlines",
+      "airportsairservices",
+      "buildingproductsequipment",
+      "farmheavyconstructionmachinery",
+      "industrialdistribution",
+      "specialtyindustrialmachinery",
+      "engineeringconstruction",
+      "integratedfreightlogistics",
+      "railroads",
+      "trucking",
+      "wasteManagement"
+    ],
+    "sec_energy": [
+      "oilgasepl",
+      "oilgasintegrated",
+      "oilgasmidstream",
+      "oilgasrefiningmarketing",
+      "oilgasequipment services",
+      "oilgasdrilling",
+      "thermalcoal"
+    ],
+    "sec_basicmaterials": [
+      "agriculturalinputs",
+      "aluminum",
+      "buildingmaterials",
+      "chemicals",
+      "specialtychemicals",
+      "gold",
+      "copper",
+      "otherpreciousmetalsmining",
+      "steel",
+      "paperpaperproducts"
+    ],
+    "sec_consumerdefensive": [
+      "beveragesbrewers",
+      "beveragesnonalcoholic",
+      "beverageswineriesdistilleries",
+      "confectioners",
+      "discountstores",
+      "farmproducts",
+      "fooddistribution",
+      "grocerystores",
+      "householdpersonalproducts",
+      "packagedfoods",
+      "tobacco"
+    ],
+    "sec_realestate": [
+      "reitindustrial",
+      "reitoffice",
+      "reitresidential",
+      "reitretail",
+      "reithealthcare",
+      "reithospitality",
+      "reitdiversified",
+      "realestateservices",
+      "realestatedevelopment"
+    ],
+    "sec_utilities": [
+      "utilitiesregulatedelectric",
+      "utilitiesregulatedgas",
+      "utilitiesdiversified",
+      "utilitiesrenewable",
+      "utilitiesindependentpowerproducers",
+      "utilitiesregulatedwater"
+    ]
+  }
+}
