@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CHIPCHAIN | Semiconductor Equipment Commodity & Supplier Platform</title>
+  <meta name="description" content="Global Supply Chain Intelligence, Category Deep Dives & Executive PDF Report Generator for Semiconductor Equipment Manufacturing.">
+  
+  <!-- CSS Dependencies -->
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- JS PDF Dependencies -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+</head>
+<body>
+
+  <!-- App Header Bar -->
+  <header class="app-header">
+    <div class="brand-container">
+      <div class="brand-logo">
+        <i class="fa-solid fa-microchip"></i>
+      </div>
+      <div>
+        <div class="brand-title">CHIPCHAIN</div>
+        <div class="brand-subtitle">Semiconductor Supply Chain Intelligence</div>
+      </div>
+    </div>
+
+    <div class="header-actions">
+      <button id="launch-slides-btn" class="btn btn-gold" title="Launch Interactive Executive Presentation Deck">
+        <i class="fa-solid fa-file-powerpoint"></i> Launch Executive Deck
+      </button>
+      <button id="export-pdf-btn" class="btn btn-primary" title="Export Full Executive Study Package to PDF">
+        <i class="fa-solid fa-file-pdf"></i> Export Executive PDF
+      </button>
+      <button id="export-csv-btn" class="btn btn-secondary" title="Export Raw Supplier Matrix to CSV">
+        <i class="fa-solid fa-file-csv"></i> Export CSV
+      </button>
+      <button id="reset-cache-btn" class="btn btn-danger" title="Auto-Publish PDF, Clear Cache & Fetch Clean API Data">
+        <i class="fa-solid fa-rotate-left"></i> Reset & Clear Cache
+      </button>
+    </div>
+  </header>
+
+  <!-- Sourcing Controls & Filtering Bar -->
+  <section class="control-panel">
+    <div class="filter-bar">
+      <div class="filter-group">
+        <label for="commodity-select"><i class="fa-solid fa-layer-group"></i> Target Commodity</label>
+        <select id="commodity-select" class="select-input">
+          <option value="All">All Commodities</option>
+        </select>
+      </div>
+
+      <div class="filter-group">
+        <label for="region-select"><i class="fa-solid fa-globe"></i> Geographic Region</label>
+        <select id="region-select" class="select-input">
+          <option value="All">All Regions</option>
+          <option value="Asia">Asia</option>
+          <option value="North America">North America</option>
+          <option value="Europe">Europe</option>
+          <option value="Middle East">Middle East</option>
+        </select>
+      </div>
+
+      <div class="filter-group">
+        <label for="country-select"><i class="fa-solid fa-flag"></i> Target Country</label>
+        <select id="country-select" class="select-input">
+          <option value="All">All Countries</option>
+        </select>
+      </div>
+
+      <div class="filter-group" style="flex: 1.5;">
+        <label for="quick-search"><i class="fa-solid fa-magnifying-glass"></i> Supplier Search</label>
+        <input type="text" id="quick-search" class="search-input" placeholder="Search supplier name, location, CAD, capability...">
+      </div>
+
+      <div class="filter-group" style="min-width: 180px; flex: 0.8;">
+        <label>&nbsp;</label>
+        <button id="apply-filter-btn" class="btn btn-primary" style="width: 100%; justify-content: center;">
+          <i class="fa-solid fa-check"></i> Apply & Accept Filter
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Report Dashboard Container -->
+  <main id="report-container" class="app-container">
+    
+    <!-- Section 1: Executive Header & Metadata -->
+    <section class="exec-header-banner">
+      <div class="exec-header-info">
+        <h1 id="exec-study-title">Semiconductor Equipment Sourcing & Supplier Study Report</h1>
+        <p style="color: var(--text-muted); font-size: 0.9rem;" id="exec-study-desc">
+          Strategic Category Deep-Dive, Supplier Capabilities Matrix & Quality Solvency Analysis
+        </p>
+        <div class="exec-meta-tags">
+          <span class="meta-tag" id="meta-commodity-tag"><i class="fa-solid fa-boxes-stacked"></i> Commodity: All</span>
+          <span class="meta-tag" id="meta-region-tag"><i class="fa-solid fa-earth-americas"></i> Region: Global</span>
+          <span class="meta-tag" id="meta-country-tag"><i class="fa-solid fa-location-dot"></i> Country: All</span>
+          <span class="meta-tag" id="meta-timestamp-tag"><i class="fa-regular fa-clock"></i> Generated: <span id="report-timestamp">--</span></span>
+          <span class="meta-tag" style="background: rgba(6, 214, 160, 0.15); color: var(--accent-green); border-color: rgba(6, 214, 160, 0.3);">
+            <i class="fa-solid fa-shield-halved"></i> ISO 22301 & SEC-UHP Compliant
+          </span>
+        </div>
+      </div>
+    </div>
+    </section>
+
+    <!-- Section 2: Summary KPI Dashboard Banner -->
+    <section class="kpi-grid">
+      <div class="kpi-card" style="--card-accent: var(--primary);">
+        <div class="kpi-header">
+          <span>Active Suppliers</span>
+          <i class="fa-solid fa-industry"></i>
+        </div>
+        <div class="kpi-value" id="kpi-suppliers-count">0</div>
+        <div class="kpi-subtext">Verified Semiconductor Suppliers</div>
+      </div>
+
+      <div class="kpi-card" style="--card-accent: var(--accent-green);">
+        <div class="kpi-header">
+          <span>Avg On-Time Delivery</span>
+          <i class="fa-solid fa-truck-fast"></i>
+        </div>
+        <div class="kpi-value" id="kpi-avg-otd">0.0%</div>
+        <div class="kpi-subtext">Cleanroom SLA & Delivery Performance</div>
+      </div>
+
+      <div class="kpi-card" style="--card-accent: var(--accent-purple);">
+        <div class="kpi-header">
+          <span>Combined R&D Spend</span>
+          <i class="fa-solid fa-flask-vial"></i>
+        </div>
+        <div class="kpi-value" id="kpi-rnd-spend">$0M</div>
+        <div class="kpi-subtext">2025 Annual Investment Trajectory</div>
+      </div>
+
+      <div class="kpi-card" style="--card-accent: var(--accent-gold);">
+        <div class="kpi-header">
+          <span>Combined Free Cash Flow</span>
+          <i class="fa-solid fa-sack-dollar"></i>
+        </div>
+        <div class="kpi-value" id="kpi-free-cash">$0M</div>
+        <div class="kpi-subtext">Solvency & Business Continuity Reserve</div>
+      </div>
+    </section>
+
+    <!-- Commodity Selector Quick Cards -->
+    <section class="commodity-cards-section">
+      <div class="section-title">
+        <i class="fa-solid fa-grid-2"></i>
+        <span>Select Commodity Category</span>
+      </div>
+      <div class="commodity-cards-grid" id="commodity-cards-grid">
+        <!-- Dynamically populated commodity selector cards -->
+      </div>
+    </section>
+
+    <!-- Section 3: Embedded Commodity Deep Dive Details -->
+    <section class="commodity-deepdive-card" id="commodity-deepdive-section">
+      <div class="section-title">
+        <i class="fa-solid fa-microchip"></i>
+        <span id="deepdive-category-name">Advanced Ceramics & Semiconductor Commodities</span>
+      </div>
+
+      <p id="deepdive-description" style="color: var(--text-main); font-size: 0.95rem; line-height: 1.6;">
+        Category specifications, material substrate requirements, quality contamination metrics, and market market sizing.
+      </p>
+
+      <div class="deepdive-grid">
+        <div class="detail-block">
+          <h4><i class="fa-solid fa-cube"></i> Substrates & Material Specs</h4>
+          <div class="badge-list" id="deepdive-substrates">
+            <!-- Dynamically populated -->
+          </div>
+        </div>
+
+        <div class="detail-block">
+          <h4><i class="fa-solid fa-gears"></i> Target Semiconductor Applications</h4>
+          <p id="deepdive-applications" style="font-size: 0.85rem; color: var(--text-muted);">
+            --
+          </p>
+        </div>
+
+        <div class="detail-block">
+          <h4><i class="fa-solid fa-chart-line"></i> Technical & Quality Benchmarks</h4>
+          <div class="metrics-list" id="deepdive-key-metrics">
+            <!-- Dynamically populated -->
+          </div>
+        </div>
+
+        <div class="detail-block">
+          <h4><i class="fa-solid fa-building-flag"></i> Leading Sector Suppliers</h4>
+          <div class="badge-list" id="deepdive-leading-suppliers">
+            <!-- Dynamically populated -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 4: Global Supplier Profiles & Capabilities Matrix -->
+    <section class="matrix-container">
+      <div class="table-controls">
+        <div class="section-title" style="margin-bottom: 0;">
+          <i class="fa-solid fa-table-list"></i>
+          <span>Global Supplier Capabilities & Solvency Matrix</span>
+        </div>
+        <div style="font-size: 0.8rem; color: var(--text-muted); font-family: var(--font-mono);">
+          Sorted by: <span style="color: var(--primary);">Region &rarr; Country &rarr; City</span>
+        </div>
+      </div>
+
+      <div class="table-responsive">
+        <table class="matrix-table" id="suppliers-matrix-table">
+          <thead>
+            <tr>
+              <th>Supplier Legal Name</th>
+              <th>Commodity Category</th>
+              <th>Est / Employees</th>
+              <th>OTD %</th>
+              <th>Lead Times (Proto / Vol)</th>
+              <th>Solvency & Financials</th>
+              <th>Cost Drivers ($/hr)</th>
+              <th>Cleanroom & Contamination</th>
+              <th>CAD Formats & Data Sharing</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="suppliers-table-body">
+            <!-- Dynamically populated -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Supplier Detail Modal Drawer -->
+  <div class="modal-backdrop" id="supplier-modal">
+    <div class="modal-content">
+      <button class="modal-close" id="modal-close-btn"><i class="fa-solid fa-xmark"></i></button>
+      <div id="modal-body-content">
+        <!-- Dynamically populated supplier deep dive -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div class="toast-container" id="toast-container"></div>
+
+  <!-- App Frontend JavaScript -->
+  <script src="app.js"></script>
+
+</body>
+</html>

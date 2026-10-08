@@ -1,0 +1,1047 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CHIPCHAIN | Interactive Executive Presentation Deck</title>
+  
+  <!-- FontAwesome & Google Fonts -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Chart.js & html2pdf.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+  <style>
+    :root {
+      --bg-dark: #070a11;
+      --bg-card: rgba(15, 23, 42, 0.85);
+      --border-color: rgba(255, 255, 255, 0.1);
+      --primary: #00d2ff;
+      --secondary: #3a7bd5;
+      --accent-gold: #ffb703;
+      --accent-green: #06d6a0;
+      --accent-purple: #9d4edd;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --font-main: 'Inter', sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--bg-dark);
+      background-image: 
+        radial-gradient(circle at 10% 20%, rgba(0, 210, 255, 0.08) 0%, transparent 40%),
+        radial-gradient(circle at 90% 80%, rgba(157, 78, 221, 0.08) 0%, transparent 40%),
+        linear-gradient(to bottom, #05070d, #0b0f19);
+      color: var(--text-main);
+      font-family: var(--font-main);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Deck Header Control Bar */
+    .deck-header {
+      background: rgba(10, 13, 20, 0.9);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border-color);
+      padding: 0.85rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .deck-brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .deck-brand-logo {
+      width: 38px;
+      height: 38px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      color: #fff;
+    }
+
+    .deck-controls {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .nav-btn {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid var(--border-color);
+      color: #fff;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: all 0.2s ease;
+    }
+
+    .nav-btn:hover {
+      background: rgba(255, 255, 255, 0.16);
+      border-color: rgba(255, 255, 255, 0.3);
+    }
+
+    .btn-export {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      box-shadow: 0 4px 15px rgba(0, 210, 255, 0.3);
+      border: none;
+    }
+
+    .btn-export:hover {
+      transform: translateY(-2px);
+    }
+
+    /* Slide Dots Indicator */
+    .dots-container {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.2);
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+
+    .dot.active {
+      background: var(--primary);
+      box-shadow: 0 0 10px var(--primary);
+      width: 28px;
+      border-radius: 6px;
+    }
+
+    /* Deck Viewport & Slides */
+    .deck-viewport {
+      flex: 1;
+      max-width: 1280px;
+      width: 95%;
+      margin: 1.5rem auto;
+      position: relative;
+    }
+
+    .slide {
+      background: var(--bg-card);
+      backdrop-filter: blur(16px);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 2.5rem 3rem;
+      min-height: 650px;
+      display: none;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+      animation: fadeIn 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .slide.active {
+      display: flex;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.98); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    .slide-header {
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+
+    .slide-tag {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--primary);
+    }
+
+    .slide-title {
+      font-size: 1.75rem;
+      font-weight: 800;
+      color: #fff;
+    }
+
+    .slide-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    /* Grid Helpers */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+    }
+
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+    }
+
+    .card-box {
+      background: rgba(8, 12, 20, 0.7);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 1.25rem;
+    }
+
+    .card-box h3 {
+      font-size: 0.95rem;
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .stat-val {
+      font-size: 2.2rem;
+      font-weight: 800;
+      font-family: var(--font-mono);
+      color: #fff;
+    }
+
+    .slide-footer {
+      border-top: 1px solid var(--border-color);
+      padding-top: 1rem;
+      margin-top: 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      color: var(--text-muted);
+      font-size: 0.8rem;
+    }
+
+    /* Print PDF styles */
+    @media print {
+      body { background: #fff !important; color: #000 !important; }
+      .deck-header { display: none !important; }
+      .slide { display: flex !important; page-break-after: always; background: #fff !important; color: #000 !important; border: 1px solid #ccc !important; box-shadow: none !important; margin-bottom: 2rem; }
+      .slide-title, .stat-val { color: #000 !important; }
+      .card-box { background: #f8fafc !important; border: 1px solid #ddd !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Deck Control Header -->
+  <header class="deck-header">
+    <div class="deck-brand">
+      <div class="deck-brand-logo"><i class="fa-solid fa-microchip"></i></div>
+      <div>
+        <div style="font-weight: 800; font-size: 1.1rem; color: #fff;">CHIPCHAIN</div>
+        <div style="font-size: 0.7rem; color: var(--text-muted); text-transform: uppercase;">Executive Sourcing Presentation</div>
+      </div>
+    </div>
+
+    <div class="dots-container" id="dots-container">
+      <div class="dot active" onclick="goToSlide(0)"></div>
+      <div class="dot" onclick="goToSlide(1)"></div>
+      <div class="dot" onclick="goToSlide(2)"></div>
+      <div class="dot" onclick="goToSlide(3)"></div>
+      <div class="dot" onclick="goToSlide(4)"></div>
+      <div class="dot" onclick="goToSlide(5)"></div>
+    </div>
+
+    <div class="deck-controls">
+      <button class="nav-btn" onclick="prevSlide()"><i class="fa-solid fa-chevron-left"></i> Prev</button>
+      <button class="nav-btn" onclick="nextSlide()">Next <i class="fa-solid fa-chevron-right"></i></button>
+      <button class="nav-btn btn-export" onclick="exportToPDF()"><i class="fa-solid fa-file-pdf"></i> Export Slide Deck PDF</button>
+    </div>
+  </header>
+
+  <!-- Deck Viewport -->
+  <main class="deck-viewport" id="deck-viewport">
+
+    <!-- SLIDE 1: Executive Overview -->
+    <section class="slide active" id="slide-0">
+      <div class="slide-header">
+        <div>
+          <div class="slide-tag">Executive Study Deck &bull; Slide 1 of 5</div>
+          <h2 class="slide-title">Semiconductor Equipment Supply Chain Study</h2>
+        </div>
+        <div style="font-family: var(--font-mono); color: var(--accent-gold); font-size: 0.9rem;">
+          CONFIDENTIAL &bull; BOARD REPORT
+        </div>
+      </div>
+
+      <div class="slide-content">
+        <div class="grid-2">
+          <div>
+            <div style="font-size: 0.85rem; text-transform: uppercase; color: var(--text-muted); font-weight: 700; margin-bottom: 0.5rem;">
+              Total Global Sourcing Scope
+            </div>
+            <div class="stat-val" style="color: var(--primary); font-size: 3.5rem;">$25.3 Billion</div>
+            <p style="color: var(--text-muted); font-size: 1rem; margin-top: 1rem; line-height: 1.6;">
+              Comprehensive global category deep-dive and multi-region supplier evaluation across Asia, North America, Europe, and Middle East semiconductor equipment hubs.
+            </p>
+          </div>
+
+          <div class="card-box" style="background: rgba(0, 210, 255, 0.05); border-color: rgba(0, 210, 255, 0.2);">
+            <h3><i class="fa-solid fa-bullseye"></i> Executive Strategic Objectives</h3>
+            <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.75rem; font-size: 0.9rem; margin-top: 0.5rem;">
+              <li><i class="fa-solid fa-check" style="color: var(--accent-green);"></i> <strong>Dual-Source Redundancy:</strong> Mitigate single-point supply risks in ceramics, machining & vacuum components.</li>
+              <li><i class="fa-solid fa-check" style="color: var(--accent-green);"></i> <strong>Quality SLA Benchmark:</strong> Enforce ISO Class 1 cleanroom assembly and 18.2 MΩ·cm DI UPW protocols.</li>
+              <li><i class="fa-solid fa-check" style="color: var(--accent-green);"></i> <strong>Cost Efficiency:</strong> Benchmark direct labor rates ($35–$110/hr) & target profit margins across hubs.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="grid-4" style="margin-top: 1rem;">
+          <div class="card-box">
+            <h3 style="color: var(--accent-gold);"><i class="fa-solid fa-earth-asia"></i> Asia Hub</h3>
+            <div style="font-size: 0.85rem; color: var(--text-muted);">Japan, S. Korea, Taiwan, Singapore</div>
+            <div style="font-family: var(--font-mono); font-size: 0.8rem; margin-top: 0.5rem; color: var(--accent-green);">96.4% Avg OTD</div>
+          </div>
+          <div class="card-box">
+            <h3 style="color: var(--primary);"><i class="fa-solid fa-earth-americas"></i> North America</h3>
+            <div style="font-size: 0.85rem; color: var(--text-muted);">USA, Canada, Mexico</div>
+            <div style="font-family: var(--font-mono); font-size: 0.8rem; margin-top: 0.5rem; color: var(--accent-green);">95.8% Avg OTD</div>
+          </div>
+          <div class="card-box">
+            <h3 style="color: var(--accent-purple);"><i class="fa-solid fa-earth-europe"></i> Europe Hub</h3>
+            <div style="font-size: 0.85rem; color: var(--text-muted);">Netherlands, Switzerland, Germany</div>
+            <div style="font-family: var(--font-mono); font-size: 0.8rem; margin-top: 0.5rem; color: var(--accent-green);">97.1% Avg OTD</div>
+          </div>
+          <div class="card-box">
+            <h3 style="color: var(--accent-green);"><i class="fa-solid fa-building-shield"></i> Middle East</h3>
+            <div style="font-size: 0.85rem; color: var(--text-muted);">Israel, UAE Hubs</div>
+            <div style="font-family: var(--font-mono); font-size: 0.8rem; margin-top: 0.5rem; color: var(--accent-green);">94.2% Avg OTD</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide-footer">
+        <span>CHIPCHAIN Intelligence Platform</span>
+        <span>Slide 1 / 5</span>
+      </div>
+    </section>
+
+    <!-- SLIDE 2: Market Sizing, Solvency & 3-Year Supplier Revenue Trend -->
+    <section class="slide" id="slide-1">
+      <div class="slide-header">
+        <div>
+          <div class="slide-tag">Market Sizing & 3-Year Solvency &bull; Slide 2 of 5</div>
+          <h2 class="slide-title">Market TAM Breakdown & 3-Year Supplier Revenue Trends</h2>
+        </div>
+      </div>
+
+      <div class="slide-content grid-3">
+        <div style="height: 380px; position: relative;">
+          <canvas id="tamDoughnutChart"></canvas>
+        </div>
+
+        <div style="height: 380px; position: relative;">
+          <canvas id="supplierRevenueBarChart"></canvas>
+        </div>
+
+        <div style="height: 380px; position: relative;">
+          <canvas id="supplier3YrStackedChart"></canvas>
+        </div>
+      </div>
+
+      <div class="slide-footer">
+        <span>Source: CHIPCHAIN Sourcing Analytics & 3-Year Solvency Database (2023–2025)</span>
+        <span>Slide 2 / 5</span>
+      </div>
+    </section>
+
+    <!-- SLIDE 3: Technical Quality Benchmarks -->
+    <section class="slide" id="slide-2">
+      <div class="slide-header">
+        <div>
+          <div class="slide-tag">Quality & Engineering &bull; Slide 3 of 5</div>
+          <h2 class="slide-title">Category Deep Dives & Quality Benchmarks</h2>
+        </div>
+      </div>
+
+      <div class="slide-content grid-4">
+        <div class="card-box">
+          <h3 style="color: var(--primary);"><i class="fa-solid fa-gem"></i> Advanced Ceramics</h3>
+          <ul style="list-style: none; padding: 0; font-size: 0.82rem; display: flex; flex-direction: column; gap: 0.5rem; margin-top: 0.5rem;">
+            <li><strong>Dielectric Strength:</strong> > 15 kV/mm</li>
+            <li><strong>Plasma Erosion:</strong> < 0.1 nm/min</li>
+            <li><strong>Substrates:</strong> Al2O3, SiC, AlN, Quartz</li>
+            <li><strong>Applications:</strong> E-Chucks, Etch Liners</li>
+          </ul>
+        </div>
+
+        <div class="card-box">
+          <h3 style="color: var(--accent-gold);"><i class="fa-solid fa-gears"></i> Precision Machining</h3>
+          <ul style="list-style: none; padding: 0; font-size: 0.82rem; display: flex; flex-direction: column; gap: 0.5rem; margin-top: 0.5rem;">
+            <li><strong>Vacuum Tightness:</strong> 1x10^-9 Torr</li>
+            <li><strong>CMM Verification:</strong> 100% Sub-micron</li>
+            <li><strong>Surface Finish:</strong> Ra < 0.2 µm</li>
+            <li><strong>Materials:</strong> Al 6061-T6, 316L VIM/VAR</li>
+          </ul>
+        </div>
+
+        <div class="card-box">
+          <h3 style="color: var(--accent-green);"><i class="fa-solid fa-fire-burner"></i> UHP Welding</h3>
+          <ul style="list-style: none; padding: 0; font-size: 0.82rem; display: flex; flex-direction: column; gap: 0.5rem; margin-top: 0.5rem;">
+            <li><strong>Purge Argon:</strong> 6N (99.9999%)</li>
+            <li><strong>Helium Leak:</strong> < 1x10^-10 atm·cc/s</li>
+            <li><strong>Processes:</strong> Electron Beam, Orbital TIG</li>
+            <li><strong>Applications:</strong> Gas Sticks, VMB Boxes</li>
+          </ul>
+        </div>
+
+        <div class="card-box">
+          <h3 style="color: var(--accent-purple);"><i class="fa-solid fa-plug"></i> Cables & Interconnects</h3>
+          <ul style="list-style: none; padding: 0; font-size: 0.82rem; display: flex; flex-direction: column; gap: 0.5rem; margin-top: 0.5rem;">
+            <li><strong>Cleanroom Rating:</strong> ISO Class 1 / 10</li>
+            <li><strong>Outgassing TML:</strong> < 0.5% (ASTM E595)</li>
+            <li><strong>Flex Cycles:</strong> > 10,000,000 cycles</li>
+            <li><strong>Impedance:</strong> 50 Ω ± 2 Ω RF</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="slide-footer">
+        <span>Semiconductor Equipment Engineering Standards</span>
+        <span>Slide 3 / 5</span>
+      </div>
+    </section>
+
+    <!-- SLIDE 4: Supplier Market Share by Commodity -->
+    <section class="slide" id="slide-3">
+      <div class="slide-header">
+        <div>
+          <div class="slide-tag">Market Share &bull; Slide 4 of 6</div>
+          <h2 class="slide-title">Supplier Market Share & Concentration by Commodity</h2>
+        </div>
+        <div style="display: flex; align-items: center; gap: 0.75rem;">
+          <label for="slide-commodity-select" style="font-size: 0.85rem; font-weight: 600; color: var(--primary);">Select Commodity:</label>
+          <select id="slide-commodity-select" onchange="renderMarketShareChart(this.value)" style="background: rgba(15, 23, 42, 0.9); color: #fff; border: 1px solid var(--primary); padding: 0.4rem 0.8rem; border-radius: 8px; font-weight: 600; cursor: pointer; outline: none;">
+            <option value="Turnkey Integrators">Turnkey Integrators ($9.8B TAM)</option>
+            <option value="Precision Machining" selected>Precision Machining ($8.5B TAM)</option>
+            <option value="PCBAs & EMS Integrators">PCBAs & EMS Integrators ($7.2B TAM)</option>
+            <option value="Pumps (Vacuum & Liquid)">Pumps (Vacuum & Liquid) ($6.2B TAM)</option>
+            <option value="Robotics & Wafer Handling">Robotics & Wafer Handling ($5.8B TAM)</option>
+            <option value="Sensors & Metrology">Sensors & Metrology ($5.5B TAM)</option>
+            <option value="Casting & Specialty Metals">Casting & Specialty Metals ($5.1B TAM)</option>
+            <option value="Gas Flow Controls (MFCs)">Gas Flow Controls (MFCs) ($4.8B TAM)</option>
+            <option value="RF Generators">RF Generators ($4.6B TAM)</option>
+            <option value="Ceramics & Quartz">Ceramics & Quartz ($4.5B TAM)</option>
+            <option value="Industrial Computers & Controllers">Industrial Computers & Controllers ($4.1B TAM)</option>
+            <option value="Vacuum Valves">Vacuum Valves ($3.9B TAM)</option>
+            <option value="Welding & Frame Fabrication">Welding & Frame Fabrication ($3.4B TAM)</option>
+            <option value="Cables & Harnesses">Cables & Harnesses ($3.3B TAM)</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="slide-content grid-2">
+        <div style="height: 380px; position: relative; background: rgba(8, 12, 20, 0.5); padding: 1rem; border-radius: 12px; border: 1px solid var(--border-color);">
+          <canvas id="marketShareDoughnutChart"></canvas>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 1rem;">
+          <div class="card-box" id="market-share-leader-box">
+            <h3 id="ms-leader-title"><i class="fa-solid fa-crown" style="color: var(--accent-gold);"></i> Market Share Leader</h3>
+            <p id="ms-leader-desc" style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.3rem; line-height: 1.5;">
+              Leading market share estimates based on 2025 revenue history and commodity concentration share.
+            </p>
+          </div>
+
+          <div class="card-box">
+            <h3><i class="fa-solid fa-chart-pie" style="color: var(--primary);"></i> Commodity Market Concentration</h3>
+            <div style="display: flex; justify-content: space-between; margin-top: 0.5rem; font-size: 0.85rem;">
+              <span style="color: var(--text-muted);">Total Category TAM:</span>
+              <strong id="ms-tam-val" style="color: var(--primary);">$8.5 Billion</strong>
+            </div>
+            <div style="display: flex; justify-content: space-between; margin-top: 0.3rem; font-size: 0.85rem;">
+              <span style="color: var(--text-muted);">Top 4 Supplier Share:</span>
+              <strong id="ms-cr4-val" style="color: var(--accent-green);">~68.5% Combined</strong>
+            </div>
+            <div style="display: flex; justify-content: space-between; margin-top: 0.3rem; font-size: 0.85rem;">
+              <span style="color: var(--text-muted);">Herfindahl Index (HHI):</span>
+              <strong id="ms-hhi-val" style="color: var(--accent-gold);">Moderate-High Concentration</strong>
+            </div>
+          </div>
+
+          <div class="card-box">
+            <h3><i class="fa-solid fa-handshake-simple" style="color: var(--secondary);"></i> Strategic Sourcing Recommendation</h3>
+            <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.4;">
+              Maintain dual-sourcing across primary market leaders while building secondary qualified supplier capacity to mitigate supply chain bottlenecks.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide-footer">
+        <span>Leading Supplier Market Share & Concentration Analysis</span>
+        <span>Slide 4 / 6</span>
+      </div>
+    </section>
+
+    <!-- SLIDE 5: Regional OTD Bar Chart -->
+    <section class="slide" id="slide-4">
+      <div class="slide-header">
+        <div>
+          <div class="slide-tag">Global Ecosystem &bull; Slide 5 of 6</div>
+          <h2 class="slide-title">Global Supplier Ecosystem & Regional On-Time Delivery (OTD %)</h2>
+        </div>
+      </div>
+
+      <div class="slide-content grid-2">
+        <div style="height: 380px; position: relative;">
+          <canvas id="otdBarChart"></canvas>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 1rem;">
+          <div class="card-box">
+            <h3><i class="fa-solid fa-trophy" style="color: var(--accent-gold);"></i> Europe Hub Leader (97.1% OTD)</h3>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.3rem;">
+              Led by VAT Group AG (Switzerland) & VDL ETG (Netherlands) with ultra-high precision vacuum pendulum valves and system integration.
+            </p>
+          </div>
+
+          <div class="card-box">
+            <h3><i class="fa-solid fa-microchip" style="color: var(--primary);"></i> Asia Hub Leader (96.4% OTD)</h3>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.3rem;">
+              Key centers in Japan (Kyocera, Ferrotec), S. Korea (Wonik QnC), and Taiwan (Foxsemicon) driving high-volume output.
+            </p>
+          </div>
+
+          <div class="card-box">
+            <h3><i class="fa-solid fa-flag-usa" style="color: var(--accent-green);"></i> North America Hub (95.8% OTD)</h3>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.3rem;">
+              Anchored by Ultra Clean Technology (UCT), CoorsTek, Benchmark Electronics, and Ichor Systems.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide-footer">
+        <span>Delivery SLA & Logistics Performance Index</span>
+        <span>Slide 5 / 6</span>
+      </div>
+    </section>
+
+    <!-- SLIDE 6: Cost Structure & Risk Mitigation -->
+    <section class="slide" id="slide-5">
+      <div class="slide-header">
+        <div>
+          <div class="slide-tag">Risk & Solvency &bull; Slide 6 of 6</div>
+          <h2 class="slide-title">Cost Structure, FMEA Risk Controls & Executive Standards</h2>
+        </div>
+      </div>
+
+      <div class="slide-content grid-2">
+        <div style="display: flex; flex-direction: column; gap: 1rem;">
+          <div class="card-box">
+            <h3><i class="fa-solid fa-coins"></i> Direct Labor & Burden Rates</h3>
+            <div style="font-family: var(--font-mono); font-size: 1.5rem; color: var(--primary); margin: 0.3rem 0;">
+              $35.00 – $110.00 / hr
+            </div>
+            <p style="font-size: 0.85rem; color: var(--text-muted);">
+              Direct labor rates range from Asia offshore centers ($35–$55/hr) to US/European precision cleanroom hubs ($72–$110/hr). Target profit margins benchmarked at 18.5% – 25.0%.
+            </p>
+          </div>
+
+          <div class="card-box">
+            <h3><i class="fa-solid fa-shield-cat"></i> Process FMEA & 8D SLA Response</h3>
+            <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
+              Mitigation controls include <strong>acoustic emission in-situ weld monitoring</strong>, micro-burr borescope electropolishing, and mandatory <strong>24–48h 8D failure analysis SLA</strong>.
+            </p>
+          </div>
+        </div>
+
+        <div class="card-box" style="background: rgba(15, 23, 42, 0.9); border-color: var(--primary);">
+          <h3><i class="fa-solid fa-file-arrow-down"></i> Executive Standards PDF Downloads</h3>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;">
+            Direct links to global semiconductor equipment supplier quality & technical specification standards:
+          </p>
+
+          <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+            <a href="database.json" download class="nav-btn" style="width: 100%; justify-content: center; background: rgba(0, 210, 255, 0.1); border-color: var(--primary);">
+              <i class="fa-solid fa-file-code"></i> Download Full Database JSON (database.json)
+            </a>
+            <a href="spec.md" download class="nav-btn" style="width: 100%; justify-content: center; background: rgba(255, 183, 3, 0.1); border-color: var(--accent-gold); color: var(--accent-gold);">
+              <i class="fa-solid fa-file-lines"></i> Download Platform Specification (spec.md)
+            </a>
+            <button onclick="window.opener ? window.close() : window.location.href='index.html'" class="nav-btn btn-export" style="width: 100%; justify-content: center; margin-top: 0.5rem;">
+              <i class="fa-solid fa-desktop"></i> Return to Interactive Web Dashboard
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide-footer">
+        <span>CHIPCHAIN Executive Presentation Completed</span>
+        <span>Slide 6 / 6</span>
+      </div>
+    </section>
+
+  </main>
+
+  <script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll(".slide");
+    const dots = document.querySelectorAll(".dot");
+
+    function updateSlides() {
+      slides.forEach((s, idx) => {
+        if (idx === currentSlide) {
+          s.classList.add("active");
+        } else {
+          s.classList.remove("active");
+        }
+      });
+
+      dots.forEach((d, idx) => {
+        if (idx === currentSlide) {
+          d.classList.add("active");
+        } else {
+          d.classList.remove("active");
+        }
+      });
+    }
+
+    function goToSlide(idx) {
+      currentSlide = idx;
+      updateSlides();
+    }
+
+    function nextSlide() {
+      if (currentSlide < slides.length - 1) {
+        currentSlide++;
+        updateSlides();
+      }
+    }
+
+    function prevSlide() {
+      if (currentSlide > 0) {
+        currentSlide--;
+        updateSlides();
+      }
+    }
+
+    // Chart.js Initializations
+    document.addEventListener("DOMContentLoaded", () => {
+      // Slide 2: Doughnut Chart
+      const tamCtx = document.getElementById("tamDoughnutChart").getContext("2d");
+      new Chart(tamCtx, {
+        type: 'doughnut',
+        data: {
+          labels: ['Precision Machining ($8.5B)', 'Turnkey Integrators ($9.8B)', 'PCBAs & EMS ($7.2B)', 'Advanced Ceramics ($4.2B)', 'Vacuum Valves ($3.9B)'],
+          datasets: [{
+            data: [8.5, 9.8, 7.2, 4.2, 3.9],
+            backgroundColor: ['#00d2ff', '#9d4edd', '#ffb703', '#06d6a0', '#ef476f'],
+            borderWidth: 2,
+            borderColor: '#0f172a'
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: {
+              position: 'bottom',
+              labels: { color: '#f8fafc', font: { family: 'Inter', size: 11 } }
+            },
+            title: {
+              display: true,
+              text: 'Commodity Market TAM Breakdown ($25.3B Scope)',
+              color: '#00d2ff',
+              font: { family: 'Inter', size: 13, weight: 'bold' }
+            }
+          }
+        }
+      });
+
+      // Slide 2: Supplier Revenue Bar Chart (2025)
+      const revCtx = document.getElementById("supplierRevenueBarChart").getContext("2d");
+      new Chart(revCtx, {
+        type: 'bar',
+        data: {
+          labels: ['Ind. Computers', 'PCBAs & EMS', 'Ceramics & Quartz', 'Sensors', 'Pumps', 'Valves', 'Cables', 'Machining'],
+          datasets: [{
+            label: '2025 Revenue ($M)',
+            data: [92600, 51750, 20960, 19300, 14400, 12715, 12470, 5245],
+            backgroundColor: ['#3a7bd5', '#9d4edd', '#ffb703', '#06d6a0', '#00d2ff', '#ef476f', '#f72585', '#4cc9f0'],
+            borderRadius: 6
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          scales: {
+            y: {
+              beginAtZero: true,
+              ticks: { color: '#94a3b8', font: { family: 'JetBrains Mono', size: 9 } },
+              grid: { color: 'rgba(255, 255, 255, 0.05)' }
+            },
+            x: {
+              ticks: { color: '#f8fafc', font: { family: 'Inter', size: 9 } },
+              grid: { display: false }
+            }
+          },
+          plugins: {
+            legend: { display: false },
+            title: {
+              display: true,
+              text: '2025 Supplier Revenues ($M)',
+              color: '#ffb703',
+              font: { family: 'Inter', size: 12, weight: 'bold' }
+            }
+          }
+        }
+      });
+
+      // Slide 2: 3-Year Supplier Revenue Stacked Bar Chart (2023 - 2025)
+      const stackedCtx = document.getElementById("supplier3YrStackedChart").getContext("2d");
+      new Chart(stackedCtx, {
+        type: 'bar',
+        data: {
+          labels: ['Ind. Computers', 'PCBAs & EMS', 'Ceramics & Quartz', 'Sensors', 'Pumps', 'Valves', 'Cables', 'Machining'],
+          datasets: [
+            {
+              label: '2023 Revenue ($M)',
+              data: [84080, 46800, 19120, 16550, 12330, 11110, 10740, 4360],
+              backgroundColor: '#3a7bd5'
+            },
+            {
+              label: '2024 Revenue ($M)',
+              data: [87880, 48850, 20070, 17810, 13260, 11895, 11550, 4780],
+              backgroundColor: '#9d4edd'
+            },
+            {
+              label: '2025 Revenue ($M)',
+              data: [92600, 51750, 20960, 19300, 14400, 12715, 12470, 5245],
+              backgroundColor: '#00d2ff'
+            }
+          ]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          scales: {
+            x: {
+              stacked: true,
+              ticks: { color: '#f8fafc', font: { family: 'Inter', size: 9 } },
+              grid: { display: false }
+            },
+            y: {
+              stacked: true,
+              beginAtZero: true,
+              ticks: { color: '#94a3b8', font: { family: 'JetBrains Mono', size: 9 } },
+              grid: { color: 'rgba(255, 255, 255, 0.05)' }
+            }
+          },
+          plugins: {
+            legend: {
+              position: 'bottom',
+              labels: { color: '#f8fafc', font: { family: 'Inter', size: 10 } }
+            },
+            title: {
+              display: true,
+              text: '3-Year Revenue History (2023 - 2025)',
+              color: '#06d6a0',
+              font: { family: 'Inter', size: 12, weight: 'bold' }
+            }
+          }
+        }
+      });
+
+      // Slide 4: Market Share Doughnut Chart Initialization
+      renderMarketShareChart("Precision Machining");
+
+      // Slide 5: Bar Chart
+      const otdCtx = document.getElementById("otdBarChart").getContext("2d");
+      new Chart(otdCtx, {
+        type: 'bar',
+        data: {
+          labels: ['Europe (97.1%)', 'Asia (96.4%)', 'North America (95.8%)', 'Middle East (94.2%)'],
+          datasets: [{
+            label: 'Avg On-Time Delivery (OTD %)',
+            data: [97.1, 96.4, 95.8, 94.2],
+            backgroundColor: ['#9d4edd', '#00d2ff', '#06d6a0', '#ffb703'],
+            borderRadius: 8
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          scales: {
+            y: {
+              min: 90,
+              max: 100,
+              ticks: { color: '#94a3b8' },
+              grid: { color: 'rgba(255, 255, 255, 0.05)' }
+            },
+            x: {
+              ticks: { color: '#f8fafc' },
+              grid: { display: false }
+            }
+          },
+          plugins: {
+            legend: { display: false }
+          }
+        }
+      });
+    });
+
+    // Market Share Data per Commodity
+    const MARKET_SHARE_DATA = {
+      "Turnkey Integrators": {
+        tam: "$9.8 Billion",
+        cr4: "~74.0% Combined",
+        hhi: "High Concentration",
+        leaderTitle: "Ultra Clean Tech (UCT)",
+        leaderDesc: "Dominates global turnkey integration with ~32.0% market share across NA and Asia cleanroom assembly centers.",
+        labels: ["Ultra Clean Tech (UCT)", "Foxsemicon (FITI)", "Sanmina", "Benchmark Electronics", "Others"],
+        data: [32.0, 22.0, 12.0, 8.0, 26.0],
+        colors: ["#00d2ff", "#9d4edd", "#ffb703", "#06d6a0", "#64748b"]
+      },
+      "Precision Machining": {
+        tam: "$8.5 Billion",
+        cr4: "~68.5% Combined",
+        hhi: "Moderate-High Concentration",
+        leaderTitle: "Ultra Clean Tech (UCT)",
+        leaderDesc: "Holds ~28.5% market share in 5-axis CNC chamber machining, followed by FITI (~22.0%) and Ferrotec (~12.5%).",
+        labels: ["Ultra Clean Tech (UCT)", "Foxsemicon (FITI)", "Ferrotec Holdings", "Technic Inc.", "Others"],
+        data: [28.5, 22.0, 12.5, 5.5, 31.5],
+        colors: ["#00d2ff", "#9d4edd", "#ffb703", "#06d6a0", "#64748b"]
+      },
+      "PCBAs & EMS Integrators": {
+        tam: "$7.2 Billion",
+        cr4: "~71.0% Combined",
+        hhi: "High Concentration",
+        leaderTitle: "Sanmina Corporation",
+        leaderDesc: "Leads with ~26.0% market share in high-density HDI RF control boards and EMS box builds.",
+        labels: ["Sanmina", "Benchmark Electronics", "Plexus Corp", "Celestica", "Others"],
+        data: [26.0, 20.0, 15.0, 10.0, 29.0],
+        colors: ["#9d4edd", "#00d2ff", "#ffb703", "#06d6a0", "#64748b"]
+      },
+      "Pumps (Vacuum & Liquid)": {
+        tam: "$6.2 Billion",
+        cr4: "~78.0% Combined",
+        hhi: "Very High Concentration",
+        leaderTitle: "Ebara Corporation",
+        leaderDesc: "Ebara (~34.0%) and Edwards Vacuum (~26.0%) capture over 60% of global semiconductor dry/turbomolecular pump market.",
+        labels: ["Ebara Corporation", "Edwards Vacuum", "Shimadzu", "Pfeiffer Vacuum", "Others"],
+        data: [34.0, 26.0, 10.0, 8.0, 22.0],
+        colors: ["#06d6a0", "#00d2ff", "#ffb703", "#9d4edd", "#64748b"]
+      },
+      "Robotics & Wafer Handling": {
+        tam: "$5.8 Billion",
+        cr4: "~81.0% Combined",
+        hhi: "Very High Concentration",
+        leaderTitle: "Yaskawa Electric",
+        leaderDesc: "Yaskawa (~38.0%) and Brooks Automation (~22.0%) dominate atmospheric and vacuum wafer transfer robotics.",
+        labels: ["Yaskawa Electric", "Brooks Automation", "Kawasaki Robotics", "Rorze Corp", "Others"],
+        data: [38.0, 22.0, 12.0, 9.0, 19.0],
+        colors: ["#ffb703", "#00d2ff", "#9d4edd", "#06d6a0", "#64748b"]
+      },
+      "Sensors & Metrology": {
+        tam: "$5.5 Billion",
+        cr4: "~73.5% Combined",
+        hhi: "High Concentration",
+        leaderTitle: "Keyence Corporation",
+        leaderDesc: "Keyence (~31.0%) and MKS Baratron (~24.0%) control sub-nanometer optical and pressure metrology.",
+        labels: ["Keyence", "MKS (Baratron)", "Cognex", "Heidenhain", "Others"],
+        data: [31.0, 24.0, 11.0, 7.5, 26.5],
+        colors: ["#00d2ff", "#ffb703", "#9d4edd", "#06d6a0", "#64748b"]
+      },
+      "Casting & Specialty Metals": {
+        tam: "$5.1 Billion",
+        cr4: "~69.0% Combined",
+        hhi: "Moderate-High Concentration",
+        leaderTitle: "Kobe Steel (KOBELCO)",
+        leaderDesc: "Kobe Steel leads with ~33.0% share in heavy structural equipment frames and VIM specialty alloys.",
+        labels: ["Kobe Steel", "Hitachi Metals", "Sanmina", "Ryobi Die Casting", "Others"],
+        data: [33.0, 21.0, 8.0, 7.0, 31.0],
+        colors: ["#3a7bd5", "#06d6a0", "#9d4edd", "#ffb703", "#64748b"]
+      },
+      "Gas Flow Controls (MFCs)": {
+        tam: "$4.8 Billion",
+        cr4: "~84.0% Combined",
+        hhi: "Extremely High Concentration",
+        leaderTitle: "Horiba STEC",
+        leaderDesc: "Horiba STEC (~36.0%) and MKS Brooks (~29.0%) control 65% of global ALD/CVD mass flow controller shipments.",
+        labels: ["Horiba STEC", "MKS (Brooks)", "Fujikin", "Bronkhorst", "Others"],
+        data: [36.0, 29.0, 12.0, 7.0, 16.0],
+        colors: ["#ffb703", "#00d2ff", "#06d6a0", "#9d4edd", "#64748b"]
+      },
+      "RF Generators": {
+        tam: "$4.6 Billion",
+        cr4: "~86.0% Combined",
+        hhi: "Extremely High Concentration",
+        leaderTitle: "MKS Instruments",
+        leaderDesc: "MKS Instruments (~38.0%) and Advanced Energy (~28.0%) maintain a duopoly in plasma RF generators.",
+        labels: ["MKS Instruments", "Advanced Energy", "Comet Group", "DAIHEN", "Others"],
+        data: [38.0, 28.0, 12.0, 8.0, 14.0],
+        colors: ["#00d2ff", "#9d4edd", "#ffb703", "#06d6a0", "#64748b"]
+      },
+      "Ceramics & Quartz": {
+        tam: "$4.5 Billion",
+        cr4: "~76.0% Combined",
+        hhi: "High Concentration",
+        leaderTitle: "Kyocera Corporation",
+        leaderDesc: "Kyocera (~35.0%) and CoorsTek (~18.0%) capture over half of high-purity alumina/SiC plasma components.",
+        labels: ["Kyocera Corp", "CoorsTek", "Morgan Advanced", "Heraeus Quartz", "Others"],
+        data: [35.0, 18.0, 13.0, 10.0, 24.0],
+        colors: ["#06d6a0", "#00d2ff", "#9d4edd", "#ffb703", "#64748b"]
+      },
+      "Industrial Computers & Controllers": {
+        tam: "$4.1 Billion",
+        cr4: "~68.0% Combined",
+        hhi: "Moderate-High Concentration",
+        leaderTitle: "Advantech",
+        leaderDesc: "Advantech (~28.0%) and Beckhoff Automation (~22.0%) lead real-time EtherCAT tool control nodes.",
+        labels: ["Advantech", "Beckhoff", "Siemens", "Kontron", "Others"],
+        data: [28.0, 22.0, 11.0, 7.0, 32.0],
+        colors: ["#3a7bd5", "#00d2ff", "#9d4edd", "#ffb703", "#64748b"]
+      },
+      "Vacuum Valves": {
+        tam: "$3.9 Billion",
+        cr4: "~82.0% Combined",
+        hhi: "Extremely High Concentration",
+        leaderTitle: "VAT Group AG",
+        leaderDesc: "VAT Group AG commands an overwhelming ~52.0% market share in high-vacuum pendulum and gate control valves.",
+        labels: ["VAT Group AG", "MKS Instruments", "SMC Corporation", "Festo", "Others"],
+        data: [52.0, 15.0, 9.0, 6.0, 18.0],
+        colors: ["#9d4edd", "#00d2ff", "#06d6a0", "#ffb703", "#64748b"]
+      },
+      "Welding & Frame Fabrication": {
+        tam: "$3.4 Billion",
+        cr4: "~64.0% Combined",
+        hhi: "Moderate Concentration",
+        leaderTitle: "Benchmark Electronics",
+        leaderDesc: "Benchmark Electronics (~24.0%) and Sanmina (~22.0%) lead orbital TIG gas stick frame welding.",
+        labels: ["Benchmark Electronics", "Sanmina", "Ultra Clean Tech", "Dynamic Mfg", "Others"],
+        data: [24.0, 22.0, 11.0, 7.0, 36.0],
+        colors: ["#00d2ff", "#9d4edd", "#ffb703", "#06d6a0", "#64748b"]
+      },
+      "Cables & Harnesses": {
+        tam: "$3.3 Billion",
+        cr4: "~66.0% Combined",
+        hhi: "Moderate Concentration",
+        leaderTitle: "BizLink Technology",
+        leaderDesc: "BizLink (~26.0%) and Huber+Suhner (~18.0%) lead cleanroom ISO Class 1 flex cabling assemblies.",
+        labels: ["BizLink Tech", "Huber+Suhner", "Volex", "Leoni", "Others"],
+        data: [26.0, 18.0, 12.0, 10.0, 34.0],
+        colors: ["#06d6a0", "#ffb703", "#00d2ff", "#9d4edd", "#64748b"]
+      }
+    };
+
+    let marketShareChartInstance = null;
+
+    function renderMarketShareChart(commodityKey) {
+      const info = MARKET_SHARE_DATA[commodityKey] || MARKET_SHARE_DATA["Precision Machining"];
+      
+      // Update Text Info Cards
+      document.getElementById("ms-leader-title").innerHTML = `<i class="fa-solid fa-crown" style="color: var(--accent-gold);"></i> ${info.leaderTitle}`;
+      document.getElementById("ms-leader-desc").textContent = info.leaderDesc;
+      document.getElementById("ms-tam-val").textContent = info.tam;
+      document.getElementById("ms-cr4-val").textContent = info.cr4;
+      document.getElementById("ms-hhi-val").textContent = info.hhi;
+
+      // Render or Destroy Chart
+      const canvas = document.getElementById("marketShareDoughnutChart");
+      if (!canvas) return;
+      const ctx = canvas.getContext("2d");
+
+      if (marketShareChartInstance) {
+        marketShareChartInstance.destroy();
+      }
+
+      marketShareChartInstance = new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+          labels: info.labels.map((l, i) => `${l} (${info.data[i]}%)`),
+          datasets: [{
+            data: info.data,
+            backgroundColor: info.colors,
+            borderWidth: 2,
+            borderColor: '#0f172a'
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: {
+              position: 'right',
+              labels: { color: '#f8fafc', font: { family: 'Inter', size: 11 } }
+            },
+            title: {
+              display: true,
+              text: `${commodityKey} - Supplier Market Share (%)`,
+              color: '#00d2ff',
+              font: { family: 'Inter', size: 13, weight: 'bold' }
+            }
+          }
+        }
+      });
+    }
+
+    // Export Deck to PDF
+    function exportToPDF() {
+      const container = document.getElementById("deck-viewport");
+      
+      // Temporarily reveal all slides for multi-page PDF generation
+      slides.forEach(s => s.style.display = "flex");
+
+      const opt = {
+        margin:       0.2,
+        filename:     'CHIPCHAIN_Executive_Slide_Deck.pdf',
+        image:        { type: 'jpeg', quality: 0.98 },
+        html2canvas:  { scale: 2, useCORS: true, backgroundColor: '#070a11' },
+        jsPDF:        { unit: 'in', format: 'letter', orientation: 'landscape' }
+      };
+
+      if (window.html2pdf) {
+        html2pdf().set(opt).from(container).save().then(() => {
+          updateSlides();
+        }).catch(() => {
+          updateSlides();
+          window.print();
+        });
+      } else {
+        window.print();
+        updateSlides();
+      }
+    }
+  </script>
+</body>
+</html>

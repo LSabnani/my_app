@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Point & Figure (P&F) Analytics</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header Bar -->
+        <header class="app-header">
+            <div class="logo-group">
+                <div class="logo-icon"><i data-lucide="line-chart"></i></div>
+                <div>
+                    <h1>PNF Chart Engine</h1>
+                    <p class="subtitle">Point & Figure Status Reading & Target Analyzer</p>
+                </div>
+            </div>
+            
+            <!-- Quick Symbol Presets -->
+            <div class="preset-pills">
+                <span class="preset-label">Quick Benchmarks:</span>
+                <button class="preset-btn active" data-symbol="AMAT">AMAT</button>
+                <button class="preset-btn" data-symbol="AAPL">AAPL</button>
+                <button class="preset-btn" data-symbol="TSLA">TSLA</button>
+                <button class="preset-btn" data-symbol="MSFT">MSFT</button>
+                <button class="preset-btn" data-symbol="NVDA">NVDA</button>
+            </div>
+        </header>
+
+        <!-- Main Layout Grid -->
+        <div class="main-layout">
+            <!-- Sidebar Controls -->
+            <aside class="control-card glass-panel">
+                <h2><i data-lucide="sliders"></i> Parameters</h2>
+                <form id="pnf-form" onsubmit="event.preventDefault(); runAnalysis();">
+                    <div class="form-group">
+                        <label for="symbol">Ticker Symbol</label>
+                        <div class="input-with-icon">
+                            <i data-lucide="search"></i>
+                            <input type="text" id="symbol" value="AMAT" placeholder="e.g. AMAT, AAPL" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="box_size">Box Size (%)</label>
+                        <div class="input-with-icon">
+                            <i data-lucide="percent"></i>
+                            <input type="number" id="box_size" value="1.0" step="0.1" min="0.1" max="10.0" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="reversal">Reversal (Boxes)</label>
+                        <div class="input-with-icon">
+                            <i data-lucide="refresh-cw"></i>
+                            <input type="number" id="reversal" value="3" min="1" max="10" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="period">Historical Data Period</label>
+                        <select id="period">
+                            <option value="3m">3 Months</option>
+                            <option value="6m" selected>6 Months</option>
+                            <option value="1y">1 Year</option>
+                            <option value="2y">2 Years</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group checkbox-group">
+                        <label class="custom-checkbox">
+                            <input type="checkbox" id="use_mock" checked>
+                            <span class="checkmark"></span>
+                            Use Benchmark Mock Mode
+                        </label>
+                    </div>
+
+                    <button type="submit" class="primary-btn" id="analyze-btn">
+                        <i data-lucide="play"></i> Analyze P&F Chart
+                    </button>
+                </form>
+
+                <div class="info-box">
+                    <i data-lucide="info"></i>
+                    <p>P&F ignores time on horizontal axis. A new column is formed only when price reverses by the chosen <strong>Reversal Box Count</strong>.</p>
+                </div>
+            </aside>
+
+            <!-- Dashboard Analytics Panel -->
+            <main class="dashboard-panel">
+                <!-- Status Reading Banner -->
+                <div class="status-banner glass-panel">
+                    <div class="status-badge-container">
+                        <span class="status-label">Status Reading</span>
+                        <div class="status-value-chip" id="status-reading-chip">X4@433.341</div>
+                        <span class="data-source-tag" id="data-source-tag">AMAT • Benchmark Data</span>
+                    </div>
+
+                    <div class="metrics-grid">
+                        <div class="metric-card trend-card">
+                            <span class="metric-title">Trend Bias</span>
+                            <div class="metric-body" id="trend-val">
+                                <span class="badge bullish"><i data-lucide="trending-up"></i> Bullish</span>
+                            </div>
+                        </div>
+
+                        <div class="metric-card signal-card">
+                            <span class="metric-title">Pattern Signal</span>
+                            <div class="metric-value highlight" id="signal-val">Double Top Buy</div>
+                        </div>
+
+                        <div class="metric-card level-card">
+                            <span class="metric-title">Support / Resistance</span>
+                            <div class="metric-split">
+                                <div><span class="sub-label">Sup:</span> <strong id="sup-val">$442.05</strong></div>
+                                <div><span class="sub-label">Res:</span> <strong id="res-val">$555.73</strong></div>
+                            </div>
+                        </div>
+
+                        <div class="metric-card target-card">
+                            <span class="metric-title">Price Targets</span>
+                            <div class="metric-split">
+                                <div><span class="sub-label">Near:</span> <strong id="near-target-val">$464.60</strong></div>
+                                <div><span class="sub-label">Long:</span> <strong id="long-target-val">$631.00</strong></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- P&F Visualizer Card -->
+                <div class="chart-card glass-panel">
+                    <div class="chart-header">
+                        <div>
+                            <h3>Point & Figure Grid Visualizer</h3>
+                            <p class="chart-subtitle">Columns of <span class="x-legend">X (Rising)</span> & <span class="o-legend">O (Falling)</span></p>
+                        </div>
+                        <div class="chart-controls">
+                            <span class="box-info-pill" id="box-val-pill">Box Size: $4.33 (1%)</span>
+                        </div>
+                    </div>
+
+                    <div class="chart-viewport" id="chart-viewport">
+                        <div class="chart-grid" id="chart-grid">
+                            <!-- Dynamic Columns Rendered via JavaScript -->
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Script App -->
+    <script src="/static/app.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>

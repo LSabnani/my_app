@@ -1,0 +1,5439 @@
+{
+  "commodities": {
+    "Precision Machining": {
+      "title": "Precision Machining",
+      "tam": "$8.5B",
+      "cagr": "+6.8%",
+      "description": "Ultra-precision 5-axis CNC machined vacuum chamber bodies, showerheads, and optical alignment fixtures.",
+      "leadingSuppliers": [
+        "Ultra Clean Technology (UCT)",
+        "Foxsemicon (FITI)",
+        "Ferrotec Holdings",
+        "Technic Inc."
+      ],
+      "substrates": [
+        "Aluminum 6061-T6 / 7075",
+        "Stainless Steel 316L VIM/VAR",
+        "Titanium Grade 5",
+        "Inconel 625"
+      ],
+      "applications": "UHP process chambers, gas distribution manifolds, showerheads, load lock chambers.",
+      "keyMetrics": {
+        "vacuumTightness": "1x10^-9 Torr (UCT, FITI)",
+        "cmmVerification": "100% CMM Sub-micron (Ferrotec)",
+        "surfaceRoughness": "Ra < 0.2 \u00b5m",
+        "toleranceEnvelope": "\u00b1 0.002 mm"
+      }
+    },
+    "Casting & Specialty Metals": {
+      "title": "Casting & Specialty Metals",
+      "tam": "$5.1B",
+      "cagr": "+5.4%",
+      "description": "High-integrity sand and die castings, vacuum induction melted specialty alloys, and precision forged structural frames.",
+      "leadingSuppliers": [
+        "Ryobi Die Casting",
+        "Kobe Steel",
+        "Hitachi Metals (Proterial)",
+        "Sanmina"
+      ],
+      "substrates": [
+        "A356/A357 Aluminum Castings",
+        "High-Purity Copper Alloys",
+        "Kovar & Invar",
+        "Stainless Alloys"
+      ],
+      "applications": "Chamber bases, structural support pedestals, radiation shielding, heavy equipment frames.",
+      "keyMetrics": {
+        "porosityClass": "ASTM E155 Grade 1",
+        "tensileStrength": "> 310 MPa (Proterial, Kobe Steel)",
+        "heatTreatment": "T6 Heat Treated Alloys",
+        "xRayInspection": "100% Radiographic Testing"
+      }
+    },
+    "Welding & Frame Fabrication": {
+      "title": "Welding & Frame Fabrication",
+      "tam": "$3.4B",
+      "cagr": "+6.1%",
+      "description": "Cleanroom Orbital TIG, Electron Beam, and Laser structural frame welding for heavy tool bases and UHP gas manifold boxes.",
+      "leadingSuppliers": [
+        "Sanmina",
+        "Benchmark Electronics",
+        "Ultra Clean Technology (UCT)",
+        "Dynamic Manufacturing",
+        "Mott Corporation"
+      ],
+      "substrates": [
+        "316L EP Stainless Steel",
+        "Structural Steel Tubing",
+        "Hastelloy C-22",
+        "Nickel Alloy 200"
+      ],
+      "applications": "UHP gas stick assemblies, valve manifold boxes (VMB), heavy tool frames, sub-chassis structures.",
+      "keyMetrics": {
+        "argonPurgeGrade": "6N (99.9999% Pure)",
+        "heliumLeakRate": "< 1x10^-10 atm\u00b7cc/s (UCT, Mott)",
+        "weldPenetration": "100% Full Penetration NDT",
+        "framePlanarity": "\u00b1 0.05 mm across 2m span"
+      }
+    },
+    "Pumps (Vacuum & Liquid)": {
+      "title": "Pumps (Vacuum & Liquid)",
+      "tam": "$6.2B",
+      "cagr": "+7.5%",
+      "description": "Turbomolecular, dry vacuum, magnetic levitation, and UHP chemical liquid transfer pumps engineered for corrosive semiconductor processes.",
+      "leadingSuppliers": [
+        "Edwards Vacuum",
+        "Pfeiffer Vacuum",
+        "Ebara Corporation",
+        "Busch Vacuum",
+        "Shimadzu"
+      ],
+      "substrates": [
+        "Corrosion-Resistant Coatings",
+        "Mag-Lev Bearings",
+        "Ceramic Rotors",
+        "316L Stainless Bodies"
+      ],
+      "applications": "Primary chamber evacuation, load-lock pumping, UHP liquid chemical delivery, scrubbers.",
+      "keyMetrics": {
+        "ultimateVacuum": "< 1x10^-10 mbar (Edwards, Pfeiffer)",
+        "pumpingSpeed": "Up to 3,200 L/s Mag-Lev",
+        "meanTimeBetweenFailures": "> 80,000 Hours (Ebara, Shimadzu)",
+        "vibrationLevel": "< 0.01 mm/s peak"
+      }
+    },
+    "Gas Flow Controls (MFCs)": {
+      "title": "Gas Flow Controls (MFCs)",
+      "tam": "$4.8B",
+      "cagr": "+8.3%",
+      "description": "Ultra-high purity Mass Flow Controllers (MFCs), thermal sensors, and piezo-actuated gas metering valves for atomic scale deposition.",
+      "leadingSuppliers": [
+        "Horiba STEC",
+        "MKS Instruments (Brooks Instrument)",
+        "Fujikin / Nippon Sanso",
+        "Bronkhorst High-Tech"
+      ],
+      "substrates": [
+        "VIM/VAR Stainless Steel",
+        "Metal Seals (Nickel/Gold)",
+        "Piezo Electric Actuators"
+      ],
+      "applications": "ALD/CVD gas delivery, etch chamber reactant flow, gas mixing manifolds, purging systems.",
+      "keyMetrics": {
+        "flowAccuracy": "\u00b1 0.5% of setpoint (Horiba, MKS)",
+        "responseTime": "< 100 ms ultra-fast piezo",
+        "leakTightness": "< 1x10^-11 atm\u00b7cc/s Helium",
+        "operatingPressure": "Up to 100 bar UHP"
+      }
+    },
+    "Ceramics & Quartz": {
+      "title": "Ceramics & Quartz",
+      "tam": "$4.5B",
+      "cagr": "+7.6%",
+      "description": "High-purity ceramic components, CVD SiC rings, and high-purity synthetic quartzware for high-temperature and plasma processes.",
+      "leadingSuppliers": [
+        "Kyocera Corporation",
+        "CoorsTek Inc.",
+        "Morgan Advanced Materials",
+        "Ferrotec Holdings",
+        "Tosoh Quartz",
+        "Heraeus Quartz"
+      ],
+      "substrates": [
+        "Alumina (Al2O3 - 99.9%)",
+        "Silicon Carbide (SiC)",
+        "Synthetic Quartz",
+        "Aluminum Nitride (AlN)"
+      ],
+      "applications": "Plasma etch chamber liners, E-Chuck top plates, focus rings, quartz tubes, diffusion boats.",
+      "keyMetrics": {
+        "dielectricStrength": "> 15 kV/mm (Kyocera, CoorsTek)",
+        "plasmaErosionRate": "< 0.1 nm/min (Ferrotec, Tosoh)",
+        "purityGrade": "99.9999% Synthetic Grade",
+        "thermalConductivity": "180 W/m\u00b7K (AlN)"
+      }
+    },
+    "Robotics & Wafer Handling": {
+      "title": "Robotics & Wafer Handling",
+      "tam": "$5.8B",
+      "cagr": "+8.9%",
+      "description": "Atmospheric and high-vacuum wafer transfer robots, EFEM modules, vacuum end-effectors, and ultra-clean alignment stages.",
+      "leadingSuppliers": [
+        "Brooks Automation (Azenta)",
+        "Rorze Corporation",
+        "Yaskawa Electric",
+        "Kawasaki Robotics",
+        "Nidec Genmark"
+      ],
+      "substrates": [
+        "Carbon Fiber End Effectors",
+        "Anodized Aluminum",
+        "Direct Drive Servo Motors"
+      ],
+      "applications": "Cluster tool wafer transfer, vacuum transfer chambers (VTC), sorters, EFEM front-ends.",
+      "keyMetrics": {
+        "repeatability": "\u00b1 0.01 mm precision (Brooks, Rorze)",
+        "cleanroomRating": "ISO Class 1 Vacuum compatible",
+        "transferSpeed": "< 2.1 s wafer exchange cycle",
+        "mtbf": "> 120,000 Hours (Yaskawa, Kawasaki)"
+      }
+    },
+    "Industrial Computers & Controllers": {
+      "title": "Industrial Computers & Controllers",
+      "tam": "$4.1B",
+      "cagr": "+7.2%",
+      "description": "Real-time industrial PCs, EtherCAT motion controllers, FPGA interface boards, and sub-nanometer deterministic control nodes.",
+      "leadingSuppliers": [
+        "Advantech",
+        "Beckhoff Automation",
+        "Kontron",
+        "Siemens",
+        "National Instruments"
+      ],
+      "substrates": [
+        "Fanless Aluminum Enclosures",
+        "High-TG PCB Assemblies",
+        "Intel Core/Xeon Processors"
+      ],
+      "applications": "Main tool controller, plasma power timing units, sensor aggregation, SECS/GEM interface.",
+      "keyMetrics": {
+        "cycleTime": "< 50 \u00b5s EtherCAT deterministic",
+        "operatingTemp": "-20\u00b0C to +70\u00b0C fanless",
+        "mtbf": "> 100,000 Hours (Beckhoff, Advantech)",
+        "realTimeOS": "TwinCAT 3 / Linux RT / VxWorks"
+      }
+    },
+    "PCBAs & EMS Integrators": {
+      "title": "PCBAs & EMS Integrators",
+      "tam": "$7.2B",
+      "cagr": "+9.0%",
+      "description": "High-Density Interconnect (HDI) rigid-flex PCB assemblies, RF power control boards, and complex EMS system box builds.",
+      "leadingSuppliers": [
+        "Plexus Corp",
+        "Benchmark Electronics",
+        "Celestica",
+        "Sanmina",
+        "Jabil"
+      ],
+      "substrates": [
+        "Rogers 4350B RF Substrates",
+        "FR-4 High TG",
+        "Polyimide Rigid-Flex"
+      ],
+      "applications": "RF matching networks, generator controllers, optical sensor interface, tool power distribution.",
+      "keyMetrics": {
+        "ipcStandard": "IPC Class 3 High Reliability",
+        "impedanceControl": "\u00b1 5% high frequency",
+        "inspectionLevel": "3D AOI & 100% AXI X-Ray (Plexus, Benchmark)",
+        "cleanroomAssembly": "ISO Class 5-7 Assembly"
+      }
+    },
+    "Cables & Harnesses": {
+      "title": "Cables & Harnesses",
+      "tam": "$3.3B",
+      "cagr": "+7.8%",
+      "description": "Ultra-flexible, low-outgassing cleanroom cable assemblies, high-frequency RF feedthrough lines, and complex power harnesses.",
+      "leadingSuppliers": [
+        "BizLink Technology",
+        "Volex",
+        "Huber+Suhner",
+        "Leoni",
+        "Rosenberger"
+      ],
+      "substrates": [
+        "PTFE / PEEK Insulation",
+        "Silver-Plated Copper",
+        "Silicone Jacket",
+        "BeCu Contacts"
+      ],
+      "applications": "Wafer handling robotic arms, RF generator connections, motion control drag chains.",
+      "keyMetrics": {
+        "cleanroomClass": "ISO Class 1 / 10",
+        "outgassingTML": "< 0.5% (ASTM E595)",
+        "flexCycles": "> 10,000,000 continuous cycles",
+        "impedanceControl": "50 \u03a9 \u00b1 2 \u03a9 RF Cables"
+      }
+    },
+    "Sensors & Metrology": {
+      "title": "Sensors & Metrology",
+      "tam": "$5.5B",
+      "cagr": "+8.4%",
+      "description": "Capacitance manometers (Baratron), laser displacement sensors, optical spectrum analyzers, and sub-nanometer position encoders.",
+      "leadingSuppliers": [
+        "Keyence",
+        "MKS Instruments (Baratron)",
+        "Cognex",
+        "Balluff",
+        "Omron",
+        "Renishaw",
+        "Heidenhain"
+      ],
+      "substrates": [
+        "Inconel Diaphragms",
+        "Laser Interferometers",
+        "Optical Glass Scales"
+      ],
+      "applications": "Chamber pressure monitoring, wafer alignment metrology, stage position feedback, inspection.",
+      "keyMetrics": {
+        "resolution": "Sub-nanometer 0.1 nm (Renishaw, Heidenhain)",
+        "pressureAccuracy": "0.12% of reading (MKS Baratron)",
+        "samplingRate": "Up to 100 kHz optical",
+        "cleanroomCompatibility": "ISO Class 1 UHP"
+      }
+    },
+    "Vacuum Valves": {
+      "title": "Vacuum Valves",
+      "tam": "$3.9B",
+      "cagr": "+7.1%",
+      "description": "High-vacuum and ultra-high vacuum pendulum valves, gate valves, control valves, and UHP gas isolation valves.",
+      "leadingSuppliers": [
+        "VAT Group AG",
+        "MKS Instruments",
+        "SMC Corporation",
+        "Festo",
+        "Nor-Cal Products"
+      ],
+      "substrates": [
+        "316L VIM/VAR Steel",
+        "Kalrez / Fluorocarbon Seals",
+        "Aluminum Hard-Anodized"
+      ],
+      "applications": "Etch/CVD chamber isolation, load-lock slit valves, pressure control throttling.",
+      "keyMetrics": {
+        "vacuumTightness": "< 1x10^-10 mbar\u00b7l/s (VAT Group)",
+        "cycleLife": "> 2,000,000 cycles without seal failure",
+        "closingTime": "< 0.25 seconds fast safety shutoff",
+        "particleGeneration": "< 10 particles (> 0.1 \u00b5m) per cycle"
+      }
+    },
+    "RF Generators": {
+      "title": "RF Generators",
+      "tam": "$4.6B",
+      "cagr": "+8.7%",
+      "description": "Solid-state RF power generators, automatic impedance matching networks, and pulsed DC plasma power supplies.",
+      "leadingSuppliers": [
+        "MKS Instruments",
+        "Comet Group",
+        "Advanced Energy (AEIS)",
+        "DAIHEN Corporation"
+      ],
+      "substrates": [
+        "Gallium Nitride (GaN) Power FETs",
+        "Water-Cooled Copper Heat Sinks"
+      ],
+      "applications": "Plasma generation for etch, CVD, ALD, sputtering, and chamber cleaning.",
+      "keyMetrics": {
+        "powerOutput": "1 kW to 20 kW per generator",
+        "frequencyRange": "400 kHz to 100 MHz (MKS, AEIS, Comet)",
+        "tuneSpeed": "< 10 ms fast pulse matching",
+        "efficiency": "> 88% DC-to-RF efficiency"
+      }
+    },
+    "Turnkey Integrators": {
+      "title": "Turnkey Integrators",
+      "tam": "$9.8B",
+      "cagr": "+9.5%",
+      "description": "Full sub-system turnkey assembly, UHP cleanroom integration, sub-fab module build, and final functional tool testing.",
+      "leadingSuppliers": [
+        "Ultra Clean Technology (UCT)",
+        "Foxsemicon (FITI)",
+        "Sanmina",
+        "Benchmark Electronics",
+        "Celestica"
+      ],
+      "substrates": [
+        "Full System Frames",
+        "UHP Gas Sticks",
+        "Chamber Assemblies",
+        "Cables & PCBAs"
+      ],
+      "applications": "Complete etch/CVD sub-assemblies, vacuum transfer modules, gas boxes, frame integrations.",
+      "keyMetrics": {
+        "cleanroomAssembly": "ISO Class 10/100 UHP bays",
+        "turnkeyDelivery": "Dock-to-Stock certified",
+        "firstPassYield": "> 99.2% functional test pass",
+        "globalRedundancy": "Multi-continent manufacturing sites"
+      }
+    }
+  },
+  "suppliers": [
+    {
+      "id": "SUP-001",
+      "name": "Ultra Clean Technology (UCT)",
+      "commodity": "Precision Machining",
+      "region": "North America",
+      "country": "USA",
+      "city": "Hayward, CA",
+      "establishedYear": 1991,
+      "employees": 6200,
+      "financials": {
+        "freeCashFlow": 145.0,
+        "revenueHistory": {
+          "2023": 1750.0,
+          "2024": 1920.0,
+          "2025": 2100.0
+        },
+        "rndInvestment": {
+          "2023": 45.0,
+          "2024": 52.0,
+          "2025": 60.0
+        }
+      },
+      "commodityConcentration": 55.0,
+      "productBreakdown": [
+        {
+          "category": "Precision Machined Chambers",
+          "percentage": 50.0
+        },
+        {
+          "category": "Gas Delivery Sub-systems",
+          "percentage": 35.0
+        },
+        {
+          "category": "Frame Assemblies",
+          "percentage": 15.0
+        }
+      ],
+      "capabilities": {
+        "maxPartSize": "1800 x 1800 x 800 mm",
+        "monthlyOutputCapacity": "5,000 units"
+      },
+      "performance": {
+        "otdPct": 96.8,
+        "prototypeLeadTimeDays": 14,
+        "volumeLeadTimeWeeks": 5
+      },
+      "costStructure": {
+        "directLaborRate": 72.0,
+        "burdenRate": 125.0,
+        "targetProfitMargin": 22.5
+      },
+      "cadFormats": [
+        "STEP (.stp)",
+        "IGES (.igs)",
+        "SolidWorks (.sldprt)",
+        "ProE/Creo"
+      ],
+      "pfmea": [
+        {
+          "failureMode": "Micro-burrs in UHP Gas Passages",
+          "rpn": 45,
+          "severity": 7,
+          "occurrence": 3,
+          "detection": 2,
+          "mitigation": "Borescope inspection & electropolishing"
+        }
+      ],
+      "failureAnalysis": {
+        "equipment": "SEM/EDS, CMM 3D Scanning",
+        "sla8D": "24h SLA"
+      },
+      "contaminationControl": {
+        "cleanroomClass": "ISO Class 1",
+        "upwResistivity": "18.2 M\u03a9\u00b7cm"
+      },
+      "bcp": {
+        "dualSiteRedundancy": true,
+        "rtoHours": 8,
+        "certification": "ISO 22301 BCMS"
+      },
+      "logistics": {
+        "incoterms": "DDP",
+        "hubAccess": "San Francisco Int'l Airport",
+        "crating": "VCI Vacuum Nitrogen Purged",
+        "telemetry": "Automated ASN with GPS"
+      },
+      "dataSharing": {
+        "cloudPortal": true,
+        "restApi": true,
+        "edi": "ERP-to-ERP EDI"
+      }
+    },
+    {
+      "id": "SUP-002",
+      "name": "Foxsemicon Integrated Technology (FITI)",
+      "commodity": "Precision Machining",
+      "region": "Asia",
+      "country": "Taiwan",
+      "city": "Chu-Nan, Miaoli",
+      "establishedYear": 2000,
+      "employees": 4500,
+      "financials": {
+        "freeCashFlow": 180.0,
+        "revenueHistory": {
+          "2023": 850.0,
+          "2024": 940.0,
+          "2025": 1050.0
+        },
+        "rndInvestment": {
+          "2023": 38.0,
+          "2024": 44.0,
+          "2025": 50.0
+        }
+      },
+      "commodityConcentration": 68.0,
+      "productBreakdown": [
+        {
+          "category": "Etch Chamber Bodies",
+          "percentage": 60.0
+        },
+        {
+          "category": "Gas Showerheads",
+          "percentage": 40.0
+        }
+      ],
+      "capabilities": {
+        "maxPartSize": "1600 x 1600 x 700 mm",
+        "monthlyOutputCapacity": "4,200 units"
+      },
+      "performance": {
+        "otdPct": 97.4,
+        "prototypeLeadTimeDays": 12,
+        "volumeLeadTimeWeeks": 4
+      },
+      "costStructure": {
+        "directLaborRate": 48.0,
+        "burdenRate": 82.0,
+        "targetProfitMargin": 24.0
+      },
+      "cadFormats": [
+        "STEP (.stp)",
+        "IGES (.igs)",
+        "SolidWorks (.sldprt)"
+      ],
+      "pfmea": [
+        {
+          "failureMode": "Surface Anodization Pitting",
+          "rpn": 54,
+          "severity": 9,
+          "occurrence": 2,
+          "detection": 3,
+          "mitigation": "Automated bath chemistry monitoring"
+        }
+      ],
+      "failureAnalysis": {
+        "equipment": "SEM/EDS, X-Ray Flourescence",
+        "sla8D": "24h SLA"
+      },
+      "contaminationControl": {
+        "cleanroomClass": "ISO Class 1",
+        "upwResistivity": "18.2 M\u03a9\u00b7cm"
+      },
+      "bcp": {
+        "dualSiteRedundancy": true,
+        "rtoHours": 6,
+        "certification": "ISO 22301 BCMS"
+      },
+      "logistics": {
+        "incoterms": "FCA",
+        "hubAccess": "Taoyuan Int'l Airport",
+        "crating": "ShockWatch Sealed Crating",
+        "telemetry": "Automated ASN"
+      },
+      "dataSharing": {
+        "cloudPortal": true,
+        "restApi": true,
+        "edi": "EDIFACT"
+      }
+    },
+    {
+      "id": "SUP-003",
+      "name": "Ferrotec Holdings",
+      "commodity": "Precision Machining",
+      "region": "Asia",
+      "country": "Japan",
+      "city": "Tokyo",
+      "establishedYear": 1980,
+      "employees": 10500,
+      "financials": {
+        "freeCashFlow": 310.2,
+        "revenueHistory": {
+          "2023": 1450.0,
+          "2024": 1580.0,
+          "2025": 1720.0
+        },
+        "rndInvestment": {
+          "2023": 95.0,
+          "2024": 110.0,
+          "2025": 125.0
+        }
+      },
+      "commodityConcentration": 42.0,
+      "productBreakdown": [
+        {
+          "category": "Vacuum Feedthrough Machining",
+          "percentage": 50.0
+        },
+        {
+          "category": "Precision Metal Seals",
+          "percentage": 50.0
+        }
+      ],
+      "capabilities": {
+        "maxPartSize": "1400 x 1400 x 600 mm",
+        "monthlyOutputCapacity": "3,800 units"
+      },
+      "performance": {
+        "otdPct": 96.5,
+        "prototypeLeadTimeDays": 15,
+        "volumeLeadTimeWeeks": 6
+      },
+      "costStructure": {
+        "directLaborRate": 58.0,
+        "burdenRate": 98.0,
+        "targetProfitMargin": 23.0
+      },
+      "cadFormats": [
+        "STEP (.stp)",
+        "IGES (.igs)",
+        "SolidWorks (.sldprt)"
+      ],
+      "pfmea": [
+        {
+          "failureMode": "Helium Leak in Vacuum Feedthrough",
+          "rpn": 48,
+          "severity": 8,
+          "occurrence": 2,
+          "detection": 3,
+          "mitigation": "100% Mass Spectrometer Leak Testing"
+        }
+      ],
+      "failureAnalysis": {
+        "equipment": "SEM/EDS, Acoustic Microscopy",
+        "sla8D": "24\u201348h SLA"
+      },
+      "contaminationControl": {
+        "cleanroomClass": "ISO Class 3",
+        "upwResistivity": "18.2 M\u03a9\u00b7cm"
+      },
+      "bcp": {
+        "dualSiteRedundancy": true,
+        "rtoHours": 12,
+        "certification": "ISO 22301 BCMS"
+      },
+      "logistics": {
+        "incoterms": "DDP",
+        "hubAccess": "Haneda / Narita Airport",
+        "crating": "Vacuum Barrier Packaging",
+        "telemetry": "Automated ASN"
+      },
+      "dataSharing": {
+        "cloudPortal": true,
+        "restApi": true,
+        "edi": "ERP-to-ERP EDI"
+      }
+    },
+    {
+      "id": "SUP-004",
+      "name": "Technic Inc.",
+      "commodity": "Precision Machining",
+      "region": "North America",
+      "country": "USA",
+      "city": "Cranston, RI",
+      "establishedYear": 1944,
+      "employees": 1200,
+      "financials": {
+        "freeCashFlow": 45.0,
+        "revenueHistory": {
+          "2023": 310.0,
+          "2024": 340.0,
+          "2025": 375.0
+        },
+        "rndInvestment": {
+          "2023": 18.0,
+          "2024": 21.0,
+          "2025": 24.0
+        }
+      },
+      "commodityConcentration": 35.0,
+      "productBreakdown": [
+        {
+          "category": "Plating Equipment Parts",
+          "percentage": 70.0
+        },
+        {
+          "category": "Machined Manifolds",
+          "percentage": 30.0
+        }
+      ],
+      "capabilities": {
+        "maxPartSize": "1000 x 1000 x 500 mm",
+        "monthlyOutputCapacity": "1,500 units"
+      },
+      "performance": {
+        "otdPct": 95.2,
+        "prototypeLeadTimeDays": 18,
+        "volumeLeadTimeWeeks": 6
+      },
+      "costStructure": {
+        "directLaborRate": 68.0,
+        "burdenRate": 110.0,
+        "targetProfitMargin": 21.0
+      },
+      "cadFormats": [
+        "STEP (.stp)",
+        "IGES (.igs)",
+        "SolidWorks (.sldprt)"
+      ],
+      "pfmea": [
+        {
+          "failureMode": "Chemical Plating Thickness Deviation",
+          "rpn": 40,
+          "severity": 5,
+          "occurrence": 4,
+          "detection": 2,
+          "mitigation": "XRF thickness verification"
+        }
+      ],
+      "failureAnalysis": {
+        "equipment": "XRF Spectrometer, Metallurgical Lab",
+        "sla8D": "48h SLA"
+      },
+      "contaminationControl": {
+        "cleanroomClass": "ISO Class 5",
+        "upwResistivity": "18.0 M\u03a9\u00b7cm"
+      },
+      "bcp": {
+        "dualSiteRedundancy": false,
+        "rtoHours": 24,
+        "certification": "ISO 9001:2015"
+      },
+      "logistics": {
+        "incoterms": "FCA",
+        "hubAccess": "Boston Logan Airport",
+        "crating": "Standard Export Packaging",
+        "telemetry": "Manual ASN"
+      },
+      "dataSharing": {
+        "cloudPortal": true,
+        "restApi": false,
+        "edi": "EDI Standard"
+      }
+    },
+    {
+      "id": "SUP-005",
+      "name": "Ryobi Die Casting",
+      "commodity": "Casting & Specialty Metals",
+      "region": "Asia",
+      "country": "Japan",
+      "city": "Fuchu, Hiroshima",
+      "establishedYear": 1943,
+      "employees": 7800,
+      "financials": {
+        "freeCashFlow": 120.0,
+        "revenueHistory": {
+          "2023": 1800.0,
+          "2024": 1950.0,
+          "2025": 2100.0
+        },
+        "rndInvestment": {
+          "2023": 40.0,
+          "2024": 46.0,
+          "2025": 52.0
+        }
+      },
+      "commodityConcentration": 25.0,
+      "productBreakdown": [
+        {
+          "category": "Aluminum Die Cast Enclosures",
+          "percentage": 80.0
+        },
+        {
+          "category": "Structural Structural Bases",
+          "percentage": 20.0
+        }
+      ],
+      "capabilities": {
+        "maxPartSize": "2000 x 2000 x 900 mm",
+        "monthlyOutputCapacity": "12,000 units"
+      },
+      "performance": {
+        "otdPct": 96.0,
+        "prototypeLeadTimeDays": 25,
+        "volumeLeadTimeWeeks": 8
+      },
+      "costStructure": {
+        "directLaborRate": 52.0,
+        "burdenRate": 90.0,
+        "targetProfitMargin": 19.5
+      },
+      "cadFormats": [
+        "STEP (.stp)",
+        "IGES (.igs)",
+        "SolidWorks (.sldprt)"
+      ],
+      "pfmea": [
+        {
+          "failureMode": "Internal Porosity Voids",
+          "rpn": 64,
+          "severity": 8,
+          "occurrence": 4,
+          "detection": 2,
+          "mitigation": "100% Real-time X-ray tomography"
+        }
+      ],
+      "failureAnalysis": {
+        "equipment": "Industrial CT Scanner, Tensile Testers",
+        "sla8D": "48h SLA"
+      },
+      "contaminationControl": {
+        "cleanroomClass": "Industrial Controlled Environment",
+        "upwResistivity": "N/A"
+      },
+      "bcp": {
+        "dualSiteRedundancy": true,
+        "rtoHours": 24,
+        "certification": "ISO 9001 / IATF 16949"
+      },
+      "logistics": {
+        "incoterms": "FCA",
+        "hubAccess": "Hiroshima Airport / Port of Kobe",
+        "crating": "Heavy Wooden Crate",
+        "telemetry": "Automated ASN"
+      },
+      "dataSharing": {
+        "cloudPortal": true,
+        "restApi": true,
+        "edi": "EDI Standard"
+      }
+    },
+    {
+      "id": "SUP-006",
+      "name": "Kobe Steel (KOBELCO)",
+      "commodity": "Casting & Specialty Metals",
+      "region": "Asia",
+      "country": "Japan",
+      "city": "Kobe, Hyogo",
+      "establishedYear": 1905,
+      "employees": 40000,
+      "financials": {
+        "freeCashFlow": 650.0,
+        "revenueHistory": {
+          "2023": 15500.0,
+          "2024": 16200.0,
+          "2025": 1700.0
+        },
+        "rndInvestment": {
+          "2023": 350.0,
+          "2024": 380.0,
+          "2025": 410.0
+        }
+      },
+      "commodityConcentration": 12.0,
+      "productBreakdown": [
+        {
+          "category": "Specialty Aluminum Plates",
+          "percentage": 60.0
+        },
+        {
+          "category": "Titanium & Stainless Forgings",
+          "percentage": 40.0
+        }
+      ],
+      "capabilities": {
+        "maxPartSize": "3000 x 3000 x 1200 mm",
+        "monthlyOutputCapacity": "25,000 tons"
+      },
+      "performance": {
+        "otdPct": 97.2,
+        "prototypeLeadTimeDays": 30,
+        "volumeLeadTimeWeeks": 10
+      },
+      "costStructure": {
+        "directLaborRate": 55.0,
+        "burdenRate": 95.0,
+        "targetProfitMargin": 18.0
+      },
+      "cadFormats": [
+        "STEP (.stp)",
+        "IGES (.igs)",
+        "AutoCAD (.dwg)"
+      ],
+      "pfmea": [
+        {
+          "failureMode": "Inclusion Micro-defects in Heavy Plate",
+          "rpn": 48,
+          "severity": 8,
+          "occurrence": 2,
+          "detection": 3,
+          "mitigation": "Ultrasonic immersion testing"
+        }
+      ],
+      "failureAnalysis": {
+        "equipment": "Ultrasonic Immersion NDT, Metallurgical Microscope",
+        "sla8D": "48h SLA"
+      },
+      "contaminationControl": {
+        "cleanroomClass": "Standard Manufacturing",
+        "upwResistivity": "N/A"
+      },
+      "bcp": {
+        "dualSiteRedundancy": true,
+        "rtoHours": 12,
+        "certification": "ISO 9001 / ISO 14001"
+      },
+      "logistics": {
+        "incoterms": "FOB",
+        "hubAccess": "Port of Kobe",
+        "crating": "Export Steel Packaging",
+        "telemetry": "Automated Shipping Notice"
+      },
+      "dataSharing": {
+        "cloudPortal": true,
+        "restApi": true,
+        "edi": "EDI Standard"
+      }
+    },
+    {
+      "id": "SUP-007",
+      "name": "Hitachi Metals (Proterial)",
+      "commodity": "Casting & Specialty Metals",
+      "region": "Asia",
+      "country": "Japan",
+      "city": "Tokyo",
+      "establishedYear": 1956,
+      "employees": 28000,
+      "financials": {
+        "freeCashFlow": 420.0,
+        "revenueHistory": {
+          "2023": 7500.0,
+          "2024": 7900.0,
+          "2025": 8300.0
+        },
+        "rndInvestment": {
+          "2023": 210.0,
+          "2024": 230.0,
+          "2025": 250.0
+        }
+      },
+      "commodityConcentration": 22.0,
+      "productBreakdown": [
+        {
+          "category": "High-Purity Specialty Alloys",
+          "percentage": 50.0
+        },
+        {
+          "category": "Magnetic & Ceramic Materials",
+          "percentage": 50.0
+        }
+      ],
+      "capabilities": {
+        "maxPartSize": "2500 x 2500 x 1000 mm",
+        "monthlyOutputCapacity": "18,000 tons"
+      },
+      "performance": {
+        "otdPct": 96.8,
+        "prototypeLeadTimeDays": 22,
+        "volumeLeadTimeWeeks": 7
+      },
+      "costStructure": {
+        "directLaborRate": 56.0,
+        "burdenRate": 96.0,
+        "targetProfitMargin": 21.0
+      },
+      "cadFormats": [
+        "STEP (.stp)",
+        "IGES (.igs)",
+        "SolidWorks (.sldprt)"
+      ],
+      "pfmea": [
+        {
+          "failureMode": "Thermal Coefficient Mismatch in Alloys",
+          "rpn": 36,
+          "severity": 9,
+          "occurrence": 2,
+          "detection": 2,
+          "mitigation": "Dilatometer CTE verification"
+        }
+      ],
+      "failureAnalysis": {
+        "equipment": "FE-SEM, Dilatometer, OES Analysis",
+        "sla8D": "24\u201348h SLA"
+      },
+      "contaminationControl": {
+        "cleanroomClass": "ISO Class 7",
+        "upwResistivity": "18.0 M\u03a9\u00b7cm"
+      },
+      "bcp": {
+        "dualSiteRedundancy": true,
+        "rtoHours": 12,
+        "certification": "ISO 9001 / ISO 14001"
+      },
+      "logistics": {
+        "incoterms": "DDP",
+        "hubAccess": "Haneda Airport / Port of Yokohama",
+        "crating": "VCI Hermetic Crating",
+        "telemetry": "Automated ASN"
+      },
+      "dataSharing": {
+        "cloudPortal": true,
+        "restApi": true,
+        "edi": "ERP EDI"
+      }
+    },
+    {
+      "id": "SUP-008",
+      "name": "Sanmina Corporation",
+      "commodity": "Casting & Specialty Metals",
+      "region": "North America",
+      "country": "USA",
+      "city": "San Jose, CA",
+      "establishedYear": 1980,
+      "employees": 34000,
+      "financials": {
+        "freeCashFlow": 380.0,
+        "revenueHistory": {
+          "2023": 8900.0,
+          "2024": 9200.0,
+          "2025": 9600.0
+        },
+        "rndInvestment": {
+          "2023": 120.0,
+          "2024": 135.0,
+          "2025": 150.0
+        }
+      },
+      "commodityConcentration": 18.0,
+      "productBreakdown": [
+        {
+          "category": "Precision Metal Enclosures",
+          "percentage": 50.0
+        },
+        {
+          "category": "Heavy Frame Fabrication",
+          "percentage": 50.0
+        }
+      ],
+      "capabilities": {
+        "maxPartSize": "2200 x 2200 x 1100 mm",
+        "monthlyOutputCapacity": "8,000 units"
+      },
+      "performance": {
+        "otdPct": 95.8,
+        "prototypeLeadTimeDays": 16,
+        "volumeLeadTimeWeeks": 6
+      },
+      "costStructure": {
+        "directLaborRate": 65.0,
+        "burdenRate": 115.0,
+        "targetProfitMargin": 20.0
+      },
+      "cadFormats": [
+        "STEP (.stp)",
+        "IGES (.igs)",
+        "SolidWorks (.sldprt)",
+        "ProE/Creo"
+      ],
+      "pfmea": [
+        {
+          "failureMode": "Cast Frame Weld Joint Fatigue",
+          "rpn": 50,
+          "severity": 10,
+          "occurrence": 1,
+          "detection": 5,
+          "mitigation": "FEA Stress modeling & NDT testing"
+        }
+      ],
+      "failureAnalysis": {
+        "equipment": "CMM 3D, Radiographic NDT",
+        "sla8D": "24h SLA"
+      },
+      "contaminationControl": {
+        "cleanroomClass": "ISO Class 5",
+        "upwResistivity": "18.0 M\u03a9\u00b7cm"
+      },
+      "bcp": {
+        "dualSiteRedundancy": true,
+        "rtoHours": 8,
+        "certification": "ISO 9001 / AS9100"
+      },
+      "logistics": {
+        "incoterms": "DDP",
+        "hubAccess": "San Jose Airport",
+        "crating": "ShockWatch Heavy Wooden Packaging",
+        "telemetry": "Automated ASN with GPS"
+      },
+      "dataSharing": {
+        "cloudPortal": true,
+        "restApi": true,
+        "edi": "EDI Standard"
+      }
+    },
+    {
+      "id": "SUP-009",
+      "name": "Benchmark Electronics",
+      "commodity": "Welding & Frame Fabrication",
+      "region": "North America",
+      "country": "USA",
+      "city": "Tempe, AZ",
+      "establishedYear": 1979,
+      "employees": 11500,
+      "financials": {
+        "freeCashFlow": 160.0,
+        "revenueHistory": {
+          "2023": 2800.0,
+          "2024": 2950.0,
+          "2025": 3150.0
+        },
+        "rndInvestment": {
+          "2023": 65.0,
+          "2024": 72.0,
+          "2025": 80.0
+        }
+      },
+      "commodityConcentration": 30.0,
+      "productBreakdown": [
+        {
+          "category": "Precision Welded Frames",
+          "percentage": 50.0
+        },
+        {
+          "category": "Gas Manifold Boxes",
+          "percentage": 50.0
+        }
+      ],
+      "capabilities": {
+        "maxPartSize": "2500 x 2500 x 1200 mm",
+        "monthlyOutputCapacity": "2,500 units"
+      },
+      "performance": {
+        "otdPct": 96.3,
+        "prototypeLeadTimeDays": 14,
+        "volumeLeadTimeWeeks": 5
+      },
+      "costStructure": {
+        "directLaborRate": 70.0,
+        "burdenRate": 120.0,
+        "targetProfitMargin": 22.0
+      },
+      "cadFormats": [
+        "STEP (.stp)",
+        "IGES (.igs)",
+        "SolidWorks (.sldprt)"
+      ],
+      "pfmea": [
+        {
+          "failureMode": "Orbital Weld Discoloration (Oxidation)",
+          "rpn": 42,
+          "severity": 7,
+          "occurrence": 2,
+          "detection": 3,
+          "mitigation": "99.9999% Purge Argon line locks"
+        }
+      ],
+      "failureAnalysis": {
+        "equipment": "Orbital Weld Borescope, Helium Leak Detector",
+        "sla8D": "24h SLA"
+      },
+      "contaminationControl": {
+        "cleanroomClass": "ISO Class 1",
+        "upwResistivity": "18.2 M\u03a9\u00b7cm"
+      },
+      "bcp": {
+        "dualSiteRedundancy": true,
+        "rtoHours": 8,
+        "certification": "ISO 9001 / ISO 13485"
+      },
+      "logistics": {
+        "incoterms": "DDP",
+        "hubAccess": "Phoenix Sky Harbor Airport",
+        "crating": "ShockWatch Cleanroom Nitrogen Sealed",
+        "telemetry": "Automated ASN with GPS"
+      },
+      "dataSharing": {
+        "cloudPortal": true,
+        "restApi": true,
+        "edi": "EDI Standard"
+      }
+    },
+    {
+      "id": "SUP-010",
+      "name": "Dynamic Manufacturing",
+      "commodity": "Welding & Frame Fabrication",
+      "region": "North America",
+      "country": "USA",
+      "city": "Albuquerque, NM",
+      "establishedYear": 1985,
+      "employees": 850,
+      "financials": {
+        "freeCashFlow": 32.0,
+        "revenueHistory": {
+          "2023": 180.0,
+          "2024": 205.0,
+          "2025": 230.0
+        },
+        "rndInvestment": {
+          "2023": 8.0,
+          "2024": 10.0,
+          "2025": 12.0
+        }
+      },
+      "commodityConcentration": 75.0,
+      "productBreakdown": [
+        {
+          "category": "Heavy Tool Weldments",
+          "percentage": 80.0
+        },
+        {
+          "category": "Chassis Frames",
+          "percentage": 20.0
+        }
+      ],
+      "capabilities": {
+        "maxPartSize": "3000 x 3000 x 1500 mm",
+        "monthlyOutputCapacity": "1,200 units"
+      },
+      "performance": {
+        "otdPct": 94.8,
+        "prototypeLeadTimeDays": 18,
+        "volumeLeadTimeWeeks": 6
+      },
+      "costStructure": {
+        "directLaborRate": 62.0,
+        "burdenRate": 105.0,
+        "targetProfitMargin": 20.0
+      },
+      "cadFormats": [
+        "STEP (.stp)",
+        "IGES (.igs)",
+        "SolidWorks (.sldprt)"
+      ],
+      "pfmea": [
+        {
+          "failureMode": "Frame Distortion during Stress Relief",
+          "rpn": 50,
+          "severity": 10,
+          "occurrence": 1,
+          "detection": 5,
+          "mitigation": "Vibratory stress relief & laser tracker CMM"
+        }
+      ],
+      "failureAnalysis": {
+        "equipment": "Laser Tracker CMM, NDT Dye Penetrant",
+        "sla8D": "48h SLA"
+      },
+      "contaminationControl": {
+        "cleanroomClass": "ISO Class 7",
+        "upwResistivity": "17.5 M\u03a9\u00b7cm"
+      },
+      "bcp": {
+        "dualSiteRedundancy": false,
+        "rtoHours": 36,
+        "certification": "ISO 9001:2015"
+      },
+      "logistics": {
+        "incoterms": "FCA",
+        "hubAccess": "Albuquerque Sunport",
+        "crating": "Custom Heavy Duty Skids",
+        "telemetry": "Manual ASN"
+      },
+      "dataSharing": {
+        "cloudPortal": true,
+        "restApi": false,
+        "edi": "EDI Standard"
+      }
+    },
+    {
+      "id": "SUP-011",
+      "name": "Mott Corporation",
+      "commodity": "Welding & Frame Fabrication",
+      "region": "North America",
+      "country": "USA",
+      "city": "Farmington, CT",
+      "establishedYear": 1959,
+      "employees": 650,
+      "financials": {
+        "freeCashFlow": 28.0,
+        "revenueHistory": {
+          "2023": 160.0,
+          "2024": 185.0,
+          "2025": 210.0
+        },
+        "rndInvestment": {
+          "2023": 12.0,
+          "2024": 15.0,
+          "2025": 18.0
+        }
+      },
+      "commodityConcentration": 45.0,
+      "productBreakdown": [
+        {
+          "category": "Porous Metal Filter Weldments",
+          "percentage": 70.0
+        },
+        {
+          "category": "UHP Flow Assemblies",
+          "percentage": 30.0
+        }
+      ],
+      "capabilities": {
+        "maxPartSize": "800 x 800 x 600 mm",
+        "monthlyOutputCapacity": "6,000 units"
+      },
+      "performance": {
+        "otdPct": 97.1,
+        "prototypeLeadTimeDays": 10,
+        "volumeLeadTimeWeeks": 4
+      },
+      "costStructure": {
+        "directLaborRate": 74.0,
+        "burdenRate": 128.0,
+        "targetProfitMargin": 25.0
+      },
+      "cadFormats": [
+        "STEP (.stp)",
+        "IGES (.igs)",
+        "SolidWorks (.sldprt)"
+      ],
+      "pfmea": [
+        {
+          "failureMode": "Particulate Shedding at Weld Seams",
+          "rpn": 35,
+          "severity": 7,
+          "occurrence": 1,
+          "detection": 5,
+          "mitigation": "High-pressure DI water flush & SEM verification"
+        }
+      ],
+      "failureAnalysis": {
+        "equipment": "SEM, LPC Particle Counters",
+        "sla8D": "24h SLA"
+      },
+      "contaminationControl": {
+        "cleanroomClass": "ISO Class 1",
+        "upwResistivity": "18.2 M\u03a9\u00b7cm"
+      },
+      "bcp": {
+        "dualSiteRedundancy": true,
+        "rtoHours": 12,
+        "certification": "ISO 9001:2015"
+      },
+      "logistics": {
+        "incoterms": "DDP",
+        "hubAccess": "Bradley Int'l Airport",
+        "crating": "Vacuum Sealed Bag-in-Bag",
+        "telemetry": "Automated ASN"
+      },
+      "dataSharing": {
+        "cloudPortal": true,
+        "restApi": true,
+        "edi": "ERP EDI"
+      }
+    },
+    {
+      "id": "SUP-012",
+      "name": "Edwards Vacuum",
+      "commodity": "Pumps (Vacuum & Liquid)",
+      "region": "Europe",
+      "country": "UK",
+      "city": "Burgess Hill",
+      "establishedYear": 1919,
+      "employees": 12000,
+      "financials": {
+        "freeCashFlow": 450.0,
+        "revenueHistory": {
+          "2023": 2400.0,
+          "2024": 2600.0,
+          "2025": 2850.0
+        },
+        "rndInvestment": {
+          "2023": 140.0,
+          "2024": 155.0,
+          "2025": 170.0
+        }
+      },
+      "commodityConcentration": 85.0,
+      "productBreakdown": [
+        {
+          "category": "Dry Vacuum Pumps",
+          "percentage": 55.0
+        },
+        {
+          "category": "Turbomolecular Pumps",
+          "percentage": 30.0
+        },
+        {
+          "category": "Abatement Scrubbers",
+          "percentage": 15.0
+        }
+      ],
+      "capabilities": {
+        "maxPartSize": "1200 x 1000 x 900 mm",
+        "monthlyOutputCapacity": "8,500 units"
+      },
+      "performance": {
+        "otdPct": 97.5,
+        "prototypeLeadTimeDays": 21,
+        "volumeLeadTimeWeeks": 6
+      },
+      "costStructure": {
+        "directLaborRate": 68.0,
+        "burdenRate": 118.0,
+        "targetProfitMargin": 26.0
+      },
+      "cadFormats": [
+        "STEP (.stp)",
+        "IGES (.igs)",
+        "SolidWorks (.sldprt)",
+        "CATIA"
+      ],
+      "pfmea": [
+        {
+          "failureMode": "Mag-Lev Bearing De-levitation under Sudden Venting",
+          "rpn": 32,
+          "severity": 8,
+          "occurrence": 1,
+          "detection": 4,
+          "mitigation": "Touchdown mechanical emergency bearings"
+        }
+      ],
+      "failureAnalysis": {
+        "equipment": "Vibration FFT Analyzers, SEM/EDS",
+        "sla8D": "24h SLA"
+      },
+      "contaminationControl": {
+        "cleanroomClass": "ISO Class 3",
+        "upwResistivity": "18.2 M\u03a9\u00b7cm"
+      },
+      "bcp": {
+        "dualSiteRedundancy": true,
+        "rtoHours": 6,
+        "certification": "ISO 22301 / ISO 9001"
+      },
+      "logistics": {
+        "incoterms": "DDP",
+        "hubAccess": "London Gatwick Airport",
+        "crating": "Shock-isolated Crating",
+        "telemetry": "Automated ASN with GPS"
+      },
+      "dataSharing": {
+        "cloudPortal": true,
+        "restApi": true,
+        "edi": "ERP-to-ERP EDI"
+      }
+    },
+    {
+      "id": "SUP-013",
+      "name": "Pfeiffer Vacuum",
+      "commodity": "Pumps (Vacuum & Liquid)",
+      "region": "Europe",
+      "country": "Germany",
+      "city": "A\u00dflar",
+      "establishedYear": 1890,
+      "employees": 4000,
+      "financials": {
+        "freeCashFlow": 110.0,
+        "revenueHistory": {
+          "2023": 950.0,
+          "2024": 1050.0,
+          "2025": 1150.0
+        },
+        "rndInvestment": {
+          "2023": 55.0,
+          "2024": 62.0,
+          "2025": 70.0
+        }
+      },
+      "commodityConcentration": 80.0,
+      "productBreakdown": [
+        {
+          "category": "Turbomolecular Pumps",
+          "percentage": 65.0
+        },
+        {
+          "category": "Helium Leak Detectors",
+          "percentage": 35.0
+        }
+      ],
+      "capabilities": {
+        "maxPartSize": "900 x 900 x 750 mm",
+        "monthlyOutputCapacity": "4,500 units"
+      },
+      "performance": {
+        "otdPct": 96.9,
+        "prototypeLeadTimeDays": 20,
+        "volumeLeadTimeWeeks": 5
+      },
+      "costStructure": {
+        "directLaborRate": 78.0,
+        "burdenRate": 132.0,
+        "targetProfitMargin": 25.0
+      },
+      "cadFormats": [
+        "STEP (.stp)",
+        "IGES (.igs)",
+        "SolidWorks (.sldprt)"
+      ],
+      "pfmea": [
+        {
+          "failureMode": "High Speed Rotor Imbalance at > 60,000 RPM",
+          "rpn": 36,
+          "severity": 9,
+          "occurrence": 1,
+          "detection": 4,
+          "mitigation": "Dynamic 3D laser balancing"
+        }
+      ],
+      "failureAnalysis": {
+        "equipment": "Laser Dynamic Balancers, Helium Mass Spec",
+        "sla8D": "24h SLA"
+      },
+      "contaminationControl": {
+        "cleanroomClass": "ISO Class 3",
+        "upwResistivity": "18.2 M\u03a9\u00b7cm"
+      },
+      "bcp": {
+        "dualSiteRedundancy": true,
+        "rtoHours": 8,
+        "certification": "ISO 9001 / ISO 14001"
+      },
+      "logistics": {
+        "incoterms": "FCA",
+        "hubAccess": "Frankfurt Airport",
+        "crating": "Precision Dampened Crating",
+        "telemetry": "Automated ASN"
+      },
+      "dataSharing": {
+        "cloudPortal": true,
+        "restApi": true,
+        "edi": "EDI Standard"
+      }
+    },
+    {
+      "id": "SUP-014",
+      "name": "Ebara Corporation",
+      "commodity": "Pumps (Vacuum & Liquid)",
+      "region": "Asia",
+      "country": "Japan",
+      "city": "Tokyo",
+      "establishedYear": 1912,
+      "employees": 19000,
+      "financials": {
+        "freeCashFlow": 320.0,
+        "revenueHistory": {
+          "2023": 4500.0,
+          "2024": 4800.0,
+          "2025": 5200.0
+        },
+        "rndInvestment": {
+          "2023": 180.0,
+          "2024": 200.0,
+          "2025": 220.0
+        }
+      },
+      "commodityConcentration": 40.0,
+      "productBreakdown": [
+        {
+          "category": "Dry Vacuum Pumps",
+          "percentage": 50.0
+        },
+        {
+          "category": "CMP Liquid Slurry Pumps",
+          "percentage": 50.0
+        }
+      ],
+      "capabilities": {
+        "maxPartSize": "1400 x 1200 x 1000 mm",
+        "monthlyOutputCapacity": "6,000 units"
+      },
+      "performance": {
+        "otdPct": 97.8,
+        "prototypeLeadTimeDays": 18,
+        "volumeLeadTimeWeeks": 5
+      },
+      "costStructure": {
+        "directLaborRate": 56.0,
+        "burdenRate": 96.0,
+        "targetProfitMargin": 23.0
+      },
+      "cadFormats": [
+        "STEP (.stp)",
+        "IGES (.igs)",
+        "SolidWorks (.sldprt)"
+      ],
+      "pfmea": [
+        {
+          "failureMode": "Chemical Slurry Seal Abrasion in CMP",
+          "rpn": 40,
+          "severity": 8,
+          "occurrence": 2,
+          "detection": 2.5,
+          "mitigation": "SiC Mechanical Face Seals"
+        }
+      ],
+      "failureAnalysis": {
+        "equipment": "Fluid Dynamic Simulators, SEM/EDS",
+        "sla8D": "24h SLA"
+      },
+      "contaminationControl": {
+        "cleanroomClass": "ISO Class 1",
+        "upwResistivity": "18.2 M\u03a9\u00b7cm"
+      },
+      "bcp": {
+        "dualSiteRedundancy": true,
+        "rtoHours": 6,
+        "certification": "ISO 22301 / ISO 9001"
+      },
+      "logistics": {
+        "incoterms": "DDP",
+        "hubAccess": "Haneda Airport / Port of Yokohama",
+        "crating": "ShockWatch Hermetic Crating",
+        "telemetry": "Automated ASN with GPS"
+      },
+      "dataSharing": {
+        "cloudPortal": true,
+        "restApi": true,
+        "edi": "ERP EDI"
+      }
+    },
+    {
+      "id": "SUP-015",
+      "name": "Busch Vacuum Solutions",
+      "commodity": "Pumps (Vacuum & Liquid)",
+      "region": "Europe",
+      "country": "Germany",
+      "city": "Maulburg",
+      "establishedYear": 1963,
+      "employees": 3800,
+      "financials": {
+        "freeCashFlow": 95.0,
+        "revenueHistory": {
+          "2023": 880.0,
+          "2024": 960.0,
+          "2025": 1050.0
+        },
+        "rndInvestment": {
+          "2023": 42.0,
+          "2024": 48.0,
+          "2025": 55.0
+        }
+      },
+      "commodityConcentration": 35.0,
+      "productBreakdown": [
+        {
+          "category": "Rotary Vane Vacuum Pumps",
+          "percentage": 60.0
+        },
+        {
+          "category": "Dry Claw Systems",
+          "percentage": 40.0
+        }
+      ],
+      "capabilities": {
+        "maxPartSize": "1100 x 950 x 800 mm",
+        "monthlyOutputCapacity": "3,800 units"
+      },
+      "performance": {
+        "otdPct": 95.7,
+        "prototypeLeadTimeDays": 22,
+        "volumeLeadTimeWeeks": 7
+      },
+      "costStructure": {
+        "directLaborRate": 74.0,
+        "burdenRate": 125.0,
+        "targetProfitMargin": 22.0
+      },
+      "cadFormats": [
+        "STEP (.stp)",
+        "IGES (.igs)",
+        "SolidWorks (.sldprt)"
+      ],
+      "pfmea": [
+        {
+          "failureMode": "Oil Backstreaming in Vane Pumps",
+          "rpn": 45,
+          "severity": 9,
+          "occurrence": 1,
+          "detection": 5,
+          "mitigation": "Integrated anti-suckback valves & synthetic fluids"
+        }
+      ],
+      "failureAnalysis": {
+        "equipment": "GC-MS Oil Analysis, Acoustic Test Benches",
+        "sla8D": "48h SLA"
+      },
+      "contaminationControl": {
+        "cleanroomClass": "ISO Class 5",
+        "upwResistivity": "18.0 M\u03a9\u00b7cm"
+      },
+      "bcp": {
+        "dualSiteRedundancy": true,
+        "rtoHours": 12,
+        "certification": "ISO 9001:2015"
+      },
+      "logistics": {
+        "incoterms": "FCA",
+        "hubAccess": "Zurich Airport / Basel Airport",
+        "crating": "Export Wooden Boxes",
+        "telemetry": "Automated ASN"
+      },
+      "dataSharing": {
+        "cloudPortal": true,
+        "restApi": true,
+        "edi": "EDI Standard"
+      }
+    },
+    {
+      "id": "SUP-016",
+      "name": "Shimadzu Corporation",
+      "commodity": "Pumps (Vacuum & Liquid)",
+      "region": "Asia",
+      "country": "Japan",
+      "city": "Kyoto",
+      "establishedYear": 1875,
+      "employees": 13500,
+      "financials": {
+        "freeCashFlow": 290.0,
+        "revenueHistory": {
+          "2023": 3600.0,
+          "2024": 3850.0,
+          "2025": 4150.0
+        },
+        "rndInvestment": {
+          "2023": 170.0,
+          "2024": 188.0,
+          "2025": 205.0
+        }
+      },
+      "commodityConcentration": 28.0,
+      "productBreakdown": [
+        {
+          "category": "TMP Mag-Lev Pumps",
+          "percentage": 70.0
+        },
+        {
+          "category": "Liquid Chromatography Pumps",
+          "percentage": 30.0
+        }
+      ],
+      "capabilities": {
+        "maxPartSize": "1000 x 900 x 800 mm",
+        "monthlyOutputCapacity": "4,200 units"
+      },
+      "performance": {
+        "otdPct": 98.1,
+        "prototypeLeadTimeDays": 16,
+        "volumeLeadTimeWeeks": 5
+      },
+      "costStructure": {
+        "directLaborRate": 58.0,
+        "burdenRate": 99.0,
+        "targetProfitMargin": 24.5
+      },
+      "cadFormats": [
+        "STEP (.stp)",
+        "IGES (.igs)",
+        "SolidWorks (.sldprt)"
+      ],
+      "pfmea": [
+        {
+          "failureMode": "5-Axis Mag-Lev Sensor Drift under Thermal Gradient",
+          "rpn": 30,
+          "severity": 6,
+          "occurrence": 1,
+          "detection": 5,
+          "mitigation": "Active digital thermal compensation software"
+        }
+      ],
+      "failureAnalysis": {
+        "equipment": "X-Ray Micro-CT, Laser Doppler Vibrometer",
+        "sla8D": "24h SLA"
+      },
+      "contaminationControl": {
+        "cleanroomClass": "ISO Class 1",
+        "upwResistivity": "18.2 M\u03a9\u00b7cm"
+      },
+      "bcp": {
+        "dualSiteRedundancy": true,
+        "rtoHours": 8,
+        "certification": "ISO 22301 / ISO 9001"
+      },
+      "logistics": {
+        "incoterms": "DDP",
+        "hubAccess": "Kansai Int'l Airport",
+        "crating": "ShockWatch Precision Nitrogen Crating",
+        "telemetry": "Automated ASN with GPS"
+      },
+      "dataSharing": {
+        "cloudPortal": true,
+        "restApi": true,
+        "edi": "ERP EDI"
+      }
+    },
+    {
+      "id": "SUP-017",
+      "name": "Horiba STEC",
+      "commodity": "Gas Flow Controls (MFCs)",
+      "region": "Asia",
+      "country": "Japan",
+      "city": "Kyoto",
+      "establishedYear": 1974,
+      "employees": 3200,
+      "financials": {
+        "freeCashFlow": 150.0,
+        "revenueHistory": {
+          "2023": 920.0,
+          "2024": 1020.0,
+          "2025": 1130.0
+        },
+        "rndInvestment": {
+          "2023": 65.0,
+          "2024": 74.0,
+          "2025": 82.0
+        }
+      },
+      "commodityConcentration": 90.0,
+      "productBreakdown": [
+        {
+          "category": "Digital Mass Flow Controllers",
+          "percentage": 75.0
+        },
+        {
+          "category": "Liquid Vaporization Systems",
+          "percentage": 25.0
+        }
+      ],
+      "capabilities": {
+        "maxPartSize": "300 x 200 x 150 mm",
+        "monthlyOutputCapacity": "18,000 units"
+      },
+      "performance": {
+        "otdPct": 98.4,
+        "prototypeLeadTimeDays": 10,
+        "volumeLeadTimeWeeks": 3
+      },
+      "costStructure": {
+        "directLaborRate": 60.0,
+        "burdenRate": 102.0,
+        "targetProfitMargin": 28.0
+      },
+      "cadFormats": [
+        "STEP (.stp)",
+        "IGES (.igs)",
+        "SolidWorks (.sldprt)"
+      ],
+      "pfmea": [
+        {
+          "failureMode": "Piezo Valve Seat Contamination",
+          "rpn": 28,
+          "severity": 7,
+          "occurrence": 1,
+          "detection": 4,
+          "mitigation": "Cleanroom ultrasonic gas flushing"
+        }
+      ],
+      "failureAnalysis": {
+        "equipment": "SEM/EDS, Mass Spec Flow Calibration Benches",
+        "sla8D": "24h SLA"
+      },
+      "contaminationControl": {
+        "cleanroomClass": "ISO Class 1",
+        "upwResistivity": "18.2 M\u03a9\u00b7cm"
+      },
+      "bcp": {
+        "dualSiteRedundancy": true,
+        "rtoHours": 6,
+        "certification": "ISO 22301 / ISO 9001"
+      },
+      "logistics": {
+        "incoterms": "DDP",
+        "hubAccess": "Kansai Int'l Airport",
+        "crating": "Double Bagged Cleanroom Foil Packaging",
+        "telemetry": "Automated ASN with GPS"
+      },
+      "dataSharing": {
+        "cloudPortal": true,
+        "restApi": true,
+        "edi": "ERP-to-ERP EDI"
+      }
+    },
+    {
+      "id": "SUP-018",
+      "name": "MKS Instruments (Brooks Instrument)",
+      "commodity": "Gas Flow Controls (MFCs)",
+      "region": "North America",
+      "country": "USA",
+      "city": "Hatfield, PA",
+      "establishedYear": 1946,
+      "employees": 4500,
+      "financials": {
+        "freeCashFlow": 220.0,
+        "revenueHistory": {
+          "2023": 1400.0,
+          "2024": 1550.0,
+          "2025": 1700.0
+        },
+        "rndInvestment": {
+          "2023": 110.0,
+          "2024": 125.0,
+          "2025": 140.0
+        }
+      },
+      "commodityConcentration": 80.0,
+      "productBreakdown": [
+        {
+          "category": "Elastomer & Metal Sealed MFCs",
+          "percentage": 70.0
+        },
+        {
+          "category": "Pressure Controllers",
+          "percentage": 30.0
+        }
+      ],
+      "capabilities": {
+        "maxPartSize": "350 x 250 x 180 mm",
+        "monthlyOutputCapacity": "15,000 units"
+      },
+      "performance": {
+        "otdPct": 97.2,
+        "prototypeLeadTimeDays": 12,
+        "volumeLeadTimeWeeks": 4
+      },
+      "costStructure": {
+        "directLaborRate": 76.0,
+        "burdenRate": 130.0,
+        "targetProfitMargin": 27.0
+      },
+      "cadFormats": [
+        "STEP (.stp)",
+        "IGES (.igs)",
+        "SolidWorks (.sldprt)"
+      ],
+      "pfmea": [
+        {
+          "failureMode": "Thermal Sensor Drift at High Ambient Temp",
+          "rpn": 32,
+          "severity": 8,
+          "occurrence": 1,
+          "detection": 4,
+          "mitigation": "Digital multi-point temperature lookup calibration"
+        }
+      ],
+      "failureAnalysis": {
+        "equipment": "Precision Calibration Standard, SEM/EDS",
+        "sla8D": "24h SLA"
+      },
+      "contaminationControl": {
+        "cleanroomClass": "ISO Class 1",
+        "upwResistivity": "18.2 M\u03a9\u00b7cm"
+      },
+      "bcp": {
+        "dualSiteRedundancy": true,
+        "rtoHours": 8,
+        "certification": "ISO 9001 / ISO 14001"
+      },
+      "logistics": {
+        "incoterms": "DDP",
+        "hubAccess": "Philadelphia Int'l Airport",
+        "crating": "Vacuum Sealed ESD Bagging",
+        "telemetry": "Automated ASN with GPS"
+      },
+      "dataSharing": {
+        "cloudPortal": true,
+        "restApi": true,
+        "edi": "EDI Standard"
+      }
+    },
+    {
+      "id": "SUP-019",
+      "name": "Fujikin / Nippon Sanso",
+      "commodity": "Gas Flow Controls (MFCs)",
+      "region": "Asia",
+      "country": "Japan",
+      "city": "Osaka",
+      "establishedYear": 1930,
+      "employees": 5800,
+      "financials": {
+        "freeCashFlow": 190.0,
+        "revenueHistory": {
+          "2023": 1250.0,
+          "2024": 1380.0,
+          "2025": 1500.0
+        },
+        "rndInvestment": {
+          "2023": 70.0,
+          "2024": 80.0,
+          "2025": 90.0
+        }
+      },
+      "commodityConcentration": 70.0,
+      "productBreakdown": [
+        {
+          "category": "UHP Gas Valves & Fittings",
+          "percentage": 60.0
+        },
+        {
+          "category": "Integrated Gas Systems (IGS)",
+          "percentage": 40.0
+        }
+      ],
+      "capabilities": {
+        "maxPartSize": "500 x 400 x 300 mm",
+        "monthlyOutputCapacity": "22,000 units"
+      },
+      "performance": {
+        "otdPct": 98.0,
+        "prototypeLeadTimeDays": 11,
+        "volumeLeadTimeWeeks": 4
+      },
+      "costStructure": {
+        "directLaborRate": 58.0,
+        "burdenRate": 98.0,
+        "targetProfitMargin": 25.0
+      },
+      "cadFormats": [
+        "STEP (.stp)",
+        "IGES (.igs)",
+        "SolidWorks (.sldprt)"
+      ],
+      "pfmea": [
+        {
+          "failureMode": "Metal Gasket Leak during Thermal Cycling",
+          "rpn": 24,
+          "severity": 8,
+          "occurrence": 1,
+          "detection": 3,
+          "mitigation": "Fine-pitch torque control & Gold-plated gaskets"
+        }
+      ],
+      "failureAnalysis": {
+        "equipment": "Helium Leak Mass Spec, FE-SEM",
+        "sla8D": "24h SLA"
+      },
+      "contaminationControl": {
+        "cleanroomClass": "ISO Class 1",
+        "upwResistivity": "18.2 M\u03a9\u00b7cm"
+      },
+      "bcp": {
+        "dualSiteRedundancy": true,
+        "rtoHours": 6,
+        "certification": "ISO 22301 / ISO 9001"
+      },
+      "logistics": {
+        "incoterms": "DDP",
+        "hubAccess": "Kansai Int'l Airport",
+        "crating": "Nitrogen Purged Hermetic Bagging",
+        "telemetry": "Automated ASN with GPS"
+      },
+      "dataSharing": {
+        "cloudPortal": true,
+        "restApi": true,
+        "edi": "ERP EDI"
+      }
+    },
+    {
+      "id": "SUP-020",
+      "name": "Bronkhorst High-Tech",
+      "commodity": "Gas Flow Controls (MFCs)",
+      "region": "Europe",
+      "country": "Netherlands",
+      "city": "Ruurlo",
+      "establishedYear": 1981,
+      "employees": 650,
+      "financials": {
+        "freeCashFlow": 35.0,
+        "revenueHistory": {
+          "2023": 190.0,
+          "2024": 215.0,
+          "2025": 240.0
+        },
+        "rndInvestment": {
+          "2023": 18.0,
+          "2024": 21.0,
+          "2025": 24.0
+        }
+      },
+      "commodityConcentration": 85.0,
+      "productBreakdown": [
+        {
+          "category": "Micro-Thermal MFCs",
+          "percentage": 70.0
+        },
+        {
+          "category": "Coriolis Direct Mass Meters",
+          "percentage": 30.0
+        }
+      ],
+      "capabilities": {
+        "maxPartSize": "250 x 200 x 120 mm",
+        "monthlyOutputCapacity": "6,000 units"
+      },
+      "performance": {
+        "otdPct": 96.6,
+        "prototypeLeadTimeDays": 14,
+        "volumeLeadTimeWeeks": 4
+      },
+      "costStructure": {
+        "directLaborRate": 72.0,
+        "burdenRate": 122.0,
+        "targetProfitMargin": 26.0
+      },
+      "cadFormats": [
+        "STEP (.stp)",
+        "IGES (.igs)",
+        "SolidWorks (.sldprt)"
+      ],
+      "pfmea": [
+        {
+          "failureMode": "MEMS Sensor Chip Cracking under Pressure Spike",
+          "rpn": 30,
+          "severity": 6,
+          "occurrence": 1,
+          "detection": 5,
+          "mitigation": "Integrated pressure relief restrictors"
+        }
+      ],
+      "failureAnalysis": {
+        "equipment": "MEMS Analyzer, SEM/EDS Laboratory",
+        "sla8D": "24\u201348h SLA"
+      },
+      "contaminationControl": {
+        "cleanroomClass": "ISO Class 3",
+        "upwResistivity": "18.2 M\u03a9\u00b7cm"
+      },
+      "bcp": {
+        "dualSiteRedundancy": true,
+        "rtoHours": 12,
+        "certification": "ISO 9001 / ISO 14001"
+      },
+      "logistics": {
+        "incoterms": "FCA",
+        "hubAccess": "Amsterdam Schiphol Airport",
+        "crating": "ESD Cleanroom Box Packaging",
+        "telemetry": "Automated ASN"
+      },
+      "dataSharing": {
+        "cloudPortal": true,
+        "restApi": true,
+        "edi": "EDI Standard"
+      }
+    },
+    {
+      "id": "SUP-021",
+      "name": "Kyocera Corporation",
+      "commodity": "Ceramics & Quartz",
+      "region": "Asia",
+      "country": "Japan",
+      "city": "Kyoto",
+      "establishedYear": 1959,
+      "employees": 81000,
+      "financials": {
+        "freeCashFlow": 1420.5,
+        "revenueHistory": {
+          "2023": 15200.0,
+          "2024": 15850.0,
+          "2025": 16400.0
+        },
+        "rndInvestment": {
+          "2023": 780.0,
+          "2024": 830.0,
+          "2025": 890.0
+        }
+      },
+      "commodityConcentration": 34.5,
+      "productBreakdown": [
+        {
+          "category": "E-Chuck Top Plates",
+          "percentage": 42.0
+        },
+        {
+          "category": "SiC Focus Rings",
+          "percentage": 33.0
+        },
+        {
+          "category": "Alumina Chamber Liners",
+          "percentage": 25.0
+        }
+      ],
+      "capabilities": {
+        "maxPartSize": "1200 x 1200 x 400 mm",
+        "monthlyOutputCapacity": "4,500 units"
+      },
+      "performance": {
+        "otdPct": 97.8,
+        "prototypeLeadTimeDays": 18,
+        "volumeLeadTimeWeeks": 6
+      },
+      "costStructure": {
+        "directLaborRate": 65.0,
+        "burdenRate": 115.0,
+        "targetProfitMargin": 24.5
+      },
+      "cadFormats": [
+        "STEP (.stp)",
+        "IGES (.igs)",
+        "SolidWorks (.sldprt)"
+      ],
+      "pfmea": [
+        {
+          "failureMode": "Ceramic Micro-cracking under Thermal Shock",
+          "rpn": 72,
+          "severity": 8,
+          "occurrence": 3,
+          "detection": 3,
+          "mitigation": "Ultrasonic C-Scan NDT & Annealing"
+        }
+      ],
+      "failureAnalysis": {
+        "equipment": "SEM/EDS, 3D X-Ray CT, FTIR, SAM",
+        "sla8D": "24\u201348h SLA"
+      },
+      "contaminationControl": {
+        "cleanroomClass": "ISO Class 1",
+        "upwResistivity": "18.2 M\u03a9\u00b7cm"
+      },
+      "bcp": {
+        "dualSiteRedundancy": true,
+        "rtoHours": 8,
+        "certification": "ISO 22301 BCMS"
+      },
+      "logistics": {
+        "incoterms": "DDP",
+        "hubAccess": "Kansai Int'l Airport / Kobe Port",
+        "crating": "ShockWatch & TiltWatch Crating",
+        "telemetry": "Automated ASN with GPS Telemetry"
+      },
+      "dataSharing": {
+        "cloudPortal": true,
+        "restApi": true,
+        "edi": "ERP-to-ERP EDI"
+      }
+    },
+    {
+      "id": "SUP-022",
+      "name": "CoorsTek Inc.",
+      "commodity": "Ceramics & Quartz",
+      "region": "North America",
+      "country": "USA",
+      "city": "Golden, CO",
+      "establishedYear": 1910,
+      "employees": 6500,
+      "financials": {
+        "freeCashFlow": 280.0,
+        "revenueHistory": {
+          "2023": 1350.0,
+          "2024": 1420.0,
+          "2025": 1510.0
+        },
+        "rndInvestment": {
+          "2023": 82.0,
+          "2024": 90.0,
+          "2025": 98.0
+        }
+      },
+      "commodityConcentration": 41.0,
+      "productBreakdown": [
+        {
+          "category": "PureSiC Components",
+          "percentage": 45.0
+        },
+        {
+          "category": "Alumina Chamber Rings",
+          "percentage": 35.0
+        },
+        {
+          "category": "Structural Insulators",
+          "percentage": 20.0
+        }
+      ],
+      "capabilities": {
+        "maxPartSize": "1500 x 1500 x 500 mm",
+        "monthlyOutputCapacity": "2,800 units"
+      },
+      "performance": {
+        "otdPct": 96.5,
+        "prototypeLeadTimeDays": 20,
+        "volumeLeadTimeWeeks": 8
+      },
+      "costStructure": {
+        "directLaborRate": 78.0,
+        "burdenRate": 135.0,
+        "targetProfitMargin": 25.0
+      },
+      "cadFormats": [
+        "STEP (.stp)",
+        "IGES (.igs)",
+        "SolidWorks (.sldprt)"
+      ],
+      "pfmea": [
+        {
+          "failureMode": "SiC CVD Coating Delamination",
+          "rpn": 56,
+          "severity": 8,
+          "occurrence": 2,
+          "detection": 3.5,
+          "mitigation": "Automated C-Scan Acoustic Inspection"
+        }
+      ],
+      "failureAnalysis": {
+        "equipment": "C-Scan Acoustic, SEM/EDS Lab",
+        "sla8D": "24\u201348h SLA"
+      },
+      "contaminationControl": {
+        "cleanroomClass": "ISO Class 1",
+        "upwResistivity": "18.2 M\u03a9\u00b7cm"
+      },
+      "bcp": {
+        "dualSiteRedundancy": true,
+        "rtoHours": 8,
+        "certification": "ISO 22301 BCMS"
+      },
+      "logistics": {
+        "incoterms": "DDP",
+        "hubAccess": "Denver Int'l Airport",
+        "crating": "ShockWatch Precision Crating",
+        "telemetry": "Automated ASN with GPS"
+      },
+      "dataSharing": {
+        "cloudPortal": true,
+        "restApi": true,
+        "edi": "ERP EDI"
+      }
+    },
+    {
+      "id": "SUP-023",
+      "name": "Morgan Advanced Materials",
+      "commodity": "Ceramics & Quartz",
+      "region": "Europe",
+      "country": "UK",
+      "city": "Windsor",
+      "establishedYear": 1856,
+      "employees": 7800,
+      "financials": {
+        "freeCashFlow": 140.0,
+        "revenueHistory": {
+          "2023": 1100.0,
+          "2024": 1180.0,
+          "2025": 1260.0
+        },
+        "rndInvestment": {
+          "2023": 45.0,
+          "2024": 52.0,
+          "2025": 60.0
+        }
+      },
+      "commodityConcentration": 30.0,
+      "productBreakdown": [
+        {
+          "category": "High Purity Alumina Components",
+          "percentage": 60.0
+        },
+        {
+          "category": "Silicon Nitride Parts",
+          "percentage": 40.0
+        }
+      ],
+      "capabilities": {
+        "maxPartSize": "1000 x 1000 x 450 mm",
+        "monthlyOutputCapacity": "3,000 units"
+      },
+      "performance": {
+        "otdPct": 95.8,
+        "prototypeLeadTimeDays": 22,
+        "volumeLeadTimeWeeks": 7
+      },
+      "costStructure": {
+        "directLaborRate": 70.0,
+        "burdenRate": 120.0,
+        "targetProfitMargin": 23.0
+      },
+      "cadFormats": [
+        "STEP (.stp)",
+        "IGES (.igs)",
+        "SolidWorks (.sldprt)"
+      ],
+      "pfmea": [
+        {
+          "failureMode": "Alumina Grain Growth Anomalies",
+          "rpn": 42,
+          "severity": 7,
+          "occurrence": 2,
+          "detection": 3,
+          "mitigation": "Sintering furnace temperature profiling"
+        }
+      ],
+      "failureAnalysis": {
+        "equipment": "SEM, XRD Phase Analysis",
+        "sla8D": "48h SLA"
+      },
+      "contaminationControl": {
+        "cleanroomClass": "ISO Class 5",
+        "upwResistivity": "18.0 M\u03a9\u00b7cm"
+      },
+      "bcp": {
+        "dualSiteRedundancy": true,
+        "rtoHours": 12,
+        "certification": "ISO 9001 / ISO 14001"
+      },
+      "logistics": {
+        "incoterms": "FCA",
+        "hubAccess": "London Heathrow Airport",
+        "crating": "Export Wooden Packaging",
+        "telemetry": "Automated ASN"
+      },
+      "dataSharing": {
+        "cloudPortal": true,
+        "restApi": true,
+        "edi": "EDI Standard"
+      }
+    },
+    {
+      "id": "SUP-024",
+      "name": "Tosoh Quartz",
+      "commodity": "Ceramics & Quartz",
+      "region": "Asia",
+      "country": "Japan",
+      "city": "Tokyo",
+      "establishedYear": 1935,
+      "employees": 2100,
+      "financials": {
+        "freeCashFlow": 110.0,
+        "revenueHistory": {
+          "2023": 580.0,
+          "2024": 640.0,
+          "2025": 710.0
+        },
+        "rndInvestment": {
+          "2023": 32.0,
+          "2024": 38.0,
+          "2025": 45.0
+        }
+      },
+      "commodityConcentration": 95.0,
+      "productBreakdown": [
+        {
+          "category": "High Purity Quartzware",
+          "percentage": 85.0
+        },
+        {
+          "category": "Quartz Diffusion Boats",
+          "percentage": 15.0
+        }
+      ],
+      "capabilities": {
+        "maxPartSize": "1400 x 1400 x 800 mm",
+        "monthlyOutputCapacity": "5,500 units"
+      },
+      "performance": {
+        "otdPct": 97.4,
+        "prototypeLeadTimeDays": 15,
+        "volumeLeadTimeWeeks": 5
+      },
+      "costStructure": {
+        "directLaborRate": 58.0,
+        "burdenRate": 98.0,
+        "targetProfitMargin": 25.0
+      },
+      "cadFormats": [
+        "STEP (.stp)",
+        "IGES (.igs)",
+        "SolidWorks (.sldprt)"
+      ],
+      "pfmea": [
+        {
+          "failureMode": "Bubble & Inclusion Micro-defects in Quartz",
+          "rpn": 32,
+          "severity": 8,
+          "occurrence": 1,
+          "detection": 4,
+          "mitigation": "100% Optical laser bubble inspection"
+        }
+      ],
+      "failureAnalysis": {
+        "equipment": "Laser Scatter Inspection, ICP-MS",
+        "sla8D": "24h SLA"
+      },
+      "contaminationControl": {
+        "cleanroomClass": "ISO Class 1",
+        "upwResistivity": "18.2 M\u03a9\u00b7cm"
+      },
+      "bcp": {
+        "dualSiteRedundancy": true,
+        "rtoHours": 8,
+        "certification": "ISO 9001 / ISO 14001"
+      },
+      "logistics": {
+        "incoterms": "DDP",
+        "hubAccess": "Haneda / Narita Airport",
+        "crating": "Cleanroom Bagged Nitrogen Shock Cushioning",
+        "telemetry": "Automated ASN with GPS"
+      },
+      "dataSharing": {
+        "cloudPortal": true,
+        "restApi": true,
+        "edi": "ERP EDI"
+      }
+    },
+    {
+      "id": "SUP-025",
+      "name": "Heraeus Quartz",
+      "commodity": "Ceramics & Quartz",
+      "region": "Europe",
+      "country": "Germany",
+      "city": "Hanau",
+      "establishedYear": 1851,
+      "employees": 3200,
+      "financials": {
+        "freeCashFlow": 160.0,
+        "revenueHistory": {
+          "2023": 890.0,
+          "2024": 980.0,
+          "2025": 1080.0
+        },
+        "rndInvestment": {
+          "2023": 50.0,
+          "2024": 58.0,
+          "2025": 65.0
+        }
+      },
+      "commodityConcentration": 90.0,
+      "productBreakdown": [
+        {
+          "category": "Synthetic Fused Silica",
+          "percentage": 75.0
+        },
+        {
+          "category": "Opaque Quartz Insulators",
+          "percentage": 25.0
+        }
+      ],
+      "capabilities": {
+        "maxPartSize": "1600 x 1600 x 900 mm",
+        "monthlyOutputCapacity": "6,000 units"
+      },
+      "performance": {
+        "otdPct": 98.0,
+        "prototypeLeadTimeDays": 14,
+        "volumeLeadTimeWeeks": 5
+      },
+      "costStructure": {
+        "directLaborRate": 76.0,
+        "burdenRate": 130.0,
+        "targetProfitMargin": 26.0
+      },
+      "cadFormats": [
+        "STEP (.stp)",
+        "IGES (.igs)",
+        "SolidWorks (.sldprt)"
+      ],
+      "pfmea": [
+        {
+          "failureMode": "Alkali Metal Contamination in Quartz Base",
+          "rpn": 24,
+          "severity": 9,
+          "occurrence": 1,
+          "detection": 2.6,
+          "mitigation": "ICP-MS Trace Element Chemical Certification"
+        }
+      ],
+      "failureAnalysis": {
+        "equipment": "ICP-MS Chemical Spectrometer, FTIR",
+        "sla8D": "24h SLA"
+      },
+      "contaminationControl": {
+        "cleanroomClass": "ISO Class 1",
+        "upwResistivity": "18.2 M\u03a9\u00b7cm"
+      },
+      "bcp": {
+        "dualSiteRedundancy": true,
+        "rtoHours": 6,
+        "certification": "ISO 9001 / ISO 14001"
+      },
+      "logistics": {
+        "incoterms": "DDP",
+        "hubAccess": "Frankfurt Airport",
+        "crating": "Hermetic Nitrogen Vacuum Sealed Crating",
+        "telemetry": "Automated ASN with GPS"
+      },
+      "dataSharing": {
+        "cloudPortal": true,
+        "restApi": true,
+        "edi": "ERP EDI"
+      }
+    },
+    {
+      "id": "SUP-026",
+      "name": "Brooks Automation (Azenta)",
+      "commodity": "Robotics & Wafer Handling",
+      "region": "North America",
+      "country": "USA",
+      "city": "Chelmsford, MA",
+      "establishedYear": 1978,
+      "employees": 3400,
+      "financials": {
+        "freeCashFlow": 195.0,
+        "revenueHistory": {
+          "2023": 620.0,
+          "2024": 690.0,
+          "2025": 770.0
+        },
+        "rndInvestment": {
+          "2023": 55.0,
+          "2024": 64.0,
+          "2025": 72.0
+        }
+      },
+      "commodityConcentration": 85.0,
+      "productBreakdown": [
+        {
+          "category": "Vacuum Transfer Robots",
+          "percentage": 60.0
+        },
+        {
+          "category": "EFEM & Sorters",
+          "percentage": 40.0
+        }
+      ],
+      "capabilities": {
+        "maxPartSize": "1500 x 1500 x 1200 mm",
+        "monthlyOutputCapacity": "1,800 units"
+      },
+      "performance": {
+        "otdPct": 97.6,
+        "prototypeLeadTimeDays": 21,
+        "volumeLeadTimeWeeks": 6
+      },
+      "costStructure": {
+        "directLaborRate": 80.0,
+        "burdenRate": 138.0,
+        "targetProfitMargin": 27.5
+      },
+      "cadFormats": [
+        "STEP (.stp)",
+        "IGES (.igs)",
+        "SolidWorks (.sldprt)"
+      ],
+      "pfmea": [
+        {
+          "failureMode": "Encoder Drift under High Vacuum Thermal Gradient",
+          "rpn": 30,
+          "severity": 8,
+          "occurrence": 1,
+          "detection": 3.75,
+          "mitigation": "Dual absolute optical encoder validation"
+        }
+      ],
+      "failureAnalysis": {
+        "equipment": "Laser Tracker Metrology, SEM/EDS",
+        "sla8D": "24h SLA"
+      },
+      "contaminationControl": {
+        "cleanroomClass": "ISO Class 1",
+        "upwResistivity": "18.2 M\u03a9\u00b7cm"
+      },
+      "bcp": {
+        "dualSiteRedundancy": true,
+        "rtoHours": 8,
+        "certification": "ISO 9001 / ISO 22301"
+      },
+      "logistics": {
+        "incoterms": "DDP",
+        "hubAccess": "Boston Logan Airport",
+        "crating": "Precision Shock Absorbing Crating",
+        "telemetry": "Automated ASN with GPS"
+      },
+      "dataSharing": {
+        "cloudPortal": true,
+        "restApi": true,
+        "edi": "ERP-to-ERP EDI"
+      }
+    },
+    {
+      "id": "SUP-027",
+      "name": "Rorze Corporation",
+      "commodity": "Robotics & Wafer Handling",
+      "region": "Asia",
+      "country": "Japan",
+      "city": "Fukuyama, Hiroshima",
+      "establishedYear": 1985,
+      "employees": 2800,
+      "financials": {
+        "freeCashFlow": 170.0,
+        "revenueHistory": {
+          "2023": 680.0,
+          "2024": 760.0,
+          "2025": 850.0
+        },
+        "rndInvestment": {
+          "2023": 45.0,
+          "2024": 52.0,
+          "2025": 60.0
+        }
+      },
+      "commodityConcentration": 90.0,
+      "productBreakdown": [
+        {
+          "category": "Cleanroom Wafer Handling Robots",
+          "percentage": 70.0
+        },
+        {
+          "category": "FOUP Openers",
+          "percentage": 30.0
+        }
+      ],
+      "capabilities": {
+        "maxPartSize": "1400 x 1400 x 1100 mm",
+        "monthlyOutputCapacity": "2,200 units"
+      },
+      "performance": {
+        "otdPct": 98.2,
+        "prototypeLeadTimeDays": 18,
+        "volumeLeadTimeWeeks": 5
+      },
+      "costStructure": {
+        "directLaborRate": 56.0,
+        "burdenRate": 96.0,
+        "targetProfitMargin": 26.0
+      },
+      "cadFormats": [
+        "STEP (.stp)",
+        "IGES (.igs)",
+        "SolidWorks (.sldprt)"
+      ],
+      "pfmea": [
+        {
+          "failureMode": "Particle Generation from Arm Joint Bearings",
+          "rpn": 27,
+          "severity": 9,
+          "occurrence": 1,
+          "detection": 3,
+          "mitigation": "PFPE Magnetic Fluid Seal Enclosures"
+        }
+      ],
+      "failureAnalysis": {
+        "equipment": "Cleanroom Particle Counter Benches, SEM",
+        "sla8D": "24h SLA"
+      },
+      "contaminationControl": {
+        "cleanroomClass": "ISO Class 1",
+        "upwResistivity": "18.2 M\u03a9\u00b7cm"
+      },
+      "bcp": {
+        "dualSiteRedundancy": true,
+        "rtoHours": 6,
+        "certification": "ISO 9001 / ISO 14001"
+      },
+      "logistics": {
+        "incoterms": "DDP",
+        "hubAccess": "Hiroshima Airport / Kansai Airport",
+        "crating": "ShockWatch Nitrogen Sealed Packaging",
+        "telemetry": "Automated ASN with GPS"
+      },
+      "dataSharing": {
+        "cloudPortal": true,
+        "restApi": true,
+        "edi": "ERP EDI"
+      }
+    },
+    {
+      "id": "SUP-028",
+      "name": "Yaskawa Electric",
+      "commodity": "Robotics & Wafer Handling",
+      "region": "Asia",
+      "country": "Japan",
+      "city": "Kitakyushu, Fukuoka",
+      "establishedYear": 1915,
+      "employees": 15000,
+      "financials": {
+        "freeCashFlow": 380.0,
+        "revenueHistory": {
+          "2023": 4200.0,
+          "2024": 4500.0,
+          "2025": 4850.0
+        },
+        "rndInvestment": {
+          "2023": 190.0,
+          "2024": 210.0,
+          "2025": 230.0
+        }
+      },
+      "commodityConcentration": 22.0,
+      "productBreakdown": [
+        {
+          "category": "Semiconductor Vacuum Robots",
+          "percentage": 50.0
+        },
+        {
+          "category": "AC Servo Drives",
+          "percentage": 50.0
+        }
+      ],
+      "capabilities": {
+        "maxPartSize": "1600 x 1600 x 1200 mm",
+        "monthlyOutputCapacity": "5,000 units"
+      },
+      "performance": {
+        "otdPct": 97.4,
+        "prototypeLeadTimeDays": 20,
+        "volumeLeadTimeWeeks": 6
+      },
+      "costStructure": {
+        "directLaborRate": 58.0,
+        "burdenRate": 98.0,
+        "targetProfitMargin": 24.0
+      },
+      "cadFormats": [
+        "STEP (.stp)",
+        "IGES (.igs)",
+        "SolidWorks (.sldprt)"
+      ],
+      "pfmea": [
+        {
+          "failureMode": "Servo Motor Overshoot at Sub-micron Stop",
+          "rpn": 32,
+          "severity": 8,
+          "occurrence": 1,
+          "detection": 4,
+          "mitigation": "Sigma-7 Auto-tuning Algorithm"
+        }
+      ],
+      "failureAnalysis": {
+        "equipment": "High-Speed Motion Analyzer, Laser Metrology",
+        "sla8D": "24h SLA"
+      },
+      "contaminationControl": {
+        "cleanroomClass": "ISO Class 1",
+        "upwResistivity": "18.2 M\u03a9\u00b7cm"
+      },
+      "bcp": {
+        "dualSiteRedundancy": true,
+        "rtoHours": 8,
+        "certification": "ISO 9001 / ISO 14001"
+      },
+      "logistics": {
+        "incoterms": "DDP",
+        "hubAccess": "Fukuoka Airport / Port of Kitakyushu",
+        "crating": "Shock-dampened Export Crating",
+        "telemetry": "Automated ASN"
+      },
+      "dataSharing": {
+        "cloudPortal": true,
+        "restApi": true,
+        "edi": "ERP EDI"
+      }
+    },
+    {
+      "id": "SUP-029",
+      "name": "Kawasaki Robotics",
+      "commodity": "Robotics & Wafer Handling",
+      "region": "Asia",
+      "country": "Japan",
+      "city": "Kobe, Hyogo",
+      "establishedYear": 1969,
+      "employees": 5500,
+      "financials": {
+        "freeCashFlow": 160.0,
+        "revenueHistory": {
+          "2023": 1800.0,
+          "2024": 1950.0,
+          "2025": 2100.0
+        },
+        "rndInvestment": {
+          "2023": 85.0,
+          "2024": 95.0,
+          "2025": 105.0
+        }
+      },
+      "commodityConcentration": 30.0,
+      "productBreakdown": [
+        {
+          "category": "Cleanroom Arm Robots",
+          "percentage": 65.0
+        },
+        {
+          "category": "Wafer Alignment Units",
+          "percentage": 35.0
+        }
+      ],
+      "capabilities": {
+        "maxPartSize": "1800 x 1800 x 1300 mm",
+        "monthlyOutputCapacity": "3,000 units"
+      },
+      "performance": {
+        "otdPct": 96.8,
+        "prototypeLeadTimeDays": 22,
+        "volumeLeadTimeWeeks": 7
+      },
+      "costStructure": {
+        "directLaborRate": 58.0,
+        "burdenRate": 99.0,
+        "targetProfitMargin": 23.5
+      },
+      "cadFormats": [
+        "STEP (.stp)",
+        "IGES (.igs)",
+        "SolidWorks (.sldprt)"
+      ],
+      "pfmea": [
+        {
+          "failureMode": "Cable Harness Flex Fatigue in Robot Arm",
+          "rpn": 42,
+          "severity": 7,
+          "occurrence": 2,
+          "detection": 3,
+          "mitigation": "> 15M cycle ultra-flex cable drag chain design"
+        }
+      ],
+      "failureAnalysis": {
+        "equipment": "Accelerated Life Testing Rig, SEM",
+        "sla8D": "48h SLA"
+      },
+      "contaminationControl": {
+        "cleanroomClass": "ISO Class 1",
+        "upwResistivity": "18.2 M\u03a9\u00b7cm"
+      },
+      "bcp": {
+        "dualSiteRedundancy": true,
+        "rtoHours": 12,
+        "certification": "ISO 9001:2015"
+      },
+      "logistics": {
+        "incoterms": "FCA",
+        "hubAccess": "Kansai Int'l Airport / Port of Kobe",
+        "crating": "Heavy Duty Wooden Packaging",
+        "telemetry": "Automated ASN"
+      },
+      "dataSharing": {
+        "cloudPortal": true,
+        "restApi": true,
+        "edi": "EDI Standard"
+      }
+    },
+    {
+      "id": "SUP-030",
+      "name": "Nidec Genmark Automation",
+      "commodity": "Robotics & Wafer Handling",
+      "region": "North America",
+      "country": "USA",
+      "city": "Fremont, CA",
+      "establishedYear": 1987,
+      "employees": 450,
+      "financials": {
+        "freeCashFlow": 24.0,
+        "revenueHistory": {
+          "2023": 140.0,
+          "2024": 160.0,
+          "2025": 185.0
+        },
+        "rndInvestment": {
+          "2023": 12.0,
+          "2024": 15.0,
+          "2025": 18.0
+        }
+      },
+      "commodityConcentration": 95.0,
+      "productBreakdown": [
+        {
+          "category": "Yaw-Gantry Wafer Robots",
+          "percentage": 75.0
+        },
+        {
+          "category": "Tool Automation Software",
+          "percentage": 25.0
+        }
+      ],
+      "capabilities": {
+        "maxPartSize": "1200 x 1200 x 900 mm",
+        "monthlyOutputCapacity": "800 units"
+      },
+      "performance": {
+        "otdPct": 95.4,
+        "prototypeLeadTimeDays": 16,
+        "volumeLeadTimeWeeks": 6
+      },
+      "costStructure": {
+        "directLaborRate": 78.0,
+        "burdenRate": 132.0,
+        "targetProfitMargin": 25.0
+      },
+      "cadFormats": [
+        "STEP (.stp)",
+        "IGES (.igs)",
+        "SolidWorks (.sldprt)"
+      ],
+      "pfmea": [
+        {
+          "failureMode": "Gantry Axis Backlash accumulation",
+          "rpn": 36,
+          "severity": 6,
+          "occurrence": 2,
+          "detection": 3,
+          "mitigation": "Zero-backlash Harmonic Drive Gearing"
+        }
+      ],
+      "failureAnalysis": {
+        "equipment": "Laser Interferometer, Vibration Analyzer",
+        "sla8D": "24\u201348h SLA"
+      },
+      "contaminationControl": {
+        "cleanroomClass": "ISO Class 1",
+        "upwResistivity": "18.2 M\u03a9\u00b7cm"
+      },
+      "bcp": {
+        "dualSiteRedundancy": true,
+        "rtoHours": 12,
+        "certification": "ISO 9001:2015"
+      },
+      "logistics": {
+        "incoterms": "DDP",
+        "hubAccess": "San Jose Int'l Airport",
+        "crating": "ShockWatch Cleanroom Sealed Box",
+        "telemetry": "Automated ASN"
+      },
+      "dataSharing": {
+        "cloudPortal": true,
+        "restApi": true,
+        "edi": "ERP EDI"
+      }
+    },
+    {
+      "id": "SUP-031",
+      "name": "Advantech Co., Ltd.",
+      "commodity": "Industrial Computers & Controllers",
+      "region": "Asia",
+      "country": "Taiwan",
+      "city": "Taipei",
+      "establishedYear": 1983,
+      "employees": 8500,
+      "financials": {
+        "freeCashFlow": 280.0,
+        "revenueHistory": {
+          "2023": 2100.0,
+          "2024": 2300.0,
+          "2025": 2550.0
+        },
+        "rndInvestment": {
+          "2023": 170.0,
+          "2024": 190.0,
+          "2025": 210.0
+        }
+      },
+      "commodityConcentration": 35.0,
+      "productBreakdown": [
+        {
+          "category": "Fanless Industrial PCs",
+          "percentage": 60.0
+        },
+        {
+          "category": "EtherCAT I/O Modules",
+          "percentage": 40.0
+        }
+      ],
+      "capabilities": {
+        "maxPartSize": "450 x 350 x 200 mm",
+        "monthlyOutputCapacity": "45,000 units"
+      },
+      "performance": {
+        "otdPct": 97.5,
+        "prototypeLeadTimeDays": 7,
+        "volumeLeadTimeWeeks": 3
+      },
+      "costStructure": {
+        "directLaborRate": 45.0,
+        "burdenRate": 78.0,
+        "targetProfitMargin": 28.0
+      },
+      "cadFormats": [
+        "STEP (.stp)",
+        "IGES (.igs)",
+        "SolidWorks (.sldprt)",
+        "Altium (.pcbdoc)"
+      ],
+      "pfmea": [
+        {
+          "failureMode": "Thermal Throttling at 65\u00b0C Ambient",
+          "rpn": 32,
+          "severity": 8,
+          "occurrence": 1,
+          "detection": 4,
+          "mitigation": "Copper heat pipe direct chassis coupling"
+        }
+      ],
+      "failureAnalysis": {
+        "equipment": "Thermal IR Camera, X-Ray Inspection, HALT/HASS",
+        "sla8D": "24h SLA"
+      },
+      "contaminationControl": {
+        "cleanroomClass": "ISO Class 7",
+        "upwResistivity": "N/A"
+      },
+      "bcp": {
+        "dualSiteRedundancy": true,
+        "rtoHours": 6,
+        "certification": "ISO 9001 / ISO 27001"
+      },
+      "logistics": {
+        "incoterms": "DDP",
+        "hubAccess": "Taoyuan Int'l Airport",
+        "crating": "ESD Foam Packaging",
+        "telemetry": "Automated ASN with GPS"
+      },
+      "dataSharing": {
+        "cloudPortal": true,
+        "restApi": true,
+        "edi": "ERP EDI"
+      }
+    },
+    {
+      "id": "SUP-032",
+      "name": "Beckhoff Automation",
+      "commodity": "Industrial Computers & Controllers",
+      "region": "Europe",
+      "country": "Germany",
+      "city": "Verl",
+      "establishedYear": 1980,
+      "employees": 5500,
+      "financials": {
+        "freeCashFlow": 210.0,
+        "revenueHistory": {
+          "2023": 1350.0,
+          "2024": 1500.0,
+          "2025": 1680.0
+        },
+        "rndInvestment": {
+          "2023": 120.0,
+          "2024": 135.0,
+          "2025": 150.0
+        }
+      },
+      "commodityConcentration": 40.0,
+      "productBreakdown": [
+        {
+          "category": "EtherCAT Industrial PCs",
+          "percentage": 50.0
+        },
+        {
+          "category": "TwinCAT Real-Time Software",
+          "percentage": 30.0
+        },
+        {
+          "category": "Servo Drive Terminals",
+          "percentage": 20.0
+        }
+      ],
+      "capabilities": {
+        "maxPartSize": "400 x 300 x 180 mm",
+        "monthlyOutputCapacity": "35,000 units"
+      },
+      "performance": {
+        "otdPct": 98.2,
+        "prototypeLeadTimeDays": 8,
+        "volumeLeadTimeWeeks": 3
+      },
+      "costStructure": {
+        "directLaborRate": 76.0,
+        "burdenRate": 130.0,
+        "targetProfitMargin": 29.0
+      },
+      "cadFormats": [
+        "STEP (.stp)",
+        "IGES (.igs)",
+        "SolidWorks (.sldprt)",
+        "EPLAN"
+      ],
+      "pfmea": [
+        {
+          "failureMode": "EtherCAT Bus Jitter exceeding 1 \u00b5s limit",
+          "rpn": 24,
+          "severity": 8,
+          "occurrence": 1,
+          "detection": 3,
+          "mitigation": "FPGA Hardware-assisted time stamping"
+        }
+      ],
+      "failureAnalysis": {
+        "equipment": "Protocol Logic Analyzer, Thermal Imaging Lab",
+        "sla8D": "24h SLA"
+      },
+      "contaminationControl": {
+        "cleanroomClass": "ISO Class 5",
+        "upwResistivity": "N/A"
+      },
+      "bcp": {
+        "dualSiteRedundancy": true,
+        "rtoHours": 6,
+        "certification": "ISO 9001 / ISO 27001"
+      },
+      "logistics": {
+        "incoterms": "DDP",
+        "hubAccess": "Paderborn / Frankfurt Airport",
+        "crating": "ESD Cleanroom Packaging",
+        "telemetry": "Automated ASN with GPS"
+      },
+      "dataSharing": {
+        "cloudPortal": true,
+        "restApi": true,
+        "edi": "ERP EDI"
+      }
+    },
+    {
+      "id": "SUP-033",
+      "name": "Kontron AG",
+      "commodity": "Industrial Computers & Controllers",
+      "region": "Europe",
+      "country": "Germany",
+      "city": "Ismaning",
+      "establishedYear": 1959,
+      "employees": 4800,
+      "financials": {
+        "freeCashFlow": 130.0,
+        "revenueHistory": {
+          "2023": 1150.0,
+          "2024": 1280.0,
+          "2025": 1420.0
+        },
+        "rndInvestment": {
+          "2023": 85.0,
+          "2024": 96.0,
+          "2025": 108.0
+        }
+      },
+      "commodityConcentration": 30.0,
+      "productBreakdown": [
+        {
+          "category": "Embedded Motherboards",
+          "percentage": 60.0
+        },
+        {
+          "category": "Rackmount Controllers",
+          "percentage": 40.0
+        }
+      ],
+      "capabilities": {
+        "maxPartSize": "480 x 400 x 180 mm",
+        "monthlyOutputCapacity": "28,000 units"
+      },
+      "performance": {
+        "otdPct": 96.7,
+        "prototypeLeadTimeDays": 10,
+        "volumeLeadTimeWeeks": 4
+      },
+      "costStructure": {
+        "directLaborRate": 74.0,
+        "burdenRate": 126.0,
+        "targetProfitMargin": 26.5
+      },
+      "cadFormats": [
+        "STEP (.stp)",
+        "IGES (.igs)",
+        "SolidWorks (.sldprt)",
+        "Altium"
+      ],
+      "pfmea": [
+        {
+          "failureMode": "RAM Solder Joint Fracture under Vibration",
+          "rpn": 35,
+          "severity": 7,
+          "occurrence": 1,
+          "detection": 5,
+          "mitigation": "100% Soldered-on LPDDR memory chips"
+        }
+      ],
+      "failureAnalysis": {
+        "equipment": "3D X-Ray CT, Vibration Shake Table",
+        "sla8D": "24\u201348h SLA"
+      },
+      "contaminationControl": {
+        "cleanroomClass": "ISO Class 7",
+        "upwResistivity": "N/A"
+      },
+      "bcp": {
+        "dualSiteRedundancy": true,
+        "rtoHours": 8,
+        "certification": "ISO 9001:2015"
+      },
+      "logistics": {
+        "incoterms": "FCA",
+        "hubAccess": "Munich Airport",
+        "crating": "ESD Box Packaging",
+        "telemetry": "Automated ASN"
+      },
+      "dataSharing": {
+        "cloudPortal": true,
+        "restApi": true,
+        "edi": "EDI Standard"
+      }
+    },
+    {
+      "id": "SUP-034",
+      "name": "Siemens AG",
+      "commodity": "Industrial Computers & Controllers",
+      "region": "Europe",
+      "country": "Germany",
+      "city": "Nuremberg",
+      "establishedYear": 1847,
+      "employees": 311000,
+      "financials": {
+        "freeCashFlow": 5800.0,
+        "revenueHistory": {
+          "2023": 77800.0,
+          "2024": 81000.0,
+          "2025": 85000.0
+        },
+        "rndInvestment": {
+          "2023": 5600.0,
+          "2024": 6000.0,
+          "2025": 6400.0
+        }
+      },
+      "commodityConcentration": 8.0,
+      "productBreakdown": [
+        {
+          "category": "SIMATIC Industrial PCs",
+          "percentage": 50.0
+        },
+        {
+          "category": "PLC & Motion Controllers",
+          "percentage": 50.0
+        }
+      ],
+      "capabilities": {
+        "maxPartSize": "600 x 500 x 300 mm",
+        "monthlyOutputCapacity": "60,000 units"
+      },
+      "performance": {
+        "otdPct": 97.9,
+        "prototypeLeadTimeDays": 9,
+        "volumeLeadTimeWeeks": 4
+      },
+      "costStructure": {
+        "directLaborRate": 78.0,
+        "burdenRate": 132.0,
+        "targetProfitMargin": 27.0
+      },
+      "cadFormats": [
+        "STEP (.stp)",
+        "IGES (.igs)",
+        "SolidWorks (.sldprt)",
+        "EPLAN"
+      ],
+      "pfmea": [
+        {
+          "failureMode": "Firmware Corruption under EMI Pulse",
+          "rpn": 24,
+          "severity": 8,
+          "occurrence": 1,
+          "detection": 3,
+          "mitigation": "Dual Flash ROM redundancy & ECC RAM"
+        }
+      ],
+      "failureAnalysis": {
+        "equipment": "EMI/EMC Chamber, FE-SEM",
+        "sla8D": "24h SLA"
+      },
+      "contaminationControl": {
+        "cleanroomClass": "ISO Class 5",
+        "upwResistivity": "N/A"
+      },
+      "bcp": {
+        "dualSiteRedundancy": true,
+        "rtoHours": 4,
+        "certification": "ISO 9001 / ISO 27001"
+      },
+      "logistics": {
+        "incoterms": "DDP",
+        "hubAccess": "Nuremberg / Frankfurt Airport",
+        "crating": "ESD Protected Packaging",
+        "telemetry": "Automated ASN with GPS"
+      },
+      "dataSharing": {
+        "cloudPortal": true,
+        "restApi": true,
+        "edi": "ERP EDI"
+      }
+    },
+    {
+      "id": "SUP-035",
+      "name": "National Instruments (Emerson)",
+      "commodity": "Industrial Computers & Controllers",
+      "region": "North America",
+      "country": "USA",
+      "city": "Austin, TX",
+      "establishedYear": 1976,
+      "employees": 7200,
+      "financials": {
+        "freeCashFlow": 310.0,
+        "revenueHistory": {
+          "2023": 1680.0,
+          "2024": 1800.0,
+          "2025": 1950.0
+        },
+        "rndInvestment": {
+          "2023": 210.0,
+          "2024": 230.0,
+          "2025": 250.0
+        }
+      },
+      "commodityConcentration": 25.0,
+      "productBreakdown": [
+        {
+          "category": "PXIe Controller Chassis",
+          "percentage": 65.0
+        },
+        {
+          "category": "LabVIEW FPGA Hardware",
+          "percentage": 35.0
+        }
+      ],
+      "capabilities": {
+        "maxPartSize": "500 x 400 x 250 mm",
+        "monthlyOutputCapacity": "12,000 units"
+      },
+      "performance": {
+        "otdPct": 96.9,
+        "prototypeLeadTimeDays": 11,
+        "volumeLeadTimeWeeks": 4
+      },
+      "costStructure": {
+        "directLaborRate": 82.0,
+        "burdenRate": 140.0,
+        "targetProfitMargin": 30.0
+      },
+      "cadFormats": [
+        "STEP (.stp)",
+        "IGES (.igs)",
+        "SolidWorks (.sldprt)",
+        "Altium"
+      ],
+      "pfmea": [
+        {
+          "failureMode": "PXI PCIe Backplane Crosstalk",
+          "rpn": 28,
+          "severity": 7,
+          "occurrence": 1,
+          "detection": 4,
+          "mitigation": "Controlled 100 \u03a9 differential trace routing"
+        }
+      ],
+      "failureAnalysis": {
+        "equipment": "High Bandwidth Oscilloscope, TDR",
+        "sla8D": "24h SLA"
+      },
+      "contaminationControl": {
+        "cleanroomClass": "ISO Class 5",
+        "upwResistivity": "N/A"
+      },
+      "bcp": {
+        "dualSiteRedundancy": true,
+        "rtoHours": 8,
+        "certification": "ISO 9001:2015"
+      },
+      "logistics": {
+        "incoterms": "DDP",
+        "hubAccess": "Austin Bergstrom Airport",
+        "crating": "ESD Sealed Packaging",
+        "telemetry": "Automated ASN"
+      },
+      "dataSharing": {
+        "cloudPortal": true,
+        "restApi": true,
+        "edi": "ERP EDI"
+      }
+    },
+    {
+      "id": "SUP-036",
+      "name": "Plexus Corp",
+      "commodity": "PCBAs & EMS Integrators",
+      "region": "North America",
+      "country": "USA",
+      "city": "Neenah, WI",
+      "establishedYear": 1979,
+      "employees": 20000,
+      "financials": {
+        "freeCashFlow": 240.0,
+        "revenueHistory": {
+          "2023": 4200.0,
+          "2024": 4450.0,
+          "2025": 4750.0
+        },
+        "rndInvestment": {
+          "2023": 110.0,
+          "2024": 125.0,
+          "2025": 140.0
+        }
+      },
+      "commodityConcentration": 35.0,
+      "productBreakdown": [
+        {
+          "category": "Semiconductor Equipment PCBAs",
+          "percentage": 60.0
+        },
+        {
+          "category": "Complex Box Builds",
+          "percentage": 40.0
+        }
+      ],
+      "capabilities": {
+        "maxPartSize": "600 x 500 x 150 mm",
+        "monthlyOutputCapacity": "45,000 boards"
+      },
+      "performance": {
+        "otdPct": 97.8,
+        "prototypeLeadTimeDays": 7,
+        "volumeLeadTimeWeeks": 3
+      },
+      "costStructure": {
+        "directLaborRate": 68.0,
+        "burdenRate": 116.0,
+        "targetProfitMargin": 22.0
+      },
+      "cadFormats": [
+        "Gerber RS-274X",
+        "ODB++",
+        "IPC-2581",
+        "STEP (.stp)"
+      ],
+      "pfmea": [
+        {
+          "failureMode": "BGA Voiding under Reflow > 15%",
+          "rpn": 35,
+          "severity": 7,
+          "occurrence": 1,
+          "detection": 5,
+          "mitigation": "Vacuum reflow soldering & 100% 3D AXI"
+        }
+      ],
+      "failureAnalysis": {
+        "equipment": "3D AXI X-Ray, CSAM Acoustic Microscopy, SEM",
+        "sla8D": "24h SLA"
+      },
+      "contaminationControl": {
+        "cleanroomClass": "ISO Class 5",
+        "upwResistivity": "18.0 M\u03a9\u00b7cm"
+      },
+      "bcp": {
+        "dualSiteRedundancy": true,
+        "rtoHours": 6,
+        "certification": "ISO 9001 / ISO 13485 / AS9100"
+      },
+      "logistics": {
+        "incoterms": "DDP",
+        "hubAccess": "Appleton / Chicago O'Hare Airport",
+        "crating": "ESD Moisture Barrier Sealed Bags",
+        "telemetry": "Automated ASN with GPS"
+      },
+      "dataSharing": {
+        "cloudPortal": true,
+        "restApi": true,
+        "edi": "ERP-to-ERP EDI"
+      }
+    },
+    {
+      "id": "SUP-037",
+      "name": "Celestica Inc.",
+      "commodity": "PCBAs & EMS Integrators",
+      "region": "North America",
+      "country": "Canada",
+      "city": "Toronto, ON",
+      "establishedYear": 1994,
+      "employees": 24000,
+      "financials": {
+        "freeCashFlow": 310.0,
+        "revenueHistory": {
+          "2023": 7900.0,
+          "2024": 8400.0,
+          "2025": 9000.0
+        },
+        "rndInvestment": {
+          "2023": 130.0,
+          "2024": 145.0,
+          "2025": 160.0
+        }
+      },
+      "commodityConcentration": 28.0,
+      "productBreakdown": [
+        {
+          "category": "High-Reliability PCBAs",
+          "percentage": 50.0
+        },
+        {
+          "category": "System Integration Box Builds",
+          "percentage": 50.0
+        }
+      ],
+      "capabilities": {
+        "maxPartSize": "650 x 550 x 200 mm",
+        "monthlyOutputCapacity": "60,000 boards"
+      },
+      "performance": {
+        "otdPct": 97.1,
+        "prototypeLeadTimeDays": 8,
+        "volumeLeadTimeWeeks": 3
+      },
+      "costStructure": {
+        "directLaborRate": 64.0,
+        "burdenRate": 110.0,
+        "targetProfitMargin": 21.0
+      },
+      "cadFormats": [
+        "Gerber RS-274X",
+        "ODB++",
+        "IPC-2581",
+        "STEP (.stp)"
+      ],
+      "pfmea": [
+        {
+          "failureMode": "High Frequency RF Signal Attenuation",
+          "rpn": 30,
+          "severity": 8,
+          "occurrence": 1,
+          "detection": 3.75,
+          "mitigation": "100% Vector Network Analyzer TDR testing"
+        }
+      ],
+      "failureAnalysis": {
+        "equipment": "3D AOI/AXI, TDR VNA, Cross-Sectioning Lab",
+        "sla8D": "24h SLA"
+      },
+      "contaminationControl": {
+        "cleanroomClass": "ISO Class 5",
+        "upwResistivity": "18.0 M\u03a9\u00b7cm"
+      },
+      "bcp": {
+        "dualSiteRedundancy": true,
+        "rtoHours": 8,
+        "certification": "ISO 9001 / AS9100"
+      },
+      "logistics": {
+        "incoterms": "DDP",
+        "hubAccess": "Toronto Pearson Airport",
+        "crating": "ESD Vacuum Sealed Crating",
+        "telemetry": "Automated ASN with GPS"
+      },
+      "dataSharing": {
+        "cloudPortal": true,
+        "restApi": true,
+        "edi": "ERP EDI"
+      }
+    },
+    {
+      "id": "SUP-038",
+      "name": "Jabil Inc.",
+      "commodity": "PCBAs & EMS Integrators",
+      "region": "North America",
+      "country": "USA",
+      "city": "St. Petersburg, FL",
+      "establishedYear": 1966,
+      "employees": 230000,
+      "financials": {
+        "freeCashFlow": 1200.0,
+        "revenueHistory": {
+          "2023": 34700.0,
+          "2024": 36000.0,
+          "2025": 38000.0
+        },
+        "rndInvestment": {
+          "2023": 450.0,
+          "2024": 490.0,
+          "2025": 530.0
+        }
+      },
+      "commodityConcentration": 14.0,
+      "productBreakdown": [
+        {
+          "category": "Capital Equipment PCBAs",
+          "percentage": 55.0
+        },
+        {
+          "category": "RF Power Boards",
+          "percentage": 45.0
+        }
+      ],
+      "capabilities": {
+        "maxPartSize": "750 x 600 x 200 mm",
+        "monthlyOutputCapacity": "120,000 boards"
+      },
+      "performance": {
+        "otdPct": 96.9,
+        "prototypeLeadTimeDays": 7,
+        "volumeLeadTimeWeeks": 3
+      },
+      "costStructure": {
+        "directLaborRate": 62.0,
+        "burdenRate": 105.0,
+        "targetProfitMargin": 20.0
+      },
+      "cadFormats": [
+        "Gerber RS-274X",
+        "ODB++",
+        "IPC-2581",
+        "STEP (.stp)"
+      ],
+      "pfmea": [
+        {
+          "failureMode": "Ionic Contamination on PCBA Surface",
+          "rpn": 32,
+          "severity": 8,
+          "occurrence": 1,
+          "detection": 4,
+          "mitigation": "Automated ROSE ionic cleanliness testing"
+        }
+      ],
+      "failureAnalysis": {
+        "equipment": "ROSE Tester, ICP-MS, X-Ray CT",
+        "sla8D": "24h SLA"
+      },
+      "contaminationControl": {
+        "cleanroomClass": "ISO Class 5",
+        "upwResistivity": "18.2 M\u03a9\u00b7cm"
+      },
+      "bcp": {
+        "dualSiteRedundancy": true,
+        "rtoHours": 4,
+        "certification": "ISO 9001 / ISO 13485"
+      },
+      "logistics": {
+        "incoterms": "DDP",
+        "hubAccess": "Tampa Int'l Airport",
+        "crating": "ESD Moisture Barrier Packaging",
+        "telemetry": "Automated ASN with GPS"
+      },
+      "dataSharing": {
+        "cloudPortal": true,
+        "restApi": true,
+        "edi": "ERP EDI"
+      }
+    },
+    {
+      "id": "SUP-039",
+      "name": "BizLink Technology",
+      "commodity": "Cables & Harnesses",
+      "region": "Asia",
+      "country": "Taiwan",
+      "city": "New Taipei City",
+      "establishedYear": 1996,
+      "employees": 9800,
+      "financials": {
+        "freeCashFlow": 140.0,
+        "revenueHistory": {
+          "2023": 1700.0,
+          "2024": 1880.0,
+          "2025": 2080.0
+        },
+        "rndInvestment": {
+          "2023": 60.0,
+          "2024": 68.0,
+          "2025": 76.0
+        }
+      },
+      "commodityConcentration": 45.0,
+      "productBreakdown": [
+        {
+          "category": "Cleanroom Low-Outgassing Harnesses",
+          "percentage": 65.0
+        },
+        {
+          "category": "High-Flex Motion Cables",
+          "percentage": 35.0
+        }
+      ],
+      "capabilities": {
+        "maxPartSize": "Length up to 25 meters",
+        "monthlyOutputCapacity": "150,000 harnesses"
+      },
+      "performance": {
+        "otdPct": 97.9,
+        "prototypeLeadTimeDays": 7,
+        "volumeLeadTimeWeeks": 3
+      },
+      "costStructure": {
+        "directLaborRate": 42.0,
+        "burdenRate": 72.0,
+        "targetProfitMargin": 23.0
+      },
+      "cadFormats": [
+        "STEP (.stp)",
+        "SolidWorks (.sldprt)",
+        "EPLAN Cable"
+      ],
+      "pfmea": [
+        {
+          "failureMode": "Outgassing Condensation on Chamber Optics",
+          "rpn": 24,
+          "severity": 9,
+          "occurrence": 1,
+          "detection": 2.6,
+          "mitigation": "100% PEEK insulation & ASTM E595 vacuum bakeout"
+        }
+      ],
+      "failureAnalysis": {
+        "equipment": "TGA/FTIR Outgassing Testing, Flex Cycle Benches",
+        "sla8D": "24h SLA"
+      },
+      "contaminationControl": {
+        "cleanroomClass": "ISO Class 1",
+        "upwResistivity": "18.2 M\u03a9\u00b7cm"
+      },
+      "bcp": {
+        "dualSiteRedundancy": true,
+        "rtoHours": 6,
+        "certification": "ISO 9001 / ISO 14001"
+      },
+      "logistics": {
+        "incoterms": "DDP",
+        "hubAccess": "Taoyuan Int'l Airport",
+        "crating": "Cleanroom Bagged Nitrogen Sealed",
+        "telemetry": "Automated ASN with GPS"
+      },
+      "dataSharing": {
+        "cloudPortal": true,
+        "restApi": true,
+        "edi": "ERP-to-ERP EDI"
+      }
+    },
+    {
+      "id": "SUP-040",
+      "name": "Volex plc",
+      "commodity": "Cables & Harnesses",
+      "region": "Europe",
+      "country": "UK",
+      "city": "London",
+      "establishedYear": 1892,
+      "employees": 11000,
+      "financials": {
+        "freeCashFlow": 95.0,
+        "revenueHistory": {
+          "2023": 910.0,
+          "2024": 1020.0,
+          "2025": 1150.0
+        },
+        "rndInvestment": {
+          "2023": 35.0,
+          "2024": 40.0,
+          "2025": 46.0
+        }
+      },
+      "commodityConcentration": 30.0,
+      "productBreakdown": [
+        {
+          "category": "High-Power Cable Assemblies",
+          "percentage": 60.0
+        },
+        {
+          "category": "Signal Harnesses",
+          "percentage": 40.0
+        }
+      ],
+      "capabilities": {
+        "maxPartSize": "Length up to 30 meters",
+        "monthlyOutputCapacity": "100,000 harnesses"
+      },
+      "performance": {
+        "otdPct": 96.5,
+        "prototypeLeadTimeDays": 9,
+        "volumeLeadTimeWeeks": 4
+      },
+      "costStructure": {
+        "directLaborRate": 64.0,
+        "burdenRate": 108.0,
+        "targetProfitMargin": 22.0
+      },
+      "cadFormats": [
+        "STEP (.stp)",
+        "IGES (.igs)",
+        "EPLAN"
+      ],
+      "pfmea": [
+        {
+          "failureMode": "High Current Pin Crimping Overheating",
+          "rpn": 36,
+          "severity": 8,
+          "occurrence": 1,
+          "detection": 4.5,
+          "mitigation": "Automated micro-section crimp inspection"
+        }
+      ],
+      "failureAnalysis": {
+        "equipment": "Crimp Micro-sectioning, Micro-ohmmeters",
+        "sla8D": "24\u201348h SLA"
+      },
+      "contaminationControl": {
+        "cleanroomClass": "ISO Class 5",
+        "upwResistivity": "18.0 M\u03a9\u00b7cm"
+      },
+      "bcp": {
+        "dualSiteRedundancy": true,
+        "rtoHours": 8,
+        "certification": "ISO 9001:2015"
+      },
+      "logistics": {
+        "incoterms": "FCA",
+        "hubAccess": "London Heathrow Airport",
+        "crating": "ESD Cleanroom Packaging",
+        "telemetry": "Automated ASN"
+      },
+      "dataSharing": {
+        "cloudPortal": true,
+        "restApi": true,
+        "edi": "EDI Standard"
+      }
+    },
+    {
+      "id": "SUP-041",
+      "name": "Huber+Suhner",
+      "commodity": "Cables & Harnesses",
+      "region": "Europe",
+      "country": "Switzerland",
+      "city": "Herisau",
+      "establishedYear": 1969,
+      "employees": 4600,
+      "financials": {
+        "freeCashFlow": 125.0,
+        "revenueHistory": {
+          "2023": 980.0,
+          "2024": 1050.0,
+          "2025": 1140.0
+        },
+        "rndInvestment": {
+          "2023": 65.0,
+          "2024": 72.0,
+          "2025": 80.0
+        }
+      },
+      "commodityConcentration": 40.0,
+      "productBreakdown": [
+        {
+          "category": "RF Coaxial Cables",
+          "percentage": 70.0
+        },
+        {
+          "category": "Fiber Optic Feedthroughs",
+          "percentage": 30.0
+        }
+      ],
+      "capabilities": {
+        "maxPartSize": "Length up to 20 meters",
+        "monthlyOutputCapacity": "80,000 cables"
+      },
+      "performance": {
+        "otdPct": 98.3,
+        "prototypeLeadTimeDays": 8,
+        "volumeLeadTimeWeeks": 3
+      },
+      "costStructure": {
+        "directLaborRate": 85.0,
+        "burdenRate": 145.0,
+        "targetProfitMargin": 27.0
+      },
+      "cadFormats": [
+        "STEP (.stp)",
+        "IGES (.igs)",
+        "SolidWorks (.sldprt)"
+      ],
+      "pfmea": [
+        {
+          "failureMode": "RF Insertion Loss at 13.56 MHz / 60 MHz",
+          "rpn": 24,
+          "severity": 8,
+          "occurrence": 1,
+          "detection": 3,
+          "mitigation": "100% Automated VNA RF testing per cable"
+        }
+      ],
+      "failureAnalysis": {
+        "equipment": "High-Frequency Vector Network Analyzer, SEM",
+        "sla8D": "24h SLA"
+      },
+      "contaminationControl": {
+        "cleanroomClass": "ISO Class 1",
+        "upwResistivity": "18.2 M\u03a9\u00b7cm"
+      },
+      "bcp": {
+        "dualSiteRedundancy": true,
+        "rtoHours": 6,
+        "certification": "ISO 9001 / ISO 14001"
+      },
+      "logistics": {
+        "incoterms": "DDP",
+        "hubAccess": "Zurich Airport",
+        "crating": "ESD Hermetic Bagged Packaging",
+        "telemetry": "Automated ASN with GPS"
+      },
+      "dataSharing": {
+        "cloudPortal": true,
+        "restApi": true,
+        "edi": "ERP EDI"
+      }
+    },
+    {
+      "id": "SUP-042",
+      "name": "Leoni AG",
+      "commodity": "Cables & Harnesses",
+      "region": "Europe",
+      "country": "Germany",
+      "city": "Nuremberg",
+      "establishedYear": 1917,
+      "employees": 95000,
+      "financials": {
+        "freeCashFlow": 280.0,
+        "revenueHistory": {
+          "2023": 5400.0,
+          "2024": 5700.0,
+          "2025": 6000.0
+        },
+        "rndInvestment": {
+          "2023": 180.0,
+          "2024": 195.0,
+          "2025": 210.0
+        }
+      },
+      "commodityConcentration": 15.0,
+      "productBreakdown": [
+        {
+          "category": "Specialized Industrial Cables",
+          "percentage": 60.0
+        },
+        {
+          "category": "Cleanroom Drag Chain Assemblies",
+          "percentage": 40.0
+        }
+      ],
+      "capabilities": {
+        "maxPartSize": "Length up to 50 meters",
+        "monthlyOutputCapacity": "200,000 meters"
+      },
+      "performance": {
+        "otdPct": 96.2,
+        "prototypeLeadTimeDays": 12,
+        "volumeLeadTimeWeeks": 4
+      },
+      "costStructure": {
+        "directLaborRate": 74.0,
+        "burdenRate": 125.0,
+        "targetProfitMargin": 21.5
+      },
+      "cadFormats": [
+        "STEP (.stp)",
+        "IGES (.igs)",
+        "EPLAN"
+      ],
+      "pfmea": [
+        {
+          "failureMode": "Shielding Degradation after 5M Flex Cycles",
+          "rpn": 35,
+          "severity": 7,
+          "occurrence": 1,
+          "detection": 5,
+          "mitigation": "Dual counter-wrapped silver copper shielding"
+        }
+      ],
+      "failureAnalysis": {
+        "equipment": "Drag Chain Cyclic Test Rig, Micro-CT",
+        "sla8D": "48h SLA"
+      },
+      "contaminationControl": {
+        "cleanroomClass": "ISO Class 5",
+        "upwResistivity": "18.0 M\u03a9\u00b7cm"
+      },
+      "bcp": {
+        "dualSiteRedundancy": true,
+        "rtoHours": 8,
+        "certification": "ISO 9001 / IATF 16949"
+      },
+      "logistics": {
+        "incoterms": "FCA",
+        "hubAccess": "Nuremberg / Frankfurt Airport",
+        "crating": "ESD Reel & Box Packaging",
+        "telemetry": "Automated ASN"
+      },
+      "dataSharing": {
+        "cloudPortal": true,
+        "restApi": true,
+        "edi": "EDI Standard"
+      }
+    },
+    {
+      "id": "SUP-043",
+      "name": "Rosenberger Group",
+      "commodity": "Cables & Harnesses",
+      "region": "Europe",
+      "country": "Germany",
+      "city": "Fridolfing",
+      "establishedYear": 1958,
+      "employees": 14800,
+      "financials": {
+        "freeCashFlow": 210.0,
+        "revenueHistory": {
+          "2023": 1750.0,
+          "2024": 1900.0,
+          "2025": 2100.0
+        },
+        "rndInvestment": {
+          "2023": 110.0,
+          "2024": 122.0,
+          "2025": 135.0
+        }
+      },
+      "commodityConcentration": 35.0,
+      "productBreakdown": [
+        {
+          "category": "High-Frequency RF Connectors & Assemblies",
+          "percentage": 80.0
+        },
+        {
+          "category": "Fiber Optic Lines",
+          "percentage": 20.0
+        }
+      ],
+      "capabilities": {
+        "maxPartSize": "Length up to 15 meters",
+        "monthlyOutputCapacity": "120,000 connectors"
+      },
+      "performance": {
+        "otdPct": 98.1,
+        "prototypeLeadTimeDays": 7,
+        "volumeLeadTimeWeeks": 3
+      },
+      "costStructure": {
+        "directLaborRate": 76.0,
+        "burdenRate": 130.0,
+        "targetProfitMargin": 26.0
+      },
+      "cadFormats": [
+        "STEP (.stp)",
+        "IGES (.igs)",
+        "SolidWorks (.sldprt)"
+      ],
+      "pfmea": [
+        {
+          "failureMode": "Connector Pin Disengagement under Thermal Shock",
+          "rpn": 24,
+          "severity": 8,
+          "occurrence": 1,
+          "detection": 3,
+          "mitigation": "Beryllium Copper retention springs & Gold plating"
+        }
+      ],
+      "failureAnalysis": {
+        "equipment": "RF VNA 110 GHz, SEM/EDS",
+        "sla8D": "24h SLA"
+      },
+      "contaminationControl": {
+        "cleanroomClass": "ISO Class 3",
+        "upwResistivity": "18.2 M\u03a9\u00b7cm"
+      },
+      "bcp": {
+        "dualSiteRedundancy": true,
+        "rtoHours": 6,
+        "certification": "ISO 9001 / ISO 14001"
+      },
+      "logistics": {
+        "incoterms": "DDP",
+        "hubAccess": "Munich Airport",
+        "crating": "ESD Cleanroom Sealed Packaging",
+        "telemetry": "Automated ASN with GPS"
+      },
+      "dataSharing": {
+        "cloudPortal": true,
+        "restApi": true,
+        "edi": "ERP EDI"
+      }
+    },
+    {
+      "id": "SUP-044",
+      "name": "Keyence Corporation",
+      "commodity": "Sensors & Metrology",
+      "region": "Asia",
+      "country": "Japan",
+      "city": "Osaka",
+      "establishedYear": 1974,
+      "employees": 10500,
+      "financials": {
+        "freeCashFlow": 2800.0,
+        "revenueHistory": {
+          "2023": 6800.0,
+          "2024": 7400.0,
+          "2025": 8100.0
+        },
+        "rndInvestment": {
+          "2023": 650.0,
+          "2024": 720.0,
+          "2025": 800.0
+        }
+      },
+      "commodityConcentration": 30.0,
+      "productBreakdown": [
+        {
+          "category": "Laser Displacement Sensors",
+          "percentage": 50.0
+        },
+        {
+          "category": "Digital Optical Microscopes",
+          "percentage": 50.0
+        }
+      ],
+      "capabilities": {
+        "maxPartSize": "200 x 150 x 100 mm",
+        "monthlyOutputCapacity": "60,000 units"
+      },
+      "performance": {
+        "otdPct": 99.1,
+        "prototypeLeadTimeDays": 3,
+        "volumeLeadTimeWeeks": 1
+      },
+      "costStructure": {
+        "directLaborRate": 65.0,
+        "burdenRate": 110.0,
+        "targetProfitMargin": 55.0
+      },
+      "cadFormats": [
+        "STEP (.stp)",
+        "IGES (.igs)",
+        "SolidWorks (.sldprt)"
+      ],
+      "pfmea": [
+        {
+          "failureMode": "Laser Diode Output Power Decay over Time",
+          "rpn": 20,
+          "severity": 5,
+          "occurrence": 1,
+          "detection": 4,
+          "mitigation": "Automated closed-loop optical power control"
+        }
+      ],
+      "failureAnalysis": {
+        "equipment": "Optoelectronic Calibration Standard, FE-SEM",
+        "sla8D": "24h SLA"
+      },
+      "contaminationControl": {
+        "cleanroomClass": "ISO Class 1",
+        "upwResistivity": "18.2 M\u03a9\u00b7cm"
+      },
+      "bcp": {
+        "dualSiteRedundancy": true,
+        "rtoHours": 4,
+        "certification": "ISO 9001:2015"
+      },
+      "logistics": {
+        "incoterms": "DDP",
+        "hubAccess": "Kansai Int'l Airport",
+        "crating": "ESD Precision Cushion Packaging",
+        "telemetry": "Automated ASN with GPS"
+      },
+      "dataSharing": {
+        "cloudPortal": true,
+        "restApi": true,
+        "edi": "ERP-to-ERP EDI"
+      }
+    },
+    {
+      "id": "SUP-045",
+      "name": "Cognex Corporation",
+      "commodity": "Sensors & Metrology",
+      "region": "North America",
+      "country": "USA",
+      "city": "Natick, MA",
+      "establishedYear": 1981,
+      "employees": 2700,
+      "financials": {
+        "freeCashFlow": 210.0,
+        "revenueHistory": {
+          "2023": 840.0,
+          "2024": 920.0,
+          "2025": 1020.0
+        },
+        "rndInvestment": {
+          "2023": 130.0,
+          "2024": 145.0,
+          "2025": 160.0
+        }
+      },
+      "commodityConcentration": 40.0,
+      "productBreakdown": [
+        {
+          "category": "Wafer Alignment Vision Systems",
+          "percentage": 70.0
+        },
+        {
+          "category": "Code Readers",
+          "percentage": 30.0
+        }
+      ],
+      "capabilities": {
+        "maxPartSize": "250 x 200 x 120 mm",
+        "monthlyOutputCapacity": "25,000 units"
+      },
+      "performance": {
+        "otdPct": 97.4,
+        "prototypeLeadTimeDays": 5,
+        "volumeLeadTimeWeeks": 2
+      },
+      "costStructure": {
+        "directLaborRate": 82.0,
+        "burdenRate": 140.0,
+        "targetProfitMargin": 45.0
+      },
+      "cadFormats": [
+        "STEP (.stp)",
+        "IGES (.igs)",
+        "SolidWorks (.sldprt)"
+      ],
+      "pfmea": [
+        {
+          "failureMode": "Pattern Match Failure under Variable Illumination",
+          "rpn": 32,
+          "severity": 8,
+          "occurrence": 1,
+          "detection": 4,
+          "mitigation": "PatMax AI Deep Learning feature algorithm"
+        }
+      ],
+      "failureAnalysis": {
+        "equipment": "Optical Calibration Rig, Image Processing Lab",
+        "sla8D": "24h SLA"
+      },
+      "contaminationControl": {
+        "cleanroomClass": "ISO Class 3",
+        "upwResistivity": "18.0 M\u03a9\u00b7cm"
+      },
+      "bcp": {
+        "dualSiteRedundancy": true,
+        "rtoHours": 8,
+        "certification": "ISO 9001:2015"
+      },
+      "logistics": {
+        "incoterms": "DDP",
+        "hubAccess": "Boston Logan Airport",
+        "crating": "ESD Foam Box Packaging",
+        "telemetry": "Automated ASN"
+      },
+      "dataSharing": {
+        "cloudPortal": true,
+        "restApi": true,
+        "edi": "ERP EDI"
+      }
+    },
+    {
+      "id": "SUP-046",
+      "name": "Balluff GmbH",
+      "commodity": "Sensors & Metrology",
+      "region": "Europe",
+      "country": "Germany",
+      "city": "Neuhausen auf den Fildern",
+      "establishedYear": 1921,
+      "employees": 4000,
+      "financials": {
+        "freeCashFlow": 85.0,
+        "revenueHistory": {
+          "2023": 560.0,
+          "2024": 620.0,
+          "2025": 680.0
+        },
+        "rndInvestment": {
+          "2023": 48.0,
+          "2024": 55.0,
+          "2025": 62.0
+        }
+      },
+      "commodityConcentration": 35.0,
+      "productBreakdown": [
+        {
+          "category": "Inductive Vacuum Proximity Sensors",
+          "percentage": 60.0
+        },
+        {
+          "category": "Smart Automation Sensors",
+          "percentage": 40.0
+        }
+      ],
+      "capabilities": {
+        "maxPartSize": "150 x 100 x 80 mm",
+        "monthlyOutputCapacity": "40,000 units"
+      },
+      "performance": {
+        "otdPct": 96.8,
+        "prototypeLeadTimeDays": 7,
+        "volumeLeadTimeWeeks": 3
+      },
+      "costStructure": {
+        "directLaborRate": 74.0,
+        "burdenRate": 126.0,
+        "targetProfitMargin": 28.0
+      },
+      "cadFormats": [
+        "STEP (.stp)",
+        "IGES (.igs)",
+        "SolidWorks (.sldprt)"
+      ],
+      "pfmea": [
+        {
+          "failureMode": "Outgassing of Sensor Housing Epoxy in UHV",
+          "rpn": 28,
+          "severity": 7,
+          "occurrence": 1,
+          "detection": 4,
+          "mitigation": "UHV Hermetic Stainless Steel Laser Welding"
+        }
+      ],
+      "failureAnalysis": {
+        "equipment": "Helium Leak Detector, Vacuum Outgassing Chamber",
+        "sla8D": "24h SLA"
+      },
+      "contaminationControl": {
+        "cleanroomClass": "ISO Class 1",
+        "upwResistivity": "18.2 M\u03a9\u00b7cm"
+      },
+      "bcp": {
+        "dualSiteRedundancy": true,
+        "rtoHours": 8,
+        "certification": "ISO 9001 / ISO 14001"
+      },
+      "logistics": {
+        "incoterms": "FCA",
+        "hubAccess": "Stuttgart / Frankfurt Airport",
+        "crating": "Cleanroom Bagged ESD Boxes",
+        "telemetry": "Automated ASN"
+      },
+      "dataSharing": {
+        "cloudPortal": true,
+        "restApi": true,
+        "edi": "EDI Standard"
+      }
+    },
+    {
+      "id": "SUP-047",
+      "name": "Omron Corporation",
+      "commodity": "Sensors & Metrology",
+      "region": "Asia",
+      "country": "Japan",
+      "city": "Kyoto",
+      "establishedYear": 1933,
+      "employees": 29000,
+      "financials": {
+        "freeCashFlow": 410.0,
+        "revenueHistory": {
+          "2023": 5800.0,
+          "2024": 6100.0,
+          "2025": 6500.0
+        },
+        "rndInvestment": {
+          "2023": 380.0,
+          "2024": 410.0,
+          "2025": 440.0
+        }
+      },
+      "commodityConcentration": 25.0,
+      "productBreakdown": [
+        {
+          "category": "Photoelectric & Fiber Sensors",
+          "percentage": 70.0
+        },
+        {
+          "category": "Safety Controllers",
+          "percentage": 30.0
+        }
+      ],
+      "capabilities": {
+        "maxPartSize": "200 x 150 x 100 mm",
+        "monthlyOutputCapacity": "90,000 units"
+      },
+      "performance": {
+        "otdPct": 97.6,
+        "prototypeLeadTimeDays": 5,
+        "volumeLeadTimeWeeks": 2
+      },
+      "costStructure": {
+        "directLaborRate": 58.0,
+        "burdenRate": 98.0,
+        "targetProfitMargin": 30.0
+      },
+      "cadFormats": [
+        "STEP (.stp)",
+        "IGES (.igs)",
+        "SolidWorks (.sldprt)"
+      ],
+      "pfmea": [
+        {
+          "failureMode": "Fiber Optic Head Alignment Drift",
+          "rpn": 24,
+          "severity": 6,
+          "occurrence": 1,
+          "detection": 4,
+          "mitigation": "SUS316L Armored flexible fiber jacket"
+        }
+      ],
+      "failureAnalysis": {
+        "equipment": "Optical Spectrum Analyzer, SEM",
+        "sla8D": "24h SLA"
+      },
+      "contaminationControl": {
+        "cleanroomClass": "ISO Class 3",
+        "upwResistivity": "18.0 M\u03a9\u00b7cm"
+      },
+      "bcp": {
+        "dualSiteRedundancy": true,
+        "rtoHours": 6,
+        "certification": "ISO 9001 / ISO 14001"
+      },
+      "logistics": {
+        "incoterms": "DDP",
+        "hubAccess": "Kansai Int'l Airport",
+        "crating": "ESD Box Packaging",
+        "telemetry": "Automated ASN with GPS"
+      },
+      "dataSharing": {
+        "cloudPortal": true,
+        "restApi": true,
+        "edi": "ERP EDI"
+      }
+    },
+    {
+      "id": "SUP-048",
+      "name": "Renishaw plc",
+      "commodity": "Sensors & Metrology",
+      "region": "Europe",
+      "country": "UK",
+      "city": "Wotton-under-Edge",
+      "establishedYear": 1973,
+      "employees": 5200,
+      "financials": {
+        "freeCashFlow": 130.0,
+        "revenueHistory": {
+          "2023": 850.0,
+          "2024": 920.0,
+          "2025": 1000.0
+        },
+        "rndInvestment": {
+          "2023": 110.0,
+          "2024": 122.0,
+          "2025": 135.0
+        }
+      },
+      "commodityConcentration": 45.0,
+      "productBreakdown": [
+        {
+          "category": "Sub-Nanometer Optical Encoders",
+          "percentage": 80.0
+        },
+        {
+          "category": "Raman Spectroscopy Probes",
+          "percentage": 20.0
+        }
+      ],
+      "capabilities": {
+        "maxPartSize": "300 x 200 x 100 mm",
+        "monthlyOutputCapacity": "35,000 units"
+      },
+      "performance": {
+        "otdPct": 98.5,
+        "prototypeLeadTimeDays": 6,
+        "volumeLeadTimeWeeks": 3
+      },
+      "costStructure": {
+        "directLaborRate": 72.0,
+        "burdenRate": 122.0,
+        "targetProfitMargin": 32.0
+      },
+      "cadFormats": [
+        "STEP (.stp)",
+        "IGES (.igs)",
+        "SolidWorks (.sldprt)"
+      ],
+      "pfmea": [
+        {
+          "failureMode": "Encoder Scale Contamination by Condensate",
+          "rpn": 20,
+          "severity": 8,
+          "occurrence": 1,
+          "detection": 2.5,
+          "mitigation": "IN-RAIL sealed glass scale & air purge system"
+        }
+      ],
+      "failureAnalysis": {
+        "equipment": "Laser Interferometer Benches, SEM/EDS",
+        "sla8D": "24h SLA"
+      },
+      "contaminationControl": {
+        "cleanroomClass": "ISO Class 1",
+        "upwResistivity": "18.2 M\u03a9\u00b7cm"
+      },
+      "bcp": {
+        "dualSiteRedundancy": true,
+        "rtoHours": 6,
+        "certification": "ISO 9001 / ISO 14001"
+      },
+      "logistics": {
+        "incoterms": "DDP",
+        "hubAccess": "London Heathrow Airport / Bristol Airport",
+        "crating": "ESD Vacuum Sealed Cleanroom Packaging",
+        "telemetry": "Automated ASN with GPS"
+      },
+      "dataSharing": {
+        "cloudPortal": true,
+        "restApi": true,
+        "edi": "ERP-to-ERP EDI"
+      }
+    },
+    {
+      "id": "SUP-049",
+      "name": "DR. JOHANNES HEIDENHAIN GmbH",
+      "commodity": "Sensors & Metrology",
+      "region": "Europe",
+      "country": "Germany",
+      "city": "Traunreut",
+      "establishedYear": 1889,
+      "employees": 8600,
+      "financials": {
+        "freeCashFlow": 290.0,
+        "revenueHistory": {
+          "2023": 1700.0,
+          "2024": 1850.0,
+          "2025": 2000.0
+        },
+        "rndInvestment": {
+          "2023": 210.0,
+          "2024": 230.0,
+          "2025": 250.0
+        }
+      },
+      "commodityConcentration": 50.0,
+      "productBreakdown": [
+        {
+          "category": "High Precision Linear Encoders",
+          "percentage": 65.0
+        },
+        {
+          "category": "Angle Encoders",
+          "percentage": 35.0
+        }
+      ],
+      "capabilities": {
+        "maxPartSize": "3000 mm max scale length",
+        "monthlyOutputCapacity": "40,000 units"
+      },
+      "performance": {
+        "otdPct": 98.7,
+        "prototypeLeadTimeDays": 7,
+        "volumeLeadTimeWeeks": 3
+      },
+      "costStructure": {
+        "directLaborRate": 78.0,
+        "burdenRate": 132.0,
+        "targetProfitMargin": 34.0
+      },
+      "cadFormats": [
+        "STEP (.stp)",
+        "IGES (.igs)",
+        "SolidWorks (.sldprt)"
+      ],
+      "pfmea": [
+        {
+          "failureMode": "Sub-nanometer Interpolation Error from Thermal Expansion",
+          "rpn": 18,
+          "severity": 9,
+          "occurrence": 1,
+          "detection": 2,
+          "mitigation": "ZERODUR glass-ceramic scale substrate (0 CTE)"
+        }
+      ],
+      "failureAnalysis": {
+        "equipment": "Laser Sub-nanometer Interferometer, FE-SEM",
+        "sla8D": "24h SLA"
+      },
+      "contaminationControl": {
+        "cleanroomClass": "ISO Class 1",
+        "upwResistivity": "18.2 M\u03a9\u00b7cm"
+      },
+      "bcp": {
+        "dualSiteRedundancy": true,
+        "rtoHours": 4,
+        "certification": "ISO 9001 / ISO 14001"
+      },
+      "logistics": {
+        "incoterms": "DDP",
+        "hubAccess": "Munich Airport",
+        "crating": "Shock-isolated ESD Cleanroom Box",
+        "telemetry": "Automated ASN with GPS"
+      },
+      "dataSharing": {
+        "cloudPortal": true,
+        "restApi": true,
+        "edi": "ERP EDI"
+      }
+    },
+    {
+      "id": "SUP-050",
+      "name": "VAT Group AG",
+      "commodity": "Vacuum Valves",
+      "region": "Europe",
+      "country": "Switzerland",
+      "city": "Haag, SG",
+      "establishedYear": 1965,
+      "employees": 3100,
+      "financials": {
+        "freeCashFlow": 280.0,
+        "revenueHistory": {
+          "2023": 980.0,
+          "2024": 1100.0,
+          "2025": 1250.0
+        },
+        "rndInvestment": {
+          "2023": 75.0,
+          "2024": 86.0,
+          "2025": 98.0
+        }
+      },
+      "commodityConcentration": 95.0,
+      "productBreakdown": [
+        {
+          "category": "High-Vacuum Control Pendulum Valves",
+          "percentage": 60.0
+        },
+        {
+          "category": "Transfer Gate Valves",
+          "percentage": 40.0
+        }
+      ],
+      "capabilities": {
+        "maxPartSize": "1200 x 1200 x 500 mm",
+        "monthlyOutputCapacity": "12,000 units"
+      },
+      "performance": {
+        "otdPct": 98.6,
+        "prototypeLeadTimeDays": 10,
+        "volumeLeadTimeWeeks": 4
+      },
+      "costStructure": {
+        "directLaborRate": 88.0,
+        "burdenRate": 150.0,
+        "targetProfitMargin": 32.0
+      },
+      "cadFormats": [
+        "STEP (.stp)",
+        "IGES (.igs)",
+        "SolidWorks (.sldprt)"
+      ],
+      "pfmea": [
+        {
+          "failureMode": "Seal Particle Generation after 1M Cycles",
+          "rpn": 24,
+          "severity": 8,
+          "occurrence": 1,
+          "detection": 3,
+          "mitigation": "VATRING vulcanized bonded seal technology"
+        }
+      ],
+      "failureAnalysis": {
+        "equipment": "UHV Mass Spec, Particle Counting Test Benches",
+        "sla8D": "24h SLA"
+      },
+      "contaminationControl": {
+        "cleanroomClass": "ISO Class 1",
+        "upwResistivity": "18.2 M\u03a9\u00b7cm"
+      },
+      "bcp": {
+        "dualSiteRedundancy": true,
+        "rtoHours": 6,
+        "certification": "ISO 9001 / ISO 14001"
+      },
+      "logistics": {
+        "incoterms": "DDP",
+        "hubAccess": "Zurich Airport",
+        "crating": "ShockWatch Cleanroom Nitrogen Sealed Box",
+        "telemetry": "Automated ASN with GPS"
+      },
+      "dataSharing": {
+        "cloudPortal": true,
+        "restApi": true,
+        "edi": "ERP-to-ERP EDI"
+      }
+    },
+    {
+      "id": "SUP-051",
+      "name": "SMC Corporation",
+      "commodity": "Vacuum Valves",
+      "region": "Asia",
+      "country": "Japan",
+      "city": "Tokyo",
+      "establishedYear": 1959,
+      "employees": 21600,
+      "financials": {
+        "freeCashFlow": 1100.0,
+        "revenueHistory": {
+          "2023": 6200.0,
+          "2024": 6600.0,
+          "2025": 7000.0
+        },
+        "rndInvestment": {
+          "2023": 280.0,
+          "2024": 310.0,
+          "2025": 340.0
+        }
+      },
+      "commodityConcentration": 25.0,
+      "productBreakdown": [
+        {
+          "category": "Semiconductor Vacuum Valves",
+          "percentage": 50.0
+        },
+        {
+          "category": "Pneumatic Control Valves",
+          "percentage": 50.0
+        }
+      ],
+      "capabilities": {
+        "maxPartSize": "800 x 800 x 400 mm",
+        "monthlyOutputCapacity": "80,000 units"
+      },
+      "performance": {
+        "otdPct": 97.9,
+        "prototypeLeadTimeDays": 7,
+        "volumeLeadTimeWeeks": 3
+      },
+      "costStructure": {
+        "directLaborRate": 56.0,
+        "burdenRate": 96.0,
+        "targetProfitMargin": 25.0
+      },
+      "cadFormats": [
+        "STEP (.stp)",
+        "IGES (.igs)",
+        "SolidWorks (.sldprt)"
+      ],
+      "pfmea": [
+        {
+          "failureMode": "Pneumatic Actuator Leakage at low Temp",
+          "rpn": 30,
+          "severity": 6,
+          "occurrence": 1,
+          "detection": 5,
+          "mitigation": "Fluoro-rubber low-temp O-ring compounds"
+        }
+      ],
+      "failureAnalysis": {
+        "equipment": "Pneumatic Leak Benches, SEM/EDS",
+        "sla8D": "24h SLA"
+      },
+      "contaminationControl": {
+        "cleanroomClass": "ISO Class 3",
+        "upwResistivity": "18.0 M\u03a9\u00b7cm"
+      },
+      "bcp": {
+        "dualSiteRedundancy": true,
+        "rtoHours": 6,
+        "certification": "ISO 9001 / ISO 14001"
+      },
+      "logistics": {
+        "incoterms": "DDP",
+        "hubAccess": "Haneda / Narita Airport",
+        "crating": "ESD Cleanroom Packaging",
+        "telemetry": "Automated ASN with GPS"
+      },
+      "dataSharing": {
+        "cloudPortal": true,
+        "restApi": true,
+        "edi": "ERP EDI"
+      }
+    },
+    {
+      "id": "SUP-052",
+      "name": "Festo SE & Co. KG",
+      "commodity": "Vacuum Valves",
+      "region": "Europe",
+      "country": "Germany",
+      "city": "Esslingen am Neckar",
+      "establishedYear": 1925,
+      "employees": 20800,
+      "financials": {
+        "freeCashFlow": 480.0,
+        "revenueHistory": {
+          "2023": 3800.0,
+          "2024": 4050.0,
+          "2025": 4300.0
+        },
+        "rndInvestment": {
+          "2023": 290.0,
+          "2024": 315.0,
+          "2025": 340.0
+        }
+      },
+      "commodityConcentration": 20.0,
+      "productBreakdown": [
+        {
+          "category": "Cleanroom Valves & Manifolds",
+          "percentage": 60.0
+        },
+        {
+          "category": "Process Automation Valves",
+          "percentage": 40.0
+        }
+      ],
+      "capabilities": {
+        "maxPartSize": "700 x 600 x 350 mm",
+        "monthlyOutputCapacity": "50,000 units"
+      },
+      "performance": {
+        "otdPct": 97.2,
+        "prototypeLeadTimeDays": 8,
+        "volumeLeadTimeWeeks": 3
+      },
+      "costStructure": {
+        "directLaborRate": 76.0,
+        "burdenRate": 130.0,
+        "targetProfitMargin": 26.0
+      },
+      "cadFormats": [
+        "STEP (.stp)",
+        "IGES (.igs)",
+        "SolidWorks (.sldprt)",
+        "EPLAN"
+      ],
+      "pfmea": [
+        {
+          "failureMode": "Solenoid Valve Coils Thermal Burnout",
+          "rpn": 28,
+          "severity": 7,
+          "occurrence": 1,
+          "detection": 4,
+          "mitigation": "Class H high-temp copper coil encapsulation"
+        }
+      ],
+      "failureAnalysis": {
+        "equipment": "Thermal Chamber, X-Ray CT Scanner",
+        "sla8D": "24h SLA"
+      },
+      "contaminationControl": {
+        "cleanroomClass": "ISO Class 5",
+        "upwResistivity": "18.0 M\u03a9\u00b7cm"
+      },
+      "bcp": {
+        "dualSiteRedundancy": true,
+        "rtoHours": 8,
+        "certification": "ISO 9001 / ISO 14001"
+      },
+      "logistics": {
+        "incoterms": "FCA",
+        "hubAccess": "Stuttgart / Frankfurt Airport",
+        "crating": "ESD Cleanroom Boxes",
+        "telemetry": "Automated ASN"
+      },
+      "dataSharing": {
+        "cloudPortal": true,
+        "restApi": true,
+        "edi": "ERP EDI"
+      }
+    },
+    {
+      "id": "SUP-053",
+      "name": "Nor-Cal Products (Pfeiffer)",
+      "commodity": "Vacuum Valves",
+      "region": "North America",
+      "country": "USA",
+      "city": "Yreka, CA",
+      "establishedYear": 1962,
+      "employees": 450,
+      "financials": {
+        "freeCashFlow": 22.0,
+        "revenueHistory": {
+          "2023": 130.0,
+          "2024": 145.0,
+          "2025": 165.0
+        },
+        "rndInvestment": {
+          "2023": 6.0,
+          "2024": 8.0,
+          "2025": 10.0
+        }
+      },
+      "commodityConcentration": 90.0,
+      "productBreakdown": [
+        {
+          "category": "UHV Gate & Isolation Valves",
+          "percentage": 75.0
+        },
+        {
+          "category": "Vacuum Flanges & Fittings",
+          "percentage": 25.0
+        }
+      ],
+      "capabilities": {
+        "maxPartSize": "900 x 900 x 400 mm",
+        "monthlyOutputCapacity": "4,000 units"
+      },
+      "performance": {
+        "otdPct": 95.8,
+        "prototypeLeadTimeDays": 14,
+        "volumeLeadTimeWeeks": 5
+      },
+      "costStructure": {
+        "directLaborRate": 68.0,
+        "burdenRate": 112.0,
+        "targetProfitMargin": 23.0
+      },
+      "cadFormats": [
+        "STEP (.stp)",
+        "IGES (.igs)",
+        "SolidWorks (.sldprt)"
+      ],
+      "pfmea": [
+        {
+          "failureMode": "Copper Gasket Sealing Scratch",
+          "rpn": 35,
+          "severity": 7,
+          "occurrence": 1,
+          "detection": 5,
+          "mitigation": "100% Knife-edge optical inspection"
+        }
+      ],
+      "failureAnalysis": {
+        "equipment": "Helium Mass Spec, Optical Comparator",
+        "sla8D": "48h SLA"
+      },
+      "contaminationControl": {
+        "cleanroomClass": "ISO Class 5",
+        "upwResistivity": "18.0 M\u03a9\u00b7cm"
+      },
+      "bcp": {
+        "dualSiteRedundancy": true,
+        "rtoHours": 12,
+        "certification": "ISO 9001:2015"
+      },
+      "logistics": {
+        "incoterms": "FCA",
+        "hubAccess": "Medford Airport / Sacramento Airport",
+        "crating": "Vacuum Sealed Bags in Crates",
+        "telemetry": "Manual ASN"
+      },
+      "dataSharing": {
+        "cloudPortal": true,
+        "restApi": false,
+        "edi": "EDI Standard"
+      }
+    },
+    {
+      "id": "SUP-054",
+      "name": "Comet Group",
+      "commodity": "RF Generators",
+      "region": "Europe",
+      "country": "Switzerland",
+      "city": "Flamatt",
+      "establishedYear": 1948,
+      "employees": 1600,
+      "financials": {
+        "freeCashFlow": 85.0,
+        "revenueHistory": {
+          "2023": 510.0,
+          "2024": 570.0,
+          "2025": 640.0
+        },
+        "rndInvestment": {
+          "2023": 65.0,
+          "2024": 74.0,
+          "2025": 84.0
+        }
+      },
+      "commodityConcentration": 75.0,
+      "productBreakdown": [
+        {
+          "category": "Vacuum Capacitors & RF Match Boxes",
+          "percentage": 70.0
+        },
+        {
+          "category": "Solid-State RF Generators",
+          "percentage": 30.0
+        }
+      ],
+      "capabilities": {
+        "maxPartSize": "600 x 500 x 300 mm",
+        "monthlyOutputCapacity": "3,200 units"
+      },
+      "performance": {
+        "otdPct": 97.8,
+        "prototypeLeadTimeDays": 14,
+        "volumeLeadTimeWeeks": 5
+      },
+      "costStructure": {
+        "directLaborRate": 90.0,
+        "burdenRate": 155.0,
+        "targetProfitMargin": 29.0
+      },
+      "cadFormats": [
+        "STEP (.stp)",
+        "IGES (.igs)",
+        "SolidWorks (.sldprt)"
+      ],
+      "pfmea": [
+        {
+          "failureMode": "RF Arcing inside Vacuum Capacitor",
+          "rpn": 24,
+          "severity": 8,
+          "occurrence": 1,
+          "detection": 3,
+          "mitigation": "100% High-voltage conditioning & vacuum leak test"
+        }
+      ],
+      "failureAnalysis": {
+        "equipment": "High Power RF Benches, 3D X-Ray Inspection",
+        "sla8D": "24h SLA"
+      },
+      "contaminationControl": {
+        "cleanroomClass": "ISO Class 3",
+        "upwResistivity": "18.2 M\u03a9\u00b7cm"
+      },
+      "bcp": {
+        "dualSiteRedundancy": true,
+        "rtoHours": 8,
+        "certification": "ISO 9001 / ISO 14001"
+      },
+      "logistics": {
+        "incoterms": "DDP",
+        "hubAccess": "Bern / Zurich Airport",
+        "crating": "Shock-dampened ESD Box",
+        "telemetry": "Automated ASN with GPS"
+      },
+      "dataSharing": {
+        "cloudPortal": true,
+        "restApi": true,
+        "edi": "ERP EDI"
+      }
+    },
+    {
+      "id": "SUP-055",
+      "name": "Advanced Energy (AEIS)",
+      "commodity": "RF Generators",
+      "region": "North America",
+      "country": "USA",
+      "city": "Denver, CO",
+      "establishedYear": 1981,
+      "employees": 12000,
+      "financials": {
+        "freeCashFlow": 290.0,
+        "revenueHistory": {
+          "2023": 1840.0,
+          "2024": 1980.0,
+          "2025": 2150.0
+        },
+        "rndInvestment": {
+          "2023": 190.0,
+          "2024": 210.0,
+          "2025": 230.0
+        }
+      },
+      "commodityConcentration": 65.0,
+      "productBreakdown": [
+        {
+          "category": "Paramount RF Generators",
+          "percentage": 55.0
+        },
+        {
+          "category": "Navigator Auto-Match Networks",
+          "percentage": 45.0
+        }
+      ],
+      "capabilities": {
+        "maxPartSize": "700 x 600 x 400 mm",
+        "monthlyOutputCapacity": "6,500 units"
+      },
+      "performance": {
+        "otdPct": 97.1,
+        "prototypeLeadTimeDays": 12,
+        "volumeLeadTimeWeeks": 4
+      },
+      "costStructure": {
+        "directLaborRate": 78.0,
+        "burdenRate": 132.0,
+        "targetProfitMargin": 28.0
+      },
+      "cadFormats": [
+        "STEP (.stp)",
+        "IGES (.igs)",
+        "SolidWorks (.sldprt)"
+      ],
+      "pfmea": [
+        {
+          "failureMode": "Reflected RF Power Overheating MOSFETs",
+          "rpn": 30,
+          "severity": 8,
+          "occurrence": 1,
+          "detection": 3.75,
+          "mitigation": "Fast sub-millisecond reverse power trip circuit"
+        }
+      ],
+      "failureAnalysis": {
+        "equipment": "RF Calorimeter, SEM/EDS, High-Speed Oscilloscopes",
+        "sla8D": "24h SLA"
+      },
+      "contaminationControl": {
+        "cleanroomClass": "ISO Class 5",
+        "upwResistivity": "18.0 M\u03a9\u00b7cm"
+      },
+      "bcp": {
+        "dualSiteRedundancy": true,
+        "rtoHours": 6,
+        "certification": "ISO 9001 / ISO 14001"
+      },
+      "logistics": {
+        "incoterms": "DDP",
+        "hubAccess": "Denver Int'l Airport",
+        "crating": "ESD Foam Shock Packaging",
+        "telemetry": "Automated ASN with GPS"
+      },
+      "dataSharing": {
+        "cloudPortal": true,
+        "restApi": true,
+        "edi": "ERP-to-ERP EDI"
+      }
+    },
+    {
+      "id": "SUP-056",
+      "name": "DAIHEN Corporation",
+      "commodity": "RF Generators",
+      "region": "Asia",
+      "country": "Japan",
+      "city": "Osaka",
+      "establishedYear": 1919,
+      "employees": 3900,
+      "financials": {
+        "freeCashFlow": 140.0,
+        "revenueHistory": {
+          "2023": 1100.0,
+          "2024": 1200.0,
+          "2025": 1320.0
+        },
+        "rndInvestment": {
+          "2023": 60.0,
+          "2024": 68.0,
+          "2025": 76.0
+        }
+      },
+      "commodityConcentration": 40.0,
+      "productBreakdown": [
+        {
+          "category": "Semiconductor RF Generators",
+          "percentage": 70.0
+        },
+        {
+          "category": "Automatic Impedance Matchers",
+          "percentage": 30.0
+        }
+      ],
+      "capabilities": {
+        "maxPartSize": "650 x 550 x 350 mm",
+        "monthlyOutputCapacity": "4,000 units"
+      },
+      "performance": {
+        "otdPct": 97.6,
+        "prototypeLeadTimeDays": 14,
+        "volumeLeadTimeWeeks": 5
+      },
+      "costStructure": {
+        "directLaborRate": 58.0,
+        "burdenRate": 98.0,
+        "targetProfitMargin": 25.0
+      },
+      "cadFormats": [
+        "STEP (.stp)",
+        "IGES (.igs)",
+        "SolidWorks (.sldprt)"
+      ],
+      "pfmea": [
+        {
+          "failureMode": "Water Cooling Channel Electrolysis Corrosion",
+          "rpn": 28,
+          "severity": 7,
+          "occurrence": 1,
+          "detection": 4,
+          "mitigation": "Deionized water nickel-plated copper channels"
+        }
+      ],
+      "failureAnalysis": {
+        "equipment": "RF Test Benches, Metallurgical Microscope",
+        "sla8D": "24h SLA"
+      },
+      "contaminationControl": {
+        "cleanroomClass": "ISO Class 5",
+        "upwResistivity": "18.0 M\u03a9\u00b7cm"
+      },
+      "bcp": {
+        "dualSiteRedundancy": true,
+        "rtoHours": 8,
+        "certification": "ISO 9001 / ISO 14001"
+      },
+      "logistics": {
+        "incoterms": "DDP",
+        "hubAccess": "Kansai Int'l Airport",
+        "crating": "ESD Precision Box",
+        "telemetry": "Automated ASN"
+      },
+      "dataSharing": {
+        "cloudPortal": true,
+        "restApi": true,
+        "edi": "ERP EDI"
+      }
+    },
+    {
+      "id": "SUP-057",
+      "name": "Ultra Clean Technology (UCT Integration)",
+      "commodity": "Turnkey Integrators",
+      "region": "North America",
+      "country": "USA",
+      "city": "Hayward, CA",
+      "establishedYear": 1991,
+      "employees": 6200,
+      "financials": {
+        "freeCashFlow": 145.0,
+        "revenueHistory": {
+          "2023": 1750.0,
+          "2024": 1920.0,
+          "2025": 2100.0
+        },
+        "rndInvestment": {
+          "2023": 45.0,
+          "2024": 52.0,
+          "2025": 60.0
+        }
+      },
+      "commodityConcentration": 45.0,
+      "productBreakdown": [
+        {
+          "category": "Turnkey Tool Sub-systems",
+          "percentage": 70.0
+        },
+        {
+          "category": "Gas Panel Builds",
+          "percentage": 30.0
+        }
+      ],
+      "capabilities": {
+        "maxPartSize": "3000 x 3000 x 2200 mm",
+        "monthlyOutputCapacity": "600 turnkey systems"
+      },
+      "performance": {
+        "otdPct": 96.8,
+        "prototypeLeadTimeDays": 21,
+        "volumeLeadTimeWeeks": 7
+      },
+      "costStructure": {
+        "directLaborRate": 72.0,
+        "burdenRate": 125.0,
+        "targetProfitMargin": 20.0
+      },
+      "cadFormats": [
+        "STEP (.stp)",
+        "IGES (.igs)",
+        "SolidWorks (.sldprt)"
+      ],
+      "pfmea": [
+        {
+          "failureMode": "Integrated Tool Gas Leak during Final Bay Test",
+          "rpn": 30,
+          "severity": 10,
+          "occurrence": 1,
+          "detection": 3,
+          "mitigation": "100% Helium sniffer testing in ISO Class 10 bay"
+        }
+      ],
+      "failureAnalysis": {
+        "equipment": "Helium Leak Mass Spec, SEM, Particle Counter",
+        "sla8D": "24h SLA"
+      },
+      "contaminationControl": {
+        "cleanroomClass": "ISO Class 10",
+        "upwResistivity": "18.2 M\u03a9\u00b7cm"
+      },
+      "bcp": {
+        "dualSiteRedundancy": true,
+        "rtoHours": 6,
+        "certification": "ISO 9001 / ISO 22301"
+      },
+      "logistics": {
+        "incoterms": "DDP",
+        "hubAccess": "San Francisco Int'l Airport",
+        "crating": "ShockWatch Climate Controlled Nitrogen Crating",
+        "telemetry": "Automated ASN with Real-time GPS"
+      },
+      "dataSharing": {
+        "cloudPortal": true,
+        "restApi": true,
+        "edi": "ERP-to-ERP EDI"
+      }
+    },
+    {
+      "id": "SUP-058",
+      "name": "Foxsemicon Turnkey Systems",
+      "commodity": "Turnkey Integrators",
+      "region": "Asia",
+      "country": "Taiwan",
+      "city": "Chu-Nan, Miaoli",
+      "establishedYear": 2000,
+      "employees": 4500,
+      "financials": {
+        "freeCashFlow": 180.0,
+        "revenueHistory": {
+          "2023": 850.0,
+          "2024": 940.0,
+          "2025": 1050.0
+        },
+        "rndInvestment": {
+          "2023": 38.0,
+          "2024": 44.0,
+          "2025": 50.0
+        }
+      },
+      "commodityConcentration": 32.0,
+      "productBreakdown": [
+        {
+          "category": "Etch Module Integration",
+          "percentage": 80.0
+        },
+        {
+          "category": "Chamber Sub-assemblies",
+          "percentage": 20.0
+        }
+      ],
+      "capabilities": {
+        "maxPartSize": "2800 x 2800 x 2000 mm",
+        "monthlyOutputCapacity": "450 turnkey systems"
+      },
+      "performance": {
+        "otdPct": 97.4,
+        "prototypeLeadTimeDays": 20,
+        "volumeLeadTimeWeeks": 6
+      },
+      "costStructure": {
+        "directLaborRate": 48.0,
+        "burdenRate": 82.0,
+        "targetProfitMargin": 21.0
+      },
+      "cadFormats": [
+        "STEP (.stp)",
+        "IGES (.igs)",
+        "SolidWorks (.sldprt)"
+      ],
+      "pfmea": [
+        {
+          "failureMode": "Wiring Harness Misrouting in Turnkey Bay",
+          "rpn": 35,
+          "severity": 7,
+          "occurrence": 1,
+          "detection": 5,
+          "mitigation": "Automated cable harness continuity tester"
+        }
+      ],
+      "failureAnalysis": {
+        "equipment": "CMM 3D, Automated Electrical Tester",
+        "sla8D": "24h SLA"
+      },
+      "contaminationControl": {
+        "cleanroomClass": "ISO Class 10",
+        "upwResistivity": "18.2 M\u03a9\u00b7cm"
+      },
+      "bcp": {
+        "dualSiteRedundancy": true,
+        "rtoHours": 6,
+        "certification": "ISO 9001 / ISO 22301"
+      },
+      "logistics": {
+        "incoterms": "FCA",
+        "hubAccess": "Taoyuan Int'l Airport",
+        "crating": "ShockWatch Cleanroom Nitrogen Packaging",
+        "telemetry": "Automated ASN"
+      },
+      "dataSharing": {
+        "cloudPortal": true,
+        "restApi": true,
+        "edi": "EDIFACT"
+      }
+    }
+  ]
+}
