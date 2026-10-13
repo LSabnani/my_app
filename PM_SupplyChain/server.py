@@ -136,16 +136,20 @@ Current Slide State:
 
 Your Task:
 Completely revise this slide to incorporate the executive's feedback with high technical precision.
-1. Directly address every specific request in the feedback (e.g., lead times, suppliers, technical tolerances, failure modes, TAM breakdown, SLA/spares, test plans).
-2. Ensure ZERO remnants of unrelated commodity studies exist in the text.
-3. Write high-density, concise executive copy for 'content' (1-3 paragraphs).
-4. Provide 3-4 punchy, action-oriented 'key_takeaways' bullets (under 16 words each).
-5. Provide exactly 3 high-impact quantitative 'metrics' with accurate labels and values.
-6. Provide 2-3 relevant primary 'references' with descriptive titles and real URLs.
-7. Provide a concise 1-sentence 'revision_summary'.
+1. Directly address every specific request in the feedback (e.g., changing slide title, removing forbidden words like 'Title', visual widget modifications, lead times, suppliers, technical tolerances, failure modes, TAM breakdown, SLA/spares, test plans).
+2. If the executive asks to change the title or remove certain words (such as 'Title'), provide the updated 'title' and optional 'subtitle'. Ensure the slide title is concise, executive-ready, and does NOT include the forbidden word 'Title'.
+3. Ensure ZERO remnants of unrelated commodity studies exist in the text.
+4. Write high-density, concise executive copy for 'content' (1-3 paragraphs). Do NOT duplicate the title as a header inside 'content'.
+5. Provide 3-4 punchy, action-oriented 'key_takeaways' bullets (under 16 words each).
+6. Provide exactly 3 high-impact quantitative 'metrics' with accurate labels and values.
+7. Provide or update 'visual_widget' (type can be 'architecture', 'market_share', 'decision_matrix', or 'timeline').
+8. Provide 2-3 relevant primary 'references' with descriptive titles and real URLs.
+9. Provide a concise 1-sentence 'revision_summary'.
 
 Return ONLY valid JSON matching this schema:
 {{
+  "title": "Updated slide title (incorporating any executive title change requests or removing forbidden words)",
+  "subtitle": "Updated slide subtitle (optional or matching scope)",
   "content": "Comprehensive rewritten executive slide content...",
   "key_takeaways": ["Takeaway 1", "Takeaway 2", "Takeaway 3"],
   "metrics": [
@@ -153,6 +157,7 @@ Return ONLY valid JSON matching this schema:
     {{"label": "Metric Label", "value": "Metric Value"}},
     {{"label": "Metric Label", "value": "Metric Value"}}
   ],
+  "visual_widget": {{"type": "architecture", "title": "Widget Title", "data": [{{"label": "Item", "detail": "Value", "color": "var(--accent-cyan)"}}]}},
   "references": [
     {{"name": "Reference Title", "url": "https://..."}},
     {{"name": "Reference Title", "url": "https://..."}}
@@ -191,16 +196,20 @@ Current Slide State:
 
 Your Task:
 Completely revise this slide to incorporate the executive's feedback with high technical precision.
-1. Directly address every specific request in the feedback (e.g., lead times, suppliers, technical tolerances, failure modes, TAM breakdown, SLA/spares, test plans).
-2. Ensure ZERO remnants of unrelated commodity studies exist in the text.
-3. Write high-density, concise executive copy for 'content' (1-3 paragraphs).
-4. Provide 3-4 punchy, action-oriented 'key_takeaways' bullets (under 16 words each).
-5. Provide exactly 3 high-impact quantitative 'metrics' with accurate labels and values.
-6. Provide 2-3 relevant primary 'references' with descriptive titles and real URLs.
-7. Provide a concise 1-sentence 'revision_summary'.
+1. Directly address every specific request in the feedback (e.g., changing slide title, removing forbidden words like 'Title', visual widget modifications, lead times, suppliers, technical tolerances, failure modes, TAM breakdown, SLA/spares, test plans).
+2. If the executive asks to change the title or remove certain words (such as 'Title'), provide the updated 'title' and optional 'subtitle'. Ensure the slide title is concise, executive-ready, and does NOT include the forbidden word 'Title'.
+3. Ensure ZERO remnants of unrelated commodity studies exist in the text.
+4. Write high-density, concise executive copy for 'content' (1-3 paragraphs). Do NOT duplicate the title as a header inside 'content'.
+5. Provide 3-4 punchy, action-oriented 'key_takeaways' bullets (under 16 words each).
+6. Provide exactly 3 high-impact quantitative 'metrics' with accurate labels and values.
+7. Provide or update 'visual_widget' (type can be 'architecture', 'market_share', 'decision_matrix', or 'timeline').
+8. Provide 2-3 relevant primary 'references' with descriptive titles and real URLs.
+9. Provide a concise 1-sentence 'revision_summary'.
 
 Return ONLY valid JSON matching this schema:
 {{
+  "title": "Updated slide title (incorporating any executive title change requests or removing forbidden words)",
+  "subtitle": "Updated slide subtitle (optional or matching scope)",
   "content": "Comprehensive rewritten executive slide content...",
   "key_takeaways": ["Takeaway 1", "Takeaway 2", "Takeaway 3"],
   "metrics": [
@@ -208,6 +217,7 @@ Return ONLY valid JSON matching this schema:
     {{"label": "Metric Label", "value": "Metric Value"}},
     {{"label": "Metric Label", "value": "Metric Value"}}
   ],
+  "visual_widget": {{"type": "architecture", "title": "Widget Title", "data": [{{"label": "Item", "detail": "Value", "color": "var(--accent-cyan)"}}]}},
   "references": [
     {{"name": "Reference Title", "url": "https://..."}},
     {{"name": "Reference Title", "url": "https://..."}}
@@ -229,12 +239,41 @@ Return ONLY valid JSON matching this schema:
 def revise_slide_heuristically(slide: dict, target_scope: str, feedback: str, rating: int) -> dict:
     """
     Intelligent heuristic domain revision engine when no external LLM API key is set.
-    Directly incorporates requested feedback points into content, takeaways, metrics, and references.
+    Directly incorporates requested feedback points into title, subtitle, visual_widget, content, takeaways, metrics, and references.
     """
     fb_lower = feedback.lower()
     sid = slide.get("slide_id", 1)
     title = slide.get("title", "")
+    subtitle = slide.get("subtitle", "")
     scope = target_scope or "160kV 3mA Industrial X-Ray Generator"
+
+    updated_title = title
+    updated_subtitle = subtitle
+    updated_widget = slide.get("visual_widget")
+
+    # Title & Subtitle adjustments per executive feedback
+    if any(k in fb_lower for k in ["title", "tile", "header", "x-ray", "xray", "name"]):
+        if "instead of" in fb_lower:
+            if "x-ray" in fb_lower or "xray" in fb_lower:
+                updated_title = "X-Ray Generator (160kV, 3mA) Executive Summary"
+            elif "power quality" in fb_lower or "pqm" in fb_lower:
+                updated_title = "Power Quality Monitoring (PQM) Executive Summary"
+            else:
+                m = re.search(r'use\s+["\']?([^"\']+)["\']?\s+instead\s+of', feedback, re.IGNORECASE)
+                if m:
+                    updated_title = m.group(1).strip()
+        if "should not include the word title" in fb_lower or "not include the word title" in fb_lower or "remove title" in fb_lower:
+            updated_title = re.sub(r'\bTitle\b', '', updated_title, flags=re.IGNORECASE).strip()
+            updated_title = re.sub(r'^\s*&\s*', '', updated_title).strip()
+            if not updated_title or updated_title.lower() == "executive summary":
+                updated_title = f"{scope} Executive Summary"
+
+    # Slide 1 specific defaults if 'Title' is still present
+    if sid == 1 and ("title &" in updated_title.lower() or updated_title.lower().startswith("title")):
+        if "x-ray" in scope.lower() or "160kv" in scope.lower():
+            updated_title = "X-Ray Generator (160kV, 3mA) Executive Summary"
+        else:
+            updated_title = f"{scope} Executive Summary"
 
     current_content = slide.get("content", "")
     clean_base = re.sub(r'\(Revised per Executive Feedback:.*?\)', '', current_content).strip()
@@ -261,6 +300,17 @@ def revise_slide_heuristically(slide: dict, target_scope: str, feedback: str, ra
             {"label": "Seasoning & FAT Cycle", "value": "4-6 Weeks"}
         ]
         updated_refs.append({"name": "ASTM E1000 Radiographic Sourcing Best Practices", "url": "https://www.astm.org/e1000-16.html"})
+        if sid == 1 or "time elements" in fb_lower:
+            updated_widget = {
+                "type": "timeline",
+                "title": "Critical Path Lead Time Breakdown (20-28 Weeks Total)",
+                "data": [
+                    {"phase": "Stage 1", "timeline": "Wk 1-8", "title": "Ceramic-Metal Brazing & Degas", "color": "var(--accent-cyan)"},
+                    {"phase": "Stage 2", "timeline": "Wk 9-16", "title": "HV Multiplier Potting & Oil Degas", "color": "var(--accent-orange)"},
+                    {"phase": "Stage 3", "timeline": "Wk 17-22", "title": "Conditioning & Seasoning (IEEE 4)", "color": "var(--accent-green)"},
+                    {"phase": "Stage 4", "timeline": "Wk 23-28", "title": "FAT & ASTM E1742 Signoff", "color": "#A855F7"}
+                ]
+            }
 
     # TAM & Market size breakdown
     if "tam" in fb_lower or "market size" in fb_lower:
@@ -272,6 +322,17 @@ def revise_slide_heuristically(slide: dict, target_scope: str, feedback: str, ra
         if len(updated_takeaways) > 1:
             updated_takeaways[1] = "TAM Growth: $820M global market led by Semiconductor PCBA (50%) and EV Battery Cell NDT (34%)."
         updated_metrics[1] = {"label": "Global Inspection TAM", "value": "$820M (2025)"}
+        if sid == 1 or "industry" in fb_lower or "breakdown" in fb_lower:
+            updated_widget = {
+                "type": "market_share",
+                "title": "Sub-225kV Inspection TAM by Industry & Geo",
+                "data": [
+                    {"name": "EV Battery Cells", "share": 38, "color": "#0284C7"},
+                    {"name": "Semiconductor PCBA", "share": 32, "color": "#06B6D4"},
+                    {"name": "Aerospace Composites", "share": 18, "color": "#F97316"},
+                    {"name": "Additive Mfg", "share": 12, "color": "#10B981"}
+                ]
+            }
 
     # Directional tube, components & beam stability
     if "directional tube" in fb_lower or "beam stability" in fb_lower or "power multiplier" in fb_lower:
@@ -354,9 +415,12 @@ def revise_slide_heuristically(slide: dict, target_scope: str, feedback: str, ra
     updated_takeaways = [re.sub(r'\[Updated:.*?\]', '', t).strip() for t in updated_takeaways]
 
     return {
+        "title": updated_title,
+        "subtitle": updated_subtitle,
         "content": new_content,
         "key_takeaways": updated_takeaways[:4],
         "metrics": updated_metrics[:3],
+        "visual_widget": updated_widget,
         "references": updated_refs[:3],
         "revision_summary": f"Slide {sid} revised per executive feedback: '{feedback[:70]}...'. Technical metrics & detailed copy expanded."
     }
@@ -462,7 +526,7 @@ def verify_all_slides():
     return {"summary": summary}
 
 DEFAULT_SLIDE_CONFIG = [
-    (1, "Title & Executive Summary", "Overview"),
+    (1, "Executive Summary & Strategic Overview", "Overview"),
     (2, "Commodity Definition & Operational Context", "Commodity Specs"),
     (3, "Market Dynamics & Strategic Drivers", "Market Trends"),
     (4, "Competitive Landscape & Vendor Distribution", "Competitive Intelligence"),
@@ -495,7 +559,7 @@ def build_xray_deck(scope: str, problem_text: str) -> list:
     return [
         {
             "slide_id": 1,
-            "title": "Title & Executive Summary",
+            "title": "X-Ray Generator (160kV, 3mA) Executive Summary",
             "subtitle": f"Strategic Study: {scope}",
             "category": "Overview",
             "status": "Pending",
@@ -992,7 +1056,7 @@ def build_bess_deck(scope: str, problem_text: str) -> list:
     return [
         {
             "slide_id": 1,
-            "title": "Title & Executive Summary",
+            "title": f"{scope} Executive Summary",
             "subtitle": f"Strategic Study: {scope}",
             "category": "Overview",
             "status": "Pending",
@@ -1486,7 +1550,7 @@ def build_general_deck(scope: str, problem_text: str) -> list:
     return [
         {
             "slide_id": 1,
-            "title": "Title & Executive Summary",
+            "title": f"{clean_scope} Executive Summary",
             "subtitle": f"Strategic Study: {clean_scope}",
             "category": "Overview",
             "status": "Pending",
@@ -2332,12 +2396,18 @@ def rate_slide(slide_id: int, req: RateRequest):
             rating=req.rating
         )
         
+        if llm_res.get("title"):
+            target_slide["title"] = llm_res["title"].strip()
+        if llm_res.get("subtitle"):
+            target_slide["subtitle"] = llm_res["subtitle"].strip()
         if llm_res.get("content"):
             target_slide["content"] = llm_res["content"]
         if llm_res.get("key_takeaways"):
             target_slide["key_takeaways"] = llm_res["key_takeaways"]
         if llm_res.get("metrics"):
             target_slide["metrics"] = llm_res["metrics"]
+        if llm_res.get("visual_widget"):
+            target_slide["visual_widget"] = llm_res["visual_widget"]
         if llm_res.get("references"):
             v_status, v_notes, v_refs = perform_critic_url_verification(llm_res["references"])
             target_slide["references"] = v_refs
@@ -2397,12 +2467,18 @@ def revise_slide(slide_id: int, req: ReviseRequest = ReviseRequest()):
         rating=current_rating
     )
 
+    if llm_res.get("title"):
+        target_slide["title"] = llm_res["title"].strip()
+    if llm_res.get("subtitle"):
+        target_slide["subtitle"] = llm_res["subtitle"].strip()
     if llm_res.get("content"):
         target_slide["content"] = llm_res["content"]
     if llm_res.get("key_takeaways"):
         target_slide["key_takeaways"] = llm_res["key_takeaways"]
     if llm_res.get("metrics"):
         target_slide["metrics"] = llm_res["metrics"]
+    if llm_res.get("visual_widget"):
+        target_slide["visual_widget"] = llm_res["visual_widget"]
     if llm_res.get("references"):
         v_status, v_notes, v_refs = perform_critic_url_verification(llm_res["references"])
         target_slide["references"] = v_refs
@@ -2486,12 +2562,18 @@ def revise_all_slides_with_feedback():
                 feedback=latest_fb,
                 rating=latest_rating
             )
+            if llm_res.get("title"):
+                slide["title"] = llm_res["title"].strip()
+            if llm_res.get("subtitle"):
+                slide["subtitle"] = llm_res["subtitle"].strip()
             if llm_res.get("content"):
                 slide["content"] = llm_res["content"]
             if llm_res.get("key_takeaways"):
                 slide["key_takeaways"] = llm_res["key_takeaways"]
             if llm_res.get("metrics"):
                 slide["metrics"] = llm_res["metrics"]
+            if llm_res.get("visual_widget"):
+                slide["visual_widget"] = llm_res["visual_widget"]
             if llm_res.get("references"):
                 v_status, v_notes, v_refs = perform_critic_url_verification(llm_res["references"])
                 slide["references"] = v_refs

@@ -1332,9 +1332,100 @@ High CapEx intensity, shortage of skilled personnel, in-house substitution, rapi
 - **AI Revision Summary**: [Google Gemini (gemini-3.8-flash)] Incorporated detailed 20–28 week lead-time breakdown across four critical-path manufacturing stages, added physical tube and monoblock system architecture details, and provided 2023 inspection focus TAM sizing ($740M) with explicit industry and country breakdowns.
 ---
 
-### [Slide 1: Title & Executive Summary] - Revision at 2026-10-12 19:49:10
+### [Slide 1: X-Ray Generator (160kV, 3mA) Executive Summary] - Revision at 2026-10-12 19:49:10
 - **Previous Rating**: 7
 - **New Executive Rating**: 7/10
 - **Executive Feedback**: "Title should say X-Ray instead of "Title", title should not include the word Title"
 - **AI Revision Summary**: [Google Gemini (gemini-3.8-flash)] Replaced the generic slide header with 'X-Ray Generator (160kV, 3mA) Executive Summary' to remove the forbidden term, while refining high-voltage NDT hardware specifications and TAM metrics.
+---
+
+### [Slide 1: 160kV Industrial X-Ray Source Executive Summary] - Revision at 2026-10-12 20:00:52
+- **Previous Rating**: 7
+- **New Executive Rating**: 7/10
+- **Executive Feedback**: "Title should say 160kV Industrial X-Ray Source Executive Summary"
+- **AI Revision Summary**: [Google Gemini (gemini-3.8-flash)] Updated the slide title to '160kV Industrial X-Ray Source Executive Summary' per executive stakeholder feedback while refining architectural, lead time, and market share data.
+---
+
+### [Slide 1: X-Ray Generator (160kV, 3mA) Executive Sourcing Assessment] - Revision at 2026-10-12 20:01:40
+- **Previous Rating**: 7
+- **New Executive Rating**: 7/10
+- **Executive Feedback**: "Title should say X-Ray instead of Title, title should not include the word Title"
+- **AI Revision Summary**: [Google Gemini (gemini-3.8-flash)] Updated slide title to prominently feature 'X-Ray Generator' while eliminating the forbidden term per executive instruction.
+---
+
+### [Slide 1: 160kV / 3mA Microfocus X-Ray Generator Executive Sourcing Assessment] - Revision at 2026-10-12 20:03:21
+- **Previous Rating**: 7
+- **New Executive Rating**: 6/10
+- **Executive Feedback**: "Test rating to be wiped"
+- **AI Revision Summary**: [Google Gemini (gemini-3.8-flash)] Wiped out all temporary test rating notations and provisional assessment text while cementing 100% continuous-duty operational ratings and streamlined fulfillment lead times.
+---
+
+### [Slide 0: Archived Outputs & Reset Deck Cache] - Revision at 2026-10-12 20:03:21
+- **Previous Rating**: N/A
+- **New Executive Rating**: 0/10
+- **Executive Feedback**: "Executive clicked 'Start New Problem'"
+- **AI Revision Summary**: Saved archived PPTX (X_Ray_generator_160kV_3mA_20261012_200321.pptx) & PDF (X_Ray_generator_160kV_3mA_20261012_200321.pdf). Cleared all slides and cache for new problem.
+---
+
+### [Slide 1: Re-Synthesized Fresh Deck for New Problem Scope] - Revision at 2026-10-12 20:03:21
+- **Previous Rating**: N/A
+- **New Executive Rating**: 0/10
+- **Executive Feedback**: "Evaluate industrial X-Ray generator suppliers, 160kV constant potential, and dual-sourcing roadmaps"
+- **AI Revision Summary**: Complete AI re-synthesis performed for scope 'X-Ray generator, 160kV, 3mA'. All 13 slides updated with 0 remnants of old study.
+---
+
+### [Slide 2: Commodity Definition & Operational Architecture] - Revision at 2026-10-12 20:03:41
+- **Previous Rating**: N/A
+- **New Executive Rating**: 8/10
+- **Executive Feedback**: "Include ASTM E1742 standards"
+- **AI Revision Summary**: [Google Gemini (gemini-3.8-flash)] Integrated ASTM E1742 radiographic examination standards into technical specifications, detailing geometric unsharpness limits, 2% (2-2T) sensitivity requirements, and verification protocols.
+---
+
+### [Slide 0: Archived Outputs & Reset Deck Cache] - Revision at 2026-10-12 20:03:41
+- **Previous Rating**: N/A
+- **New Executive Rating**: 0/10
+- **Executive Feedback**: "Executive clicked 'Start New Problem'"
+- **AI Revision Summary**: Saved archived PPTX (X_Ray_generator_160kV_3mA_20261012_200341.pptx) & PDF (X_Ray_generator_160kV_3mA_20261012_200341.pdf). Cleared all slides and cache for new problem.
+---
+
+### [Slide 1: Re-Synthesized Fresh Deck for New Problem Scope] - Revision at 2026-10-12 20:03:41
+- **Previous Rating**: N/A
+- **New Executive Rating**: 0/10
+- **Executive Feedback**: "Global Supply Chain Sourcing for Utility-Scale Lithium-Ion Battery Energy Storage Systems (BESS)"
+- **AI Revision Summary**: Complete AI re-synthesis performed for scope 'BESS Energy Storage Infrastructure'. All 13 slides updated with 0 remnants of old study.
+---
+
+### [Slide 0: Archived Outputs & Reset Deck Cache] - Revision at 2026-10-12 20:03:41
+- **Previous Rating**: N/A
+- **New Executive Rating**: 0/10
+- **Executive Feedback**: "Executive clicked 'Start New Problem'"
+- **AI Revision Summary**: Saved archived PPTX (BESS_Energy_Storage_Infrastructure_20261012_200341.pptx) & PDF (BESS_Energy_Storage_Infrastructure_20261012_200341.pdf). Cleared all slides and cache for new problem.
+---
+
+### [Slide 1: Re-Synthesized Fresh Deck for New Problem Scope] - Revision at 2026-10-12 20:03:41
+- **Previous Rating**: N/A
+- **New Executive Rating**: 0/10
+- **Executive Feedback**: "Procurement strategy and fab capacity for Automotive Silicon Carbide Power MOSFETs in 800V EV inverters"
+- **AI Revision Summary**: Complete AI re-synthesis performed for scope 'Automotive SiC Power Modules'. All 13 slides updated with 0 remnants of old study.
+---
+
+### [Slide 0: Archived Outputs & Reset Deck Cache] - Revision at 2026-10-12 20:03:42
+- **Previous Rating**: N/A
+- **New Executive Rating**: 0/10
+- **Executive Feedback**: "Executive clicked 'Start New Problem'"
+- **AI Revision Summary**: Saved archived PPTX (Automotive_SiC_Power_Modules_20261012_200341.pptx) & PDF (Automotive_SiC_Power_Modules_20261012_200341.pdf). Cleared all slides and cache for new problem.
+---
+
+### [Slide 1: Re-Synthesized Fresh Deck for New Problem Scope] - Revision at 2026-10-12 20:04:17
+- **Previous Rating**: N/A
+- **New Executive Rating**: 0/10
+- **Executive Feedback**: "Supplier landscape and technology roadmaps"
+- **AI Revision Summary**: Complete AI re-synthesis performed for scope 'X-Ray generator, 160kV, 3mA'. All 13 slides updated with 0 remnants of old study.
+---
+
+### [Slide 1: X-Ray Generator (160kV, 3mA) Strategic Sourcing Assessment] - Revision at 2026-10-12 20:04:50
+- **Previous Rating**: N/A
+- **New Executive Rating**: 7/10
+- **Executive Feedback**: "Title should say X-Ray instead of Title, title should not include the word Title"
+- **AI Revision Summary**: [Google Gemini (gemini-3.8-flash)] Updated slide header text to prominently feature 'X-Ray', purged all occurrences of the forbidden word, and refreshed engineering copy to emphasize monoblock reliability and dual-sourcing strategies.
 ---
