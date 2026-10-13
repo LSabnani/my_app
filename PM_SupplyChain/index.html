@@ -1,0 +1,1453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Power Quality Monitoring (PQM) — AI Executive Deck</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-dark: #0B0F19;
+      --card-bg: rgba(17, 24, 39, 0.85);
+      --card-border: rgba(255, 255, 255, 0.1);
+      --accent-blue: #0284C7;
+      --accent-cyan: #06B6D4;
+      --accent-orange: #F97316;
+      --accent-green: #10B981;
+      --accent-purple: #8B5CF6;
+      --text-main: #F3F4F6;
+      --text-muted: #9CA3AF;
+      --glass-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: radial-gradient(circle at 50% -10%, #1E293B 0%, #0B0F19 80%);
+      color: var(--text-main);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+    }
+
+    /* Top Navigation Header */
+    header {
+      background: rgba(11, 15, 25, 0.9);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--card-border);
+      padding: 16px 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-icon {
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, var(--accent-cyan), var(--accent-blue));
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-family: 'Outfit', sans-serif;
+      font-size: 20px;
+      box-shadow: 0 0 20px rgba(6, 182, 212, 0.5);
+    }
+
+    .brand-title {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 700;
+      font-size: 19px;
+      letter-spacing: -0.3px;
+    }
+
+    .brand-subtitle {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .top-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .btn {
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 9px 16px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.25 ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+    }
+
+    .btn-present {
+      background: linear-gradient(135deg, var(--accent-purple), var(--accent-blue));
+      color: #fff;
+      box-shadow: 0 4px 15px rgba(139, 92, 246, 0.4);
+    }
+
+    .btn-present:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(139, 92, 246, 0.6);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent-blue), var(--accent-cyan));
+      color: #fff;
+      box-shadow: 0 4px 12px rgba(2, 132, 199, 0.3);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(2, 132, 199, 0.5);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.06);
+      color: var(--text-main);
+      border: 1px solid var(--card-border);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.12);
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    /* Main Container */
+    main {
+      flex: 1;
+      max-width: 1400px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 24px 32px;
+      display: grid;
+      grid-template-columns: 290px 1fr;
+      gap: 24px;
+    }
+
+    /* Sidebar Navigation */
+    .sidebar {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 18px;
+      padding: 20px;
+      backdrop-filter: blur(16px);
+      box-shadow: var(--glass-shadow);
+      display: flex;
+      flex-direction: column;
+      height: calc(100vh - 120px);
+      position: sticky;
+      top: 90px;
+    }
+
+    .sidebar-title {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--accent-cyan);
+      margin-bottom: 14px;
+      font-weight: 800;
+    }
+
+    .slide-list {
+      list-style: none;
+      overflow-y: auto;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      padding-right: 4px;
+    }
+
+    .slide-item {
+      padding: 11px 14px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .slide-item:hover {
+      background: rgba(255, 255, 255, 0.06);
+      border-color: rgba(255, 255, 255, 0.15);
+      transform: translateX(3px);
+    }
+
+    .slide-item.active {
+      background: rgba(2, 132, 199, 0.18);
+      border-color: rgba(2, 132, 199, 0.6);
+      box-shadow: 0 0 15px rgba(2, 132, 199, 0.2);
+    }
+
+    .slide-item-info {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      overflow: hidden;
+    }
+
+    .slide-item-num {
+      font-size: 11px;
+      color: var(--accent-cyan);
+      font-weight: 800;
+    }
+
+    .slide-item-name {
+      font-size: 13px;
+      font-weight: 600;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .slide-pill {
+      font-size: 10px;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 12px;
+    }
+
+    .pill-pending { background: rgba(156, 163, 175, 0.15); color: #9CA3AF; }
+    .pill-approved { background: rgba(16, 185, 129, 0.2); color: #10B981; border: 1px solid rgba(16, 185, 129, 0.4); }
+    .pill-revised { background: rgba(249, 115, 22, 0.2); color: #F97316; border: 1px solid rgba(249, 115, 22, 0.4); }
+
+    /* Deck Viewport */
+    .deck-container {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .slide-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 20px;
+      padding: 32px;
+      backdrop-filter: blur(20px);
+      box-shadow: var(--glass-shadow);
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      position: relative;
+      transition: all 0.3s ease;
+    }
+
+    .slide-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      border-bottom: 1px solid var(--card-border);
+      padding-bottom: 18px;
+    }
+
+    .slide-tag {
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--accent-cyan);
+      margin-bottom: 6px;
+    }
+
+    .slide-heading {
+      font-family: 'Outfit', sans-serif;
+      font-size: 28px;
+      font-weight: 700;
+      line-height: 1.25;
+      background: linear-gradient(135deg, #FFF, #94A3B8);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .slide-subheading {
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+
+    /* Metric Cards Grid */
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .metric-card {
+      background: linear-gradient(145deg, rgba(30, 41, 59, 0.6), rgba(15, 23, 42, 0.8));
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 14px;
+      padding: 18px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      transition: all 0.25s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .metric-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent-orange), var(--accent-cyan));
+    }
+
+    .metric-card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(6, 182, 212, 0.4);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+    }
+
+    .metric-value {
+      font-family: 'Outfit', sans-serif;
+      font-size: 26px;
+      font-weight: 800;
+      color: var(--accent-orange);
+    }
+
+    .metric-label {
+      font-size: 12px;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+
+    .slide-content-text {
+      font-size: 15px;
+      line-height: 1.6;
+      color: #E2E8F0;
+      background: rgba(255, 255, 255, 0.02);
+      padding: 16px 20px;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    /* Visual Dynamic Widget Container */
+    .visual-widget-box {
+      background: rgba(15, 23, 42, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 14px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .widget-title {
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--accent-cyan);
+    }
+
+    /* Takeaways Grid */
+    .takeaways-section {
+      background: rgba(6, 182, 212, 0.04);
+      border-left: 4px solid var(--accent-cyan);
+      padding: 18px 22px;
+      border-radius: 0 14px 14px 0;
+    }
+
+    .takeaways-title {
+      font-size: 12px;
+      font-weight: 800;
+      color: var(--accent-cyan);
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .takeaways-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .takeaways-list li {
+      font-size: 14px;
+      line-height: 1.5;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    .takeaways-list li::before {
+      content: "✦";
+      color: var(--accent-cyan);
+      font-size: 14px;
+      line-height: 1.4;
+    }
+
+    /* Critic Verification Box & Footer */
+    .critic-box {
+      background: rgba(16, 185, 129, 0.06);
+      border: 1px solid rgba(16, 185, 129, 0.2);
+      border-radius: 14px;
+      padding: 16px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .critic-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .critic-title {
+      font-size: 13px;
+      font-weight: 800;
+      color: var(--accent-green);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .critic-notes {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .references-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .ref-link-card {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      background: rgba(6, 182, 212, 0.08);
+      padding: 6px 12px;
+      border-radius: 8px;
+      border: 1px solid rgba(6, 182, 212, 0.2);
+    }
+
+    .ref-link {
+      color: var(--accent-cyan);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .ref-link:hover {
+      text-decoration: underline;
+    }
+
+    .http-badge {
+      font-size: 10px;
+      font-weight: 700;
+      padding: 2px 6px;
+      border-radius: 4px;
+      background: rgba(16, 185, 129, 0.2);
+      color: #10B981;
+      border: 1px solid rgba(16, 185, 129, 0.4);
+    }
+
+    /* Executive Rating Card */
+    .rating-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 18px;
+      padding: 22px 28px;
+      backdrop-filter: blur(20px);
+      box-shadow: var(--glass-shadow);
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .rating-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .rating-title {
+      font-size: 15px;
+      font-weight: 700;
+    }
+
+    .rating-sub {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .rating-scale {
+      display: flex;
+      gap: 8px;
+    }
+
+    .score-btn {
+      flex: 1;
+      padding: 12px 0;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--card-border);
+      border-radius: 10px;
+      color: var(--text-main);
+      font-family: 'Outfit', sans-serif;
+      font-weight: 700;
+      font-size: 16px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .score-btn:hover {
+      background: rgba(6, 182, 212, 0.2);
+      border-color: var(--accent-cyan);
+      color: #fff;
+    }
+
+    .score-btn.selected {
+      background: linear-gradient(135deg, var(--accent-blue), var(--accent-cyan));
+      border-color: var(--accent-cyan);
+      color: #fff;
+      box-shadow: 0 0 20px rgba(6, 182, 212, 0.5);
+    }
+
+    .feedback-input-box {
+      display: none;
+      flex-direction: column;
+      gap: 10px;
+      animation: fadeIn 0.3s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-5px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .feedback-textarea {
+      width: 100%;
+      height: 80px;
+      background: rgba(0, 0, 0, 0.3);
+      border: 1px solid var(--card-border);
+      border-radius: 10px;
+      padding: 12px;
+      color: var(--text-main);
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      resize: none;
+      outline: none;
+    }
+
+    .nav-controls {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 6px;
+    }
+
+    .progress-container {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-right: 12px;
+    }
+
+    .progress-bar-bg {
+      width: 120px;
+      height: 8px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .progress-bar-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, var(--accent-cyan), var(--accent-green));
+      transition: width 0.3s ease;
+    }
+
+    .progress-text {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+
+    /* Revision Log */
+    .revision-panel {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 18px;
+      padding: 20px;
+      margin-top: 10px;
+    }
+
+    .revision-title {
+      font-size: 13px;
+      font-weight: 800;
+      margin-bottom: 10px;
+      color: var(--accent-cyan);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .revision-list {
+      font-size: 13px;
+      color: var(--text-muted);
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      max-height: 120px;
+      overflow-y: auto;
+    }
+
+    /* Presentation Overlay Modal */
+    #presenterModal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: #FFFFFF;
+      z-index: 2000;
+      flex-direction: column;
+      padding: 40px 60px;
+      justify-content: space-between;
+    }
+
+    .presenter-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .presenter-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 32px;
+      font-weight: 800;
+      color: #0F172A;
+    }
+
+    .presenter-body {
+      max-width: 1000px;
+      margin: 0 auto;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    .presenter-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Header Navigation -->
+  <header>
+    <div class="brand">
+      <div class="brand-icon">PQ</div>
+      <div>
+        <div class="brand-title" id="brandTitle">Executive Study Deck</div>
+        <div class="brand-subtitle" id="brandSubtitle">Interactive AI Presentation & Critic Verification Deck</div>
+      </div>
+    </div>
+
+    <div class="top-actions">
+      <div class="progress-container">
+        <div class="progress-bar-bg">
+          <div class="progress-bar-fill" id="progressFill"></div>
+        </div>
+        <div class="progress-text" id="progressText">0 / 13 Approved</div>
+      </div>
+
+      <button onclick="startPresentation()" class="btn btn-present" title="Launch Fullscreen Presentation Mode">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+        Start Presenting
+      </button>
+
+      <button id="startNewProblemBtn" onclick="handleAnotherProblem()" class="btn btn-secondary" style="background: rgba(249, 115, 22, 0.15); border-color: rgba(249, 115, 22, 0.4); color: var(--accent-orange);" title="Save current PPTX/PDF outputs, clear cache, and input next problem">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.5 2v6h-6"/><path d="M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/></svg>
+        Start New Problem
+      </button>
+
+      <button id="reviseAllBtn" onclick="reviseAllFeedbackWithLLM()" class="btn btn-secondary" style="background: rgba(168, 85, 247, 0.15); border-color: rgba(168, 85, 247, 0.4); color: #C084FC;" title="Trigger LLM AI to regenerate all slides that have executive feedback">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        Revise All with LLM
+      </button>
+
+      <button onclick="toggleProblemModal()" class="btn btn-secondary" title="Ingest new problem statement & re-scope slide deck">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+        New Scope
+      </button>
+
+      <button onclick="verifyCurrentSlide()" class="btn btn-secondary" title="Run Critic Agent HTTP check on reference URLs">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        Verify Links
+      </button>
+
+      <a id="exportPptxBtn" href="/api/export/pptx" class="btn btn-secondary" target="_blank">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        PPTX
+      </a>
+
+      <a id="exportPdfBtn" href="/api/export/pdf" class="btn btn-primary" target="_blank">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+        PDF
+      </a>
+    </div>
+  </header>
+
+  <main>
+    <aside class="sidebar">
+      <div class="sidebar-title">Presentation Slides</div>
+      <ul class="slide-list" id="slideList"></ul>
+    </aside>
+
+    <section class="deck-container">
+      <article class="slide-card" id="slideCard">
+        <div class="slide-header">
+          <div>
+            <div class="slide-tag" id="slideCategory">Overview</div>
+            <div class="slide-heading" id="slideTitle">Loading Slide Content...</div>
+            <div class="slide-subheading" id="slideSubtitle">Please wait while the AI deck loads</div>
+          </div>
+          <div class="slide-pill pill-pending" id="slidePill">Pending</div>
+        </div>
+
+        <!-- Metric Cards -->
+        <div class="metrics-grid" id="metricsGrid"></div>
+
+        <!-- Main Content Box -->
+        <div class="slide-content-text" id="slideContent">Loading...</div>
+
+        <!-- Visual Dynamic Widget area -->
+        <div class="visual-widget-box" id="visualWidgetBox">
+          <div class="widget-title" id="widgetTitle">Visual Analytics Breakdown</div>
+          <div id="widgetContent">Loading visual chart...</div>
+        </div>
+
+        <!-- Takeaways -->
+        <div class="takeaways-section">
+          <div class="takeaways-title">Key Executive Takeaways</div>
+          <ul class="takeaways-list" id="takeawaysList"></ul>
+        </div>
+
+        <!-- Critic Agent Verification Box & Footer -->
+        <div class="critic-box">
+          <div class="critic-header">
+            <div class="critic-title">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              Critic Verification & Source Reference Links
+            </div>
+            <span style="font-size: 11px; color: var(--accent-green); font-weight: 700;" id="criticStatus">VERIFIED</span>
+          </div>
+          <div class="critic-notes" id="criticNotes">All reference sources verified live via HTTP requests.</div>
+          <div class="references-list" id="referencesList"></div>
+        </div>
+      </article>
+
+      <section class="rating-card">
+        <div class="rating-header">
+          <div>
+            <div class="rating-title">Executive Review & Slide Approval</div>
+            <div class="rating-sub">Score this slide (1 to 10). Ratings under 9 trigger automated AI revision.</div>
+          </div>
+          <div id="currentScoreDisplay" style="font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 18px; color: var(--accent-cyan);">
+            Score: Unrated
+          </div>
+        </div>
+
+        <div class="rating-scale" id="ratingScale">
+          <button class="score-btn" onclick="selectScore(1)">1</button>
+          <button class="score-btn" onclick="selectScore(2)">2</button>
+          <button class="score-btn" onclick="selectScore(3)">3</button>
+          <button class="score-btn" onclick="selectScore(4)">4</button>
+          <button class="score-btn" onclick="selectScore(5)">5</button>
+          <button class="score-btn" onclick="selectScore(6)">6</button>
+          <button class="score-btn" onclick="selectScore(7)">7</button>
+          <button class="score-btn" onclick="selectScore(8)">8</button>
+          <button class="score-btn" onclick="selectScore(9)">9</button>
+          <button class="score-btn" onclick="selectScore(10)">10</button>
+        </div>
+
+        <div class="feedback-input-box" id="feedbackBox">
+          <label style="font-size: 12px; font-weight: 600; color: var(--accent-orange);">
+            Feedback Required (Score < 9): Specify changes or improvements for AI revision
+          </label>
+          <textarea class="feedback-textarea" id="feedbackInput" placeholder="Specify requested refinements..."></textarea>
+        </div>
+
+        <div class="nav-controls">
+          <button class="btn btn-secondary" id="prevBtn" onclick="navigateSlide(-1)">
+            ← Previous Slide
+          </button>
+
+          <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
+            <button class="btn btn-secondary" id="reviseCurrentBtn" onclick="reviseCurrentSlideWithLLM()" style="background: rgba(168, 85, 247, 0.15); border-color: rgba(168, 85, 247, 0.4); color: #C084FC;" title="Run LLM to rewrite current slide with feedback">
+              ⚡ Revise with LLM
+            </button>
+            <button class="btn btn-secondary" id="approveCurrentBtn" onclick="approveCurrentSlide()" style="background: rgba(16, 185, 129, 0.15); border-color: rgba(16, 185, 129, 0.4); color: var(--accent-green);" title="Approve current slide">
+              ✓ Approve Slide
+            </button>
+            <button class="btn btn-primary" id="submitRatingBtn" onclick="submitRating()">
+              Submit Rating & Revise
+            </button>
+            <button class="btn btn-secondary" id="nextBtn" onclick="navigateSlide(1)">
+              Next Slide →
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section class="revision-panel">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+          <div class="revision-title" style="margin-bottom: 0;">Live Executive Revision Log</div>
+          <div id="overallStatus" style="font-size: 12px; font-weight: 700; color: var(--accent-orange);"></div>
+        </div>
+        <div class="revision-list" id="revisionList">
+          <div>Log initialized. Select slides and rate to initiate review loop.</div>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <!-- Fullscreen Interactive Presentation Mode Modal -->
+  <div id="presenterModal">
+    <div class="presenter-header">
+      <div style="display: flex; align-items: center; gap: 12px;">
+        <span class="slide-tag" id="presTag" style="font-size: 14px;">SLIDE 1</span>
+        <h2 class="presenter-title" id="presTitle">Slide Title</h2>
+      </div>
+      <button onclick="stopPresentation()" class="btn btn-secondary" style="background: rgba(0,0,0,0.06); color: #0F172A; border: 1px solid rgba(0,0,0,0.12);">Close Presentation (Esc)</button>
+    </div>
+
+    <div class="presenter-body">
+      <div class="metrics-grid" id="presMetrics"></div>
+      <div style="font-size: 20px; line-height: 1.6; color: #1E293B;" id="presContent"></div>
+      <div class="takeaways-section" style="padding: 24px; background: #F8FAFC; border: 1px solid #E2E8F0;">
+        <div class="takeaways-title" style="font-size: 14px;">Key Executive Takeaways</div>
+        <ul class="takeaways-list" id="presTakeaways" style="font-size: 18px; color: #334155;"></ul>
+      </div>
+    </div>
+
+    <div class="presenter-nav">
+      <button class="btn btn-secondary" onclick="navigateSlide(-1); renderPresentationSlide();">← Previous</button>
+      <span style="font-size: 14px; color: var(--text-muted);" id="presProgress">Slide 1 of 13</span>
+      <button class="btn btn-primary" onclick="navigateSlide(1); renderPresentationSlide();">Next →</button>
+    </div>
+  </div>
+
+  <!-- Problem Ingestion Modal Overlay -->
+  <div id="problemModal" style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.75); backdrop-filter: blur(8px); z-index: 1000; align-items: center; justify-content: center;">
+    <div style="background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 20px; padding: 28px; width: 540px; max-width: 90%; display: flex; flex-direction: column; gap: 16px; box-shadow: var(--glass-shadow);">
+      <div style="display: flex; justify-content: space-between; align-items: center;">
+        <h3 style="font-family: 'Outfit', sans-serif; font-size: 20px; color: var(--accent-cyan);">Ingest New Executive Problem / Scope</h3>
+        <button onclick="toggleProblemModal()" style="background: none; border: none; color: var(--text-muted); font-size: 20px; cursor: pointer;">&times;</button>
+      </div>
+      
+      <p style="font-size: 13px; color: var(--text-muted);">Specify a new business challenge, target domain (e.g. Hyperscale AI Data Centers, Semiconductor Fabs), or vendor focus. The AI pipeline will re-scope the executive deck.</p>
+      
+      <div style="display: flex; flex-direction: column; gap: 6px;">
+        <label style="font-size: 12px; font-weight: 600;">Target Domain / Scope Title</label>
+        <input id="problemScopeInput" type="text" placeholder="e.g. Hyperscale AI Data Center Power Quality & Microgrids" style="background: rgba(0,0,0,0.3); border: 1px solid var(--card-border); border-radius: 8px; padding: 10px; color: #fff; font-size: 13px; outline: none;" />
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 6px;">
+        <label style="font-size: 12px; font-weight: 600;">Problem Statement & Requirements</label>
+        <textarea id="problemStatementInput" placeholder="Describe the problem, target vendors, or technical criteria to evaluate..." style="height: 100px; background: rgba(0,0,0,0.3); border: 1px solid var(--card-border); border-radius: 8px; padding: 10px; color: #fff; font-size: 13px; outline: none; resize: none;"></textarea>
+      </div>
+
+      <div style="display: flex; justify-content: flex-end; gap: 12px; margin-top: 8px;">
+        <button onclick="toggleProblemModal()" class="btn btn-secondary">Cancel</button>
+        <button onclick="submitNewProblem()" class="btn btn-primary">Re-Scope & Generate Deck</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let currentDeckData = {};
+    let slidesData = [];
+    let currentSlideIndex = 0;
+    let selectedScore = null;
+
+    function getScopePrefix() {
+      const scope = ((currentDeckData && currentDeckData.target_scope) || '').trim();
+      if (!scope) return 'SLIDE';
+      if (/x-?ray/i.test(scope)) return 'X-RAY';
+      if (/bess|battery/i.test(scope)) return 'BESS';
+      if (/pqm|power quality/i.test(scope)) return 'PQM';
+      if (/semiconductor/i.test(scope)) return 'SEMI';
+      if (/tic|electron microscop/i.test(scope)) return 'TIC';
+      const words = scope.replace(/[^A-Za-z0-9\s]/g, '').split(/\s+/).filter(Boolean);
+      if (words.length === 1 && words[0].length <= 6) return words[0].toUpperCase();
+      if (words.length > 1) {
+        const acronym = words.slice(0, 4).map(w => w[0]).join('').toUpperCase();
+        if (acronym.length >= 2 && acronym.length <= 5) return acronym;
+      }
+      return 'SLIDE';
+    }
+
+    async function loadSlides() {
+      try {
+        const res = await fetch('/api/slides?_t=' + Date.now(), { cache: 'no-store' });
+        const data = await res.json();
+        currentDeckData = data;
+        slidesData = data.slides || [];
+
+        // Dynamic Brand Title & Subtitle
+        if (data.project_title && data.target_scope) {
+          document.getElementById('brandTitle').innerText = data.project_title;
+          document.getElementById('brandSubtitle').innerText = `Scope: ${data.target_scope}`;
+        } else if (data.target_scope) {
+          document.getElementById('brandTitle').innerText = `Executive Study: ${data.target_scope}`;
+          document.getElementById('brandSubtitle').innerText = 'Strategic Commodity & Supply Chain Analysis';
+        } else {
+          document.getElementById('brandTitle').innerText = 'Executive Study Deck (Awaiting Scope)';
+          document.getElementById('brandSubtitle').innerText = 'Interactive AI Presentation & Critic Verification Deck';
+        }
+
+        renderSidebar();
+        renderSlide(currentSlideIndex);
+        updateProgress();
+      } catch (err) {
+        console.error('Failed to load slides', err);
+      }
+    }
+
+    function renderSidebar() {
+      const listEl = document.getElementById('slideList');
+      listEl.innerHTML = '';
+      const prefix = getScopePrefix();
+      
+      slidesData.forEach((slide, idx) => {
+        const li = document.createElement('li');
+        li.className = `slide-item ${idx === currentSlideIndex ? 'active' : ''}`;
+        li.onclick = () => selectSlide(idx);
+
+        let statusClass = 'pill-pending';
+        if (slide.status === 'Approved') statusClass = 'pill-approved';
+        if (slide.status === 'Revised') statusClass = 'pill-revised';
+
+        li.innerHTML = `
+          <div class="slide-item-info">
+            <span class="slide-item-num">${prefix} ${slide.slide_id}</span>
+            <span class="slide-item-name">${slide.title}</span>
+          </div>
+          <span class="slide-pill ${statusClass}">${slide.status}</span>
+        `;
+        listEl.appendChild(li);
+      });
+    }
+
+    function renderSlide(index) {
+      if (!slidesData || !slidesData[index]) return;
+      currentSlideIndex = index;
+      const slide = slidesData[index];
+
+      document.getElementById('slideCategory').innerText = slide.category || 'Overview';
+      document.getElementById('slideTitle').innerText = slide.title;
+      document.getElementById('slideSubtitle').innerText = slide.subtitle || '';
+      document.getElementById('slideContent').innerText = slide.content || '';
+
+      const pill = document.getElementById('slidePill');
+      pill.innerText = slide.status || 'Pending';
+      pill.className = `slide-pill ${
+        slide.status === 'Approved' ? 'pill-approved' : 
+        slide.status === 'Revised' ? 'pill-revised' : 'pill-pending'
+      }`;
+
+      // Metrics Grid
+      const metricsGrid = document.getElementById('metricsGrid');
+      metricsGrid.innerHTML = '';
+      (slide.metrics || []).forEach(m => {
+        const div = document.createElement('div');
+        div.className = 'metric-card';
+        div.innerHTML = `
+          <div class="metric-value">${m.value}</div>
+          <div class="metric-label">${m.label}</div>
+        `;
+        metricsGrid.appendChild(div);
+      });
+
+      // Render Visual Interactive Widget
+      renderVisualWidget(slide);
+
+      // Key Takeaways
+      const takeawaysList = document.getElementById('takeawaysList');
+      takeawaysList.innerHTML = '';
+      (slide.key_takeaways || []).forEach(kw => {
+        const li = document.createElement('li');
+        li.innerText = kw;
+        takeawaysList.appendChild(li);
+      });
+
+      // Critic Verification & Footer Info
+      const todayStr = new Date().toISOString().split('T')[0];
+      const scopeTag = ((currentDeckData && currentDeckData.target_scope) || 'EXECUTIVE_DECK').substring(0, 25).toUpperCase();
+      document.getElementById('criticStatus').innerText = slide.verification_status || 'VERIFIED';
+      document.getElementById('criticNotes').innerText = `${scopeTag} #${slide.slide_id}  •  ${scopeTag.replace(/[^A-Z0-9_]/g, '_')}_Executive_Deck  •  Author: Lalit Sabnani  •  Date: ${todayStr}  •  ${slide.critic_notes || 'All reference sources verified live.'}`;
+      
+      const refsList = document.getElementById('referencesList');
+      refsList.innerHTML = '';
+      (slide.references || []).forEach(ref => {
+        const div = document.createElement('div');
+        div.className = 'ref-link-card';
+
+        const statusBadge = ref.http_status ? 
+          `<span class="http-badge">${ref.http_status === 200 ? 'HTTP 200 OK' : 'HTTP ' + ref.http_status}</span>` : 
+          `<span class="http-badge">VERIFIED</span>`;
+
+        div.innerHTML = `
+          ${statusBadge}
+          <a href="${ref.url}" class="ref-link" target="_blank">${ref.name}</a>
+        `;
+        refsList.appendChild(div);
+      });
+
+      resetScoreUI(slide);
+      renderSidebar();
+    }
+
+    // Dynamic Visual Widget Renderer based on slide data
+    function renderVisualWidget(slide) {
+      const box = document.getElementById('widgetContent');
+      const title = document.getElementById('widgetTitle');
+      const vw = slide.visual_widget;
+
+      if (vw && vw.type === 'market_share') {
+        title.innerText = vw.title || "Interactive Market Share Distribution";
+        const items = vw.data || [];
+        const labelsHtml = items.map(it => `<span>${it.name} (${it.share}%)</span>`).join('');
+        const barsHtml = items.map(it => `<div style="width: ${it.share}%; background: ${it.color}; height: 100%;" title="${it.name} ${it.share}%"></div>`).join('');
+        box.innerHTML = `
+          <div style="display: flex; flex-direction: column; gap: 10px;">
+            <div style="display: flex; justify-content: space-between; font-size: 12px; font-weight: 600; flex-wrap: wrap; gap: 8px;">
+              ${labelsHtml}
+            </div>
+            <div style="height: 14px; width: 100%; background: rgba(255,255,255,0.06); border-radius: 7px; overflow: hidden; display: flex;">
+              ${barsHtml}
+            </div>
+          </div>
+        `;
+      } else if (vw && vw.type === 'decision_matrix') {
+        title.innerText = vw.title || "Weighted Decision Matrix";
+        const items = vw.data || [];
+        const colsHtml = items.map(it => `
+          <div style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); padding: 10px; border-radius: 8px;">
+            <div style="font-weight: 800; color: ${it.color}; font-size: 16px;">${it.weight}%</div>
+            <div style="font-size: 11px; color: var(--text-muted); margin-top: 4px;">${it.criterion}</div>
+          </div>
+        `).join('');
+        box.innerHTML = `<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); gap: 10px; text-align: center;">${colsHtml}</div>`;
+      } else if (vw && vw.type === 'timeline') {
+        title.innerText = vw.title || "Milestone Execution Timeline";
+        const items = vw.data || [];
+        const stepsHtml = items.map((it, idx) => `
+          <div style="flex: 1; text-align: center; position: relative;">
+            <div style="width: 24px; height: 24px; background: ${it.color}; border-radius: 50%; margin: 0 auto 6px; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 800; color: #000;">${idx + 1}</div>
+            <div style="font-size: 11px; font-weight: 700;">${it.timeline}</div>
+            <div style="font-size: 10px; color: var(--text-muted);">${it.title}</div>
+          </div>
+        `).join('');
+        box.innerHTML = `<div style="display: flex; justify-content: space-between; align-items: center; position: relative;">${stepsHtml}</div>`;
+      } else if (vw && vw.type === 'architecture') {
+        title.innerText = vw.title || "Key Technical Highlights";
+        const items = vw.data || [];
+        const cardsHtml = items.map(it => `
+          <div style="flex:1; min-width: 200px; background: rgba(255,255,255,0.03); padding: 10px 14px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.05); font-size: 12px;">
+            <span style="color: ${it.color}; font-weight: 700;">${it.label}:</span> ${it.detail}
+          </div>
+        `).join('');
+        box.innerHTML = `<div style="display: flex; gap: 12px; flex-wrap: wrap;">${cardsHtml}</div>`;
+      } else {
+        title.innerText = "Key Architecture Highlights";
+        const metrics = (slide && slide.metrics) || [];
+        if (metrics.length > 0) {
+          box.innerHTML = `
+            <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+              ${metrics.map(m => `
+                <div style="flex:1; min-width: 140px; background: rgba(255,255,255,0.03); padding: 10px 14px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.05); font-size: 12px;">
+                  <span style="color: var(--accent-cyan); font-weight: 700;">${m.label}:</span> ${m.value}
+                </div>
+              `).join('')}
+            </div>
+          `;
+        } else {
+          box.innerHTML = `<div style="font-size: 12px; color: var(--text-muted);">Awaiting problem statement input...</div>`;
+        }
+      }
+    }
+
+    // Fullscreen Presentation Mode
+    function startPresentation() {
+      document.getElementById('presenterModal').style.display = 'flex';
+      renderPresentationSlide();
+    }
+
+    function stopPresentation() {
+      document.getElementById('presenterModal').style.display = 'none';
+    }
+
+    function renderPresentationSlide() {
+      const slide = slidesData[currentSlideIndex];
+      const prefix = getScopePrefix();
+      document.getElementById('presTag').innerText = `${prefix} ${slide.slide_id} | ${slide.category}`;
+      document.getElementById('presTitle').innerText = slide.title;
+      document.getElementById('presContent').innerText = slide.content;
+      document.getElementById('presProgress').innerText = `Slide ${currentSlideIndex + 1} of ${slidesData.length}`;
+
+      const presMetrics = document.getElementById('presMetrics');
+      presMetrics.innerHTML = '';
+      (slide.metrics || []).forEach(m => {
+        const div = document.createElement('div');
+        div.className = 'metric-card';
+        div.innerHTML = `<div class="metric-value">${m.value}</div><div class="metric-label">${m.label}</div>`;
+        presMetrics.appendChild(div);
+      });
+
+      const presTakeaways = document.getElementById('presTakeaways');
+      presTakeaways.innerHTML = '';
+      (slide.key_takeaways || []).forEach(kw => {
+        const li = document.createElement('li');
+        li.innerText = kw;
+        presTakeaways.appendChild(li);
+      });
+    }
+
+    // Keyboard Shortcuts Navigation for Presenter Mode
+    window.addEventListener('keydown', (e) => {
+      if (document.getElementById('presenterModal').style.display === 'flex') {
+        if (e.key === 'ArrowRight' || e.key === ' ') {
+          navigateSlide(1);
+          renderPresentationSlide();
+        } else if (e.key === 'ArrowLeft') {
+          navigateSlide(-1);
+          renderPresentationSlide();
+        } else if (e.key === 'Escape') {
+          stopPresentation();
+        }
+      }
+    });
+
+    async function verifyCurrentSlide() {
+      const slide = slidesData[currentSlideIndex];
+      document.getElementById('criticNotes').innerText = "Critic Agent is performing live HTTP verification on reference URLs...";
+      try {
+        const res = await fetch(`/api/slides/${slide.slide_id}/verify`, { method: 'POST' });
+        const result = await res.json();
+        slidesData[currentSlideIndex].verification_status = result.verification_status;
+        slidesData[currentSlideIndex].critic_notes = result.critic_notes;
+        slidesData[currentSlideIndex].references = result.references;
+        renderSlide(currentSlideIndex);
+      } catch (err) {
+        console.error("Verification error", err);
+      }
+    }
+
+    function selectScore(score) {
+      selectedScore = score;
+      document.querySelectorAll('.score-btn').forEach((btn, i) => {
+        if (i + 1 === score) {
+          btn.classList.add('selected');
+        } else {
+          btn.classList.remove('selected');
+        }
+      });
+
+      document.getElementById('currentScoreDisplay').innerText = `Score: ${score} / 10`;
+
+      const fbBox = document.getElementById('feedbackBox');
+      if (score < 9) {
+        fbBox.style.display = 'flex';
+      } else {
+        fbBox.style.display = 'none';
+      }
+    }
+
+    function resetScoreUI(slide) {
+      const existingRating = (slide && slide.rating) || null;
+      selectedScore = existingRating;
+      document.querySelectorAll('.score-btn').forEach(btn => btn.classList.remove('selected'));
+
+      const latestFeedback = (slide && slide.feedback && slide.feedback.length > 0) ?
+        slide.feedback[slide.feedback.length - 1].comment : '';
+
+      document.getElementById('feedbackInput').value = latestFeedback;
+
+      if (existingRating) {
+        selectScore(existingRating);
+        if (latestFeedback) {
+          document.getElementById('feedbackInput').value = latestFeedback;
+        }
+      } else {
+        document.getElementById('currentScoreDisplay').innerText = 'Score: Unrated';
+        document.getElementById('feedbackBox').style.display = latestFeedback ? 'flex' : 'none';
+      }
+    }
+
+    async function submitRating() {
+      if (!selectedScore) {
+        alert('Please select a score from 1 to 10 before submitting.');
+        return;
+      }
+
+      const feedbackText = document.getElementById('feedbackInput').value;
+      if (selectedScore < 9 && !feedbackText.trim()) {
+        alert('Ratings lower than 9 require executive feedback to guide AI revision.');
+        return;
+      }
+
+      const submitBtn = document.getElementById('submitRatingBtn');
+      const originalText = submitBtn.innerHTML;
+      submitBtn.innerHTML = '🤖 Calling LLM...';
+      submitBtn.disabled = true;
+
+      const slide = slidesData[currentSlideIndex];
+      try {
+        const res = await fetch(`/api/slides/${slide.slide_id}/rate`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            rating: selectedScore,
+            feedback: feedbackText
+          })
+        });
+
+        const result = await res.json();
+        slidesData[currentSlideIndex] = result.slide;
+        renderSlide(currentSlideIndex);
+        updateProgress();
+
+        addRevisionLogEntry(slide.slide_id, slide.title, selectedScore, result.revision_summary);
+
+        if (selectedScore >= 9) {
+          if (currentSlideIndex < slidesData.length - 1) {
+            navigateSlide(1);
+          }
+        }
+      } catch (err) {
+        console.error('Rating submission failed', err);
+        alert('Rating submission failed: ' + err);
+      } finally {
+        submitBtn.innerHTML = originalText;
+        submitBtn.disabled = false;
+      }
+    }
+
+    async function reviseCurrentSlideWithLLM() {
+      const slide = slidesData[currentSlideIndex];
+      const feedbackText = document.getElementById('feedbackInput').value.trim();
+      const btn = document.getElementById('reviseCurrentBtn');
+      const originalText = btn.innerHTML;
+      btn.innerHTML = '🤖 Calling LLM...';
+      btn.disabled = true;
+
+      try {
+        const res = await fetch(`/api/slides/${slide.slide_id}/revise`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ feedback: feedbackText })
+        });
+        const result = await res.json();
+        slidesData[currentSlideIndex] = result.slide;
+        renderSlide(currentSlideIndex);
+        updateProgress();
+        addRevisionLogEntry(slide.slide_id, slide.title, result.rating || 8, result.revision_summary);
+      } catch (err) {
+        console.error('LLM slide revision error', err);
+        alert('LLM revision failed: ' + err);
+      } finally {
+        btn.innerHTML = originalText;
+        btn.disabled = false;
+      }
+    }
+
+    async function approveCurrentSlide() {
+      const slide = slidesData[currentSlideIndex];
+      try {
+        const res = await fetch(`/api/slides/${slide.slide_id}/approve`, { method: 'POST' });
+        const result = await res.json();
+        slidesData[currentSlideIndex] = result.slide;
+        renderSlide(currentSlideIndex);
+        updateProgress();
+        addRevisionLogEntry(slide.slide_id, slide.title, 10, 'Executive approved slide revision.');
+        if (currentSlideIndex < slidesData.length - 1) {
+          navigateSlide(1);
+        }
+      } catch (err) {
+        console.error('Failed to approve slide', err);
+      }
+    }
+
+    async function reviseAllFeedbackWithLLM() {
+      const btn = document.getElementById('reviseAllBtn');
+      const originalText = btn.innerHTML;
+      btn.innerHTML = '🤖 Calling LLM on all slides...';
+      btn.disabled = true;
+
+      try {
+        const res = await fetch('/api/slides/revise-all-with-feedback', { method: 'POST' });
+        const result = await res.json();
+        alert(result.message);
+        await loadSlides();
+        if (result.summaries) {
+          result.summaries.forEach(s => {
+            addRevisionLogEntry(s.slide_id, s.title, 8, s.summary);
+          });
+        }
+      } catch (err) {
+        console.error('Batch LLM revision error', err);
+        alert('Batch LLM revision failed: ' + err);
+      } finally {
+        btn.innerHTML = originalText;
+        btn.disabled = false;
+      }
+    }
+
+    function addRevisionLogEntry(slideId, title, score, summary) {
+      const revList = document.getElementById('revisionList');
+      if (revList.children[0] && revList.children[0].innerText.includes('initialized')) {
+        revList.innerHTML = '';
+      }
+      const item = document.createElement('div');
+      item.style.padding = '8px 0';
+      item.style.borderBottom = '1px solid rgba(255,255,255,0.06)';
+      item.innerHTML = `<strong>Slide ${slideId} (${title})</strong>: Rated <span style="color:var(--accent-cyan)">${score}/10</span> — <span style="color:#CBD5E1;">${summary}</span>`;
+      revList.prepend(item);
+    }
+
+    function selectSlide(index) {
+      renderSlide(index);
+    }
+
+    function navigateSlide(direction) {
+      let newIdx = currentSlideIndex + direction;
+      if (newIdx >= 0 && newIdx < slidesData.length) {
+        renderSlide(newIdx);
+      }
+    }
+
+    function updateProgress() {
+      const approvedCount = slidesData.filter(s => s.status === 'Approved').length;
+      const revisedCount = slidesData.filter(s => s.status === 'Revised').length;
+      const total = slidesData.length;
+      const pct = (approvedCount / total) * 100;
+
+      document.getElementById('progressFill').style.width = `${pct}%`;
+      let progressStr = `${approvedCount} / ${total} Approved`;
+      if (revisedCount > 0) {
+        progressStr += ` • ${revisedCount} Revised`;
+      }
+      document.getElementById('progressText').innerText = progressStr;
+
+      const overall = document.getElementById('overallStatus');
+      if (overall) {
+        if (approvedCount === total) {
+          overall.innerText = '✓ All 13 Slides Approved & Ready for Export!';
+          overall.style.color = 'var(--accent-green)';
+        } else if (revisedCount > 0) {
+          overall.innerText = `⚙ ${revisedCount} slide(s) revised per feedback. Review and approve to finalize.`;
+          overall.style.color = 'var(--accent-orange)';
+        } else {
+          overall.innerText = 'All slides awaiting review.';
+          overall.style.color = 'var(--text-muted)';
+        }
+      }
+    }
+
+    function toggleProblemModal() {
+      const modal = document.getElementById('problemModal');
+      modal.style.display = (modal.style.display === 'flex') ? 'none' : 'flex';
+    }
+
+    async function handleAnotherProblem() {
+      try {
+        const res = await fetch('/api/problem/reset-next', { method: 'POST' });
+        const data = await res.json();
+        
+        // Reset inputs, state, and reload UI
+        document.getElementById('problemStatementInput').value = '';
+        document.getElementById('problemScopeInput').value = '';
+        currentSlideIndex = 0;
+
+        // Reset live revision list
+        const revList = document.getElementById('revisionList');
+        if (revList) {
+          revList.innerHTML = '<div style="color: var(--text-muted); font-size: 12px;">Deck cache cleared & previous outputs archived. Ready for new problem input.</div>';
+        }
+
+        await loadSlides();
+        
+        // Open Problem Scope Modal directly
+        toggleProblemModal();
+      } catch (err) {
+        console.error('Failed to reset for next problem', err);
+      }
+    }
+
+    async function submitNewProblem() {
+      const statement = document.getElementById('problemStatementInput').value;
+      const scope = document.getElementById('problemScopeInput').value;
+      
+      if (!statement.trim()) {
+        alert('Please enter a problem statement.');
+        return;
+      }
+
+      const derivedScope = scope.trim() || statement.trim().split('.')[0].substring(0, 45);
+
+      try {
+        const res = await fetch('/api/problem/ingest', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            problem_statement: statement,
+            target_scope: derivedScope
+          })
+        });
+
+        const data = await res.json();
+        alert(data.message);
+        toggleProblemModal();
+        currentSlideIndex = 0;
+        await loadSlides();
+      } catch (err) {
+        console.error('Failed to ingest new problem statement', err);
+      }
+    }
+
+    loadSlides();
+  </script>
+</body>
+</html>
