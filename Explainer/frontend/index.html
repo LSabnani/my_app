@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Explainer | PPT & Video Deep Dive with CLEATS Evaluation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- Background Glow & Grid Orbs -->
+  <div class="bg-orb orb-1"></div>
+  <div class="bg-orb orb-2"></div>
+  <div class="bg-orb orb-3"></div>
+
+  <div class="app-container">
+    <!-- Header -->
+    <header class="app-header">
+      <div class="brand">
+        <div class="brand-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+            <polyline points="2 17 12 22 22 17"></polyline>
+            <polyline points="2 12 12 17 22 12"></polyline>
+          </svg>
+        </div>
+        <div>
+          <h1 class="brand-title">EXPLAINER <span class="badge-version">v2.0</span></h1>
+          <p class="brand-tagline">Slide Decks • Educational Videos • ScienceDirect Literature • CLEATS Scoring</p>
+        </div>
+      </div>
+      <div class="header-actions">
+        <button id="archInfographicBtn" class="btn btn-secondary">
+          <span class="icon-map">📊</span> Architecture Infographic
+        </button>
+        <button id="openInfographicModalBtn" class="btn btn-secondary">
+          <span class="icon-map">🗺️</span> Knowledge Map
+        </button>
+        <button id="bkmRegistryBtn" class="btn btn-secondary">
+          <span class="icon-star">★</span> BKM Catalog
+        </button>
+        <button id="newSessionBtn" class="btn btn-outline">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/>
+          </svg>
+          New Session
+        </button>
+        <div id="sessionIndicator" class="session-badge">Session: Initializing...</div>
+      </div>
+    </header>
+
+    <!-- Stepper Navigation -->
+    <nav class="stepper-nav" aria-label="Progress Stepper">
+      <div class="step-item active" data-step="1">
+        <div class="step-number">1</div>
+        <div class="step-label">
+          <span class="step-title">Problem & Context</span>
+          <span class="step-sub">Greeter Agent</span>
+        </div>
+      </div>
+      <div class="step-divider"></div>
+      <div class="step-item" data-step="2">
+        <div class="step-number">2</div>
+        <div class="step-label">
+          <span class="step-title">Baseline Primer</span>
+          <span class="step-sub">Wikipedia Alignment</span>
+        </div>
+      </div>
+      <div class="step-divider"></div>
+      <div class="step-item" data-step="3">
+        <div class="step-number">3</div>
+        <div class="step-label">
+          <span class="step-title">Candidates</span>
+          <span class="step-sub">PPTs & Videos Harvest</span>
+        </div>
+      </div>
+      <div class="step-divider"></div>
+      <div class="step-item" data-step="4">
+        <div class="step-number">4</div>
+        <div class="step-label">
+          <span class="step-title">CLEATS Top 3</span>
+          <span class="step-sub">Evaluation & BKM</span>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main Workspace Viewports -->
+    <main class="main-content">
+
+      <!-- STEP 1: Greeter & Problem Intake -->
+      <section id="step1View" class="step-view active">
+        <div class="card glass-panel hero-card">
+          <div class="agent-avatar-badge">
+            <span class="agent-role">Agent 1</span>
+            <span class="agent-name">Greeter Agent</span>
+          </div>
+
+          <div class="chat-bubble agent-speech">
+            <p id="greeterMessageText">Loading initial greeting...</p>
+          </div>
+
+          <form id="intakeForm" class="intake-form">
+            <div class="form-group">
+              <label for="problemInput" class="form-label">
+                Problem or Area of Focus <span class="required">*</span>
+              </label>
+              <textarea 
+                id="problemInput" 
+                rows="3" 
+                placeholder="e.g. How does distributed tracing propagate trace context across asynchronous microservices?"
+                required
+              ></textarea>
+            </div>
+
+            <div class="form-grid-2">
+              <div class="form-group">
+                <label for="intentInput" class="form-label">Why do you want to know? (Motivation)</label>
+                <input 
+                  type="text" 
+                  id="intentInput" 
+                  placeholder="e.g. Troubleshooting microservice latency regressions"
+                >
+              </div>
+              <div class="form-group">
+                <label for="applicationInput" class="form-label">What will you use this understanding for?</label>
+                <input 
+                  type="text" 
+                  id="applicationInput" 
+                  placeholder="e.g. Designing OpenTelemetry architecture and team presentation"
+                >
+              </div>
+            </div>
+
+            <!-- Quick Suggestion Chips -->
+            <div class="quick-chips-wrapper">
+              <span class="chips-label">Popular Topics:</span>
+              <div id="quickChipsContainer" class="chips-list">
+                <!-- Dynamically populated -->
+              </div>
+            </div>
+
+            <div class="form-actions">
+              <button type="submit" id="submitIntakeBtn" class="btn btn-primary btn-large">
+                <span>Start Baseline Research</span>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </button>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <!-- STEP 2: Baseline Primer Confirmation -->
+      <section id="step2View" class="step-view">
+        <div class="card glass-panel primer-card">
+          <div class="card-header-bar">
+            <div class="agent-avatar-badge">
+              <span class="agent-role">Agent 2</span>
+              <span class="agent-name">Researcher Agent (Baseline Primer)</span>
+            </div>
+            <span id="primerSourceBadge" class="source-tag">Wikipedia API</span>
+          </div>
+
+          <div class="primer-content-box">
+            <h3 id="primerTopicTitle" class="primer-topic">Topic Summary</h3>
+            <p id="primerText" class="primer-text">Fetching summary...</p>
+            <div class="primer-footer">
+              <a id="primerExternalLink" href="#" target="_blank" rel="noopener noreferrer" class="link-external">
+                <span>Open Full Wikipedia Article</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                  <polyline points="15 3 21 3 21 9"></polyline>
+                  <line x1="10" y1="14" x2="21" y2="3"></line>
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <div class="confirmation-panel">
+            <h4 class="confirm-question">Is this what you are interested in learning about?</h4>
+            <div class="confirm-actions">
+              <button id="confirmYesBtn" class="btn btn-primary btn-large">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <span>Yes, Proceed to Deep Dive (Harvest PPTs & Videos)</span>
+              </button>
+            </div>
+
+            <!-- Refinement Accordion -->
+            <div class="refinement-section">
+              <button id="toggleRefineBtn" class="btn-text">Need to refine or adjust topic?</button>
+              <div id="refineBox" class="refine-box hidden">
+                <input type="text" id="refinementInput" placeholder="Specify refined focus or keyword...">
+                <button id="submitRefineBtn" class="btn btn-secondary">Refine & Refresh Primer</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 3: Candidate Pool (PPTs & Videos) -->
+      <section id="step3View" class="step-view">
+        <div class="section-header">
+          <div>
+            <h2 class="section-title">Deep-Dive Candidate Pool</h2>
+            <p class="section-desc">Open-source presentation decks, educational videos, and ScienceDirect peer-reviewed literature located for your topic. Confirm relevance before running CLEATS evaluation.</p>
+          </div>
+          <div class="pool-stats">
+            <span id="candidateCountBadge" class="stat-badge">0 Candidates</span>
+          </div>
+        </div>
+
+        <div class="filter-toolbar">
+          <div class="filter-group">
+            <button class="filter-btn active" data-filter="ALL">All Resources</button>
+            <button class="filter-btn" data-filter="PPT_DECK">Slide Decks (.ppt/.pptx)</button>
+            <button class="filter-btn" data-filter="YOUTUBE_VIDEO">Videos (YouTube)</button>
+            <button class="filter-btn" data-filter="SCIENTIFIC_PAPER">ScienceDirect (Papers)</button>
+          </div>
+          <div class="selection-actions">
+            <button id="selectAllBtn" class="btn-link">Select All</button>
+            <span class="divider">|</span>
+            <button id="clearAllBtn" class="btn-link">Deselect All</button>
+          </div>
+        </div>
+
+        <div id="candidatesGrid" class="candidates-grid">
+          <!-- Dynamically populated candidate cards -->
+        </div>
+
+        <div class="sticky-footer-bar">
+          <div class="footer-info">
+            <span id="selectedCountText">All candidate items selected for CLEATS evaluation</span>
+          </div>
+          <button id="evaluateCandidatesBtn" class="btn btn-accent btn-large">
+            <span>Run CLEATS Evaluation & Rank Top 3</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polygon points="5 3 19 12 5 21 5 3"></polygon>
+            </svg>
+          </button>
+        </div>
+      </section>
+
+      <!-- STEP 4: CLEATS Evaluation & Top 3 Recommendations -->
+      <section id="step4View" class="step-view">
+        <div class="section-header">
+          <div>
+            <div class="agent-avatar-badge inline">
+              <span class="agent-role">Agent 3</span>
+              <span class="agent-name">Evaluator Agent</span>
+            </div>
+            <h2 class="section-title">Top 3 Recommended Resources & CLEATS Scorecards</h2>
+            <p class="section-desc">Rated on Completeness (C), Latency (L), Engagement (E), Accuracy (A), Transparency (T), Standardization (S).</p>
+          </div>
+          <button id="exportReportBtn" class="btn btn-outline">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+              <polyline points="7 10 12 15 17 10"/>
+              <line x1="12" y1="15" x2="12" y2="3"/>
+            </svg>
+            Export Summary
+          </button>
+        </div>
+
+        <!-- View Mode Switcher: Top 3 vs Knowledge Infographic -->
+        <div class="view-mode-toggle-bar">
+          <button id="viewTop3Btn" class="toggle-mode-btn active">
+            <span>🏆 Top 3 Recommendations</span>
+          </button>
+          <button id="viewInfographicBtn" class="toggle-mode-btn">
+            <span>🗺️ Knowledge Infographic (Knowns & Stubs)</span>
+          </button>
+        </div>
+
+        <div id="top3ModeContainer">
+          <!-- Global Critic Link Audit Header Banner (Spec 8.4) -->
+          <div id="globalAuditBanner" class="global-audit-banner audit-passed">
+            <div class="audit-banner-content">
+              <span class="audit-icon">🛡️</span>
+              <div class="audit-text-group">
+                <span id="auditBannerTitle" class="audit-title">✓ Critic Link Audit PASSED</span>
+                <span id="auditBannerDesc" class="audit-desc">All reference URLs verified active via live HTTP probe prior to publishing.</span>
+              </div>
+            </div>
+            <button id="openRpnReceiptBtn" class="btn btn-sm btn-rpn-receipt" type="button">
+              <span>🛡️ FMEA Risk & RPN Receipts</span>
+            </button>
+          </div>
+
+          <!-- CLEATS Rubric Quick Legend -->
+          <div class="cleats-legend-bar">
+            <div class="legend-item"><span class="badge-char">C</span> Completeness</div>
+            <div class="legend-item"><span class="badge-char">L</span> Latency (Time-to-Insight)</div>
+            <div class="legend-item"><span class="badge-char">E</span> Engagement (Expert Consensus)</div>
+            <div class="legend-item"><span class="badge-char">A</span> Accuracy</div>
+            <div class="legend-item"><span class="badge-char">T</span> Transparency (Duplicable Method)</div>
+            <div class="legend-item"><span class="badge-char">S</span> Standardization</div>
+          </div>
+
+          <!-- Zero-Metric Warning Banner -->
+          <div id="zeroRuleNotice" class="alert-notice-box">
+            <div class="alert-icon">⚠️</div>
+            <div class="alert-text">
+              <strong>CLEATS Zero-Value Penalty Rule Enforced:</strong>
+              Any metric that is unmeasurable from source metadata receives a rating of <strong>ZERO</strong> and is highlighted in red.
+              <em>ZEROS strictly disqualify a resource from Best Known Method (BKM) elevation.</em>
+            </div>
+          </div>
+
+          <!-- Top 3 Recommendations Container -->
+          <div id="top3Container" class="top3-cards-list">
+            <!-- Dynamically populated top 3 cards with radar charts -->
+          </div>
+        </div>
+
+        <!-- Inline Knowledge Infographic Mode Container -->
+        <div id="infographicModeContainer" class="infographic-mode-container hidden">
+          <div id="inlineInfographicHost">
+            <!-- Populated dynamically by renderInfographic() -->
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- BKM Catalog Modal -->
+    <div id="bkmModal" class="modal-overlay hidden">
+      <div class="modal-window glass-panel">
+        <div class="modal-header">
+          <div class="modal-title-group">
+            <span class="gold-icon">★</span>
+            <h3 class="modal-title">Best Known Method (BKM) Catalog</h3>
+          </div>
+          <button id="closeBkmModal" class="btn-close">&times;</button>
+        </div>
+        <div class="modal-body">
+          <p class="modal-desc">
+            To achieve <strong>Best Known Method (BKM)</strong> elevation, a method must contain <strong>no zero metrics</strong>,
+            and have verified proof that <strong>3 distinct practitioners at 3 different times</strong> applied the method and produced
+            results matching expectations. Elevated BKMs serve as standardized templates for future inquiries.
+          </p>
+          <div id="bkmList" class="bkm-list">
+            <!-- Populated via API -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Knowledge Infographic Modal -->
+    <div id="infographicModal" class="modal-overlay hidden">
+      <div class="modal-window glass-panel modal-wide">
+        <div class="modal-header">
+          <div class="modal-title-group">
+            <span class="icon-map" style="font-size: 1.4rem;">🗺️</span>
+            <div>
+              <h3 class="modal-title">Knowledge Infographic: What is Known vs. Stubs</h3>
+              <p class="modal-sub">Triangulation synthesis of verified pillars and unmeasured open inquiry stubs</p>
+            </div>
+          </div>
+          <button id="closeInfographicModal" class="btn-close">&times;</button>
+        </div>
+        <div class="modal-body" id="modalInfographicHost">
+          <!-- Populated dynamically via API -->
+        </div>
+      </div>
+    </div>
+
+    <!-- FMEA RPN Diagnostics Modal (Spec 8.4) -->
+    <div id="rpnModal" class="modal-overlay hidden">
+      <div class="modal-window glass-panel modal-wide">
+        <div class="modal-header">
+          <div class="modal-title-group">
+            <span class="shield-icon" style="font-size: 1.4rem;">🛡️</span>
+            <div>
+              <h3 class="modal-title">Critic FMEA Risk Matrix & RPN Diagnostic Receipts</h3>
+              <p class="modal-sub">Risk Priority Number Formula: RPN = Severity (S) &times; Occurrence (O) &times; Detectability (D)</p>
+            </div>
+          </div>
+          <button id="closeRpnModal" class="btn-close">&times;</button>
+        </div>
+        <div class="modal-body">
+          <div class="rpn-summary-row">
+            <div class="rpn-summary-card">
+              <span class="metric-num">S (1-10)</span>
+              <span class="metric-name">Severity</span>
+              <span class="metric-sub">$50k–$5M impact & time slip</span>
+            </div>
+            <div class="rpn-summary-card">
+              <span class="metric-num">O (1-10)</span>
+              <span class="metric-name">Occurrence</span>
+              <span class="metric-sub">Likelihood without Critic probe</span>
+            </div>
+            <div class="rpn-summary-card">
+              <span class="metric-num">D (1-10)</span>
+              <span class="metric-name">Lack of Detectability</span>
+              <span class="metric-sub">Silent risks get higher score (D &rarr; 10)</span>
+            </div>
+            <div class="rpn-summary-card rpn-high">
+              <span class="metric-num">RPN</span>
+              <span class="metric-name">Risk Priority Number</span>
+              <span class="metric-sub">S &times; O &times; D (Max 1000)</span>
+            </div>
+          </div>
+
+          <h4 style="margin: 20px 0 10px; color: #cbd5e1; font-size: 0.95rem;">Active FMEA Risk Registry & Critic Mitigations</h4>
+          <div class="rpn-table-responsive">
+            <table class="rpn-table">
+              <thead>
+                <tr>
+                  <th>Risk ID</th>
+                  <th>Failure Mode</th>
+                  <th>Impact ($ & Time)</th>
+                  <th>S</th>
+                  <th>O</th>
+                  <th>D</th>
+                  <th>RPN</th>
+                  <th>Tell-Tale Signs</th>
+                  <th>Critic Countermeasure</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="rpn-row-high">
+                  <td><strong>RSK-01</strong></td>
+                  <td>Hallucinated / Synthetic Dead URLs</td>
+                  <td>$500k–$1.5M loss; 8–12 wks slip</td>
+                  <td>8</td>
+                  <td>6</td>
+                  <td>7</td>
+                  <td><span class="rpn-score-pill score-high">336</span></td>
+                  <td>Browser renders 404; network log 404; dead reference link</td>
+                  <td>Mandatory active HTTP HEAD/GET handshake before publishing</td>
+                </tr>
+                <tr class="rpn-row-high">
+                  <td><strong>RSK-02</strong></td>
+                  <td>Soft-404 & Content Removal Masking</td>
+                  <td>$100k–$450k downtime; 24–72 hrs remediation</td>
+                  <td>7</td>
+                  <td>5</td>
+                  <td>9</td>
+                  <td><span class="rpn-score-pill score-high">315</span></td>
+                  <td>"Item removed" in HTML; body &lt; 1.5 KB; HTTP 200</td>
+                  <td>HTML body scanner for soft-404 strings and size threshold</td>
+                </tr>
+                <tr class="rpn-row-med">
+                  <td><strong>RSK-03</strong></td>
+                  <td>Bot-Shield False Negative (Cloudflare 403 on ScienceDirect)</td>
+                  <td>$250k–$1M rework; 3–5 mos delay</td>
+                  <td>8</td>
+                  <td>7</td>
+                  <td>4</td>
+                  <td><span class="rpn-score-pill score-med">224</span></td>
+                  <td>403 Forbidden; CF-RAY header; opens in human browser</td>
+                  <td>Institutional domain & Crossref DOI resolver recognition</td>
+                </tr>
+                <tr class="rpn-row-low">
+                  <td><strong>RSK-04</strong></td>
+                  <td>Domain Expiry & Malicious Redirect</td>
+                  <td>$1M–$5M breach; 6+ mos remediation</td>
+                  <td>9</td>
+                  <td>2</td>
+                  <td>8</td>
+                  <td><span class="rpn-score-pill score-med">144</span></td>
+                  <td>Destination hostname abruptly changes; SSL mismatch</td>
+                  <td>Redirect chain tracking & untrusted domain flag</td>
+                </tr>
+                <tr class="rpn-row-med">
+                  <td><strong>RSK-05</strong></td>
+                  <td>Unconsented Simulated Data Drift</td>
+                  <td>$200k–$600k rework; 4–8 wks redesign</td>
+                  <td>6</td>
+                  <td>5</td>
+                  <td>8</td>
+                  <td><span class="rpn-score-pill score-med">240</span></td>
+                  <td>Telemetry divergence; synthetic distribution markers</td>
+                  <td>Mandatory User Agreement Gate before simulation testing</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Simulated Data Consent Modal (Spec 8.5) -->
+    <div id="simulatedDataModal" class="modal-overlay hidden">
+      <div class="modal-window glass-panel modal-medium">
+        <div class="modal-header">
+          <div class="modal-title-group">
+            <span class="sim-icon" style="font-size: 1.4rem;">🧪</span>
+            <div>
+              <h3 class="modal-title">SIMULATED TEST DATA PROPOSAL: Missing Empirical Benchmark</h3>
+              <p class="modal-sub">Critic Agent Mandate: User Agreement Gate (Spec 4.7.3 & 8.5)</p>
+            </div>
+          </div>
+          <button id="closeSimulatedDataModal" class="btn-close">&times;</button>
+        </div>
+        <div class="modal-body">
+          <div class="missing-reason-callout">
+            <div class="callout-header">
+              <span class="callout-icon">⚠️</span>
+              <strong>Missing Empirical Benchmark Telemetry:</strong>
+            </div>
+            <p id="simMissingReasonText">Empirical p99 tail latency under 50,000 QPS edge saturation telemetry is unavailable.</p>
+          </div>
+
+          <div class="sim-spec-box">
+            <h4 class="sim-spec-title">Proposed Synthetic Test Parameters</h4>
+            <div class="sim-metrics-grid" id="simMetricsGrid">
+              <!-- Dynamically populated synthetic parameters -->
+            </div>
+            <div class="sim-rationale-box">
+              <span class="rationale-label">Statistical Rationale:</span>
+              <p id="simRationaleText">Simulated Monte Carlo workloads provide provisional bounds for architectural evaluation subject to explicit user confirmation.</p>
+            </div>
+          </div>
+
+          <div class="sim-integrity-notice">
+            <div class="notice-icon">🛡️</div>
+            <div class="notice-text">
+              <strong>Mandatory Integrity Notice:</strong> Evaluations executed on simulated test data are tagged with synthetic provenance (<code>SIMULATED_DATA</code>) and <strong>CANNOT</strong> unilaterally elevate a candidate to an official Best Known Method (BKM). Elevation to BKM strictly requires 3 real-world replications by 3 distinct practitioners.
+            </div>
+          </div>
+
+          <div class="sim-actions-row">
+            <button id="declineSimulatedDataBtn" class="btn btn-outline" type="button">
+              <span>✕ Decline Simulation (Flag as Unmeasured Stub)</span>
+            </button>
+            <button id="approveSimulatedDataBtn" class="btn btn-primary btn-purple" type="button">
+              <span>✓ Agree & Proceed with Simulated Data</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    <!-- Architecture Infographic Modal -->
+    <div id="archInfographicModal" class="modal-overlay hidden">
+      <div class="modal-window glass-panel modal-wide" style="max-width: 1050px; width: 95%;">
+        <div class="modal-header">
+          <div class="modal-title-group">
+            <span class="gold-icon" style="font-size: 1.4rem;">📊</span>
+            <div>
+              <h3 class="modal-title">THE EXPLAINER ENGINE: End-to-End Architecture Infographic</h3>
+              <p class="modal-sub">Multi-Agent Pipeline • Live HTTP Link Audits • CLEATS 6D Rubric • FMEA RPN • BKM Rule of 3</p>
+            </div>
+          </div>
+          <button id="closeArchInfographicModal" class="btn-close">&times;</button>
+        </div>
+        <div class="modal-body" style="text-align: center;">
+          <img src="img/explainer_architecture_infographic.jpg" alt="The Explainer Engine Architecture Infographic" style="width: 100%; border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.15); box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6); margin-bottom: 20px;">
+          <div class="hero-stats-row" style="justify-content: center; gap: 12px; flex-wrap: wrap;">
+            <span class="stat-pill known">✓ 1. Greeter Intake & Primer</span>
+            <span class="stat-pill known">✓ 2. Multi-Modal Discovery</span>
+            <span class="stat-pill bkm">🛡️ 3. Critic & FMEA Risk Handshake</span>
+            <span class="stat-pill known">✓ 4. CLEATS 6D Radar</span>
+            <span class="stat-pill bkm">★ 5. BKM Rule of 3</span>
+            <span class="stat-pill unknown">❓ 6. Knowledge Stubs Tracker</span>
+            <span class="stat-pill known">💬 7. Patient Teacher Dialog</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/radar.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
